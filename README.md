@@ -1,2 +1,2 @@
 # is
-Proyect for the subject "Integracion de Sistemas"
+Project for the subject "Integracion de Sistemas"
