@@ -1,5 +1,0 @@
-Diseño funcional
-
-Diseño tecnico
-
-Diagrama de clases
