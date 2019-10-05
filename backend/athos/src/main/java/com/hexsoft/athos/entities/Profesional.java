@@ -2,19 +2,14 @@ package com.hexsoft.athos.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
-@Table(name = "sujeto")
-public class Sujeto {
-
+@Table(name = "profesional")
+public class Profesional {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_sujeto_profesional", nullable = false, updatable = false)
-    private Profesional profesional;
 
     @NotEmpty
     @Column(unique = true)
@@ -26,20 +21,21 @@ public class Sujeto {
     @NotEmpty
     private String apellido;
 
+    @OneToMany(mappedBy = "profesional")
+    private List<Sujeto> sujetos;
 
-    public Sujeto() {
+
+    public Profesional() {
     }
 
-    public Sujeto(@NotEmpty String dni, @NotNull Profesional profesional, @NotEmpty String nombre, @NotEmpty String apellido) {
+    public Profesional(@NotEmpty String dni, @NotEmpty String nombre, @NotEmpty String apellido) {
         this.dni = dni;
-        this.profesional = profesional;
         this.nombre = nombre;
         this.apellido = apellido;
     }
 
-    public Sujeto(Long id, @NotEmpty String dni, @NotNull Profesional profesional, @NotEmpty String nombre, @NotEmpty String apellido) {
+    public Profesional(Long id, @NotEmpty String dni, @NotEmpty String nombre, @NotEmpty String apellido) {
         this.id = id;
-        this.profesional = profesional;
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
