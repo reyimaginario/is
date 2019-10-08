@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="34px" height="7px" viewBox="0 0 34 7" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Slider Horizontal Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Components" transform="translate(-664.000000, -1341.000000)" fill="#282828">
+            <g id="Icons" transform="translate(603.000000, 1182.000000)">
+                <g id="Slider-Horizontal-Copy" transform="translate(61.000000, 159.000000)">
+                    <circle id="Dot-Filled" cx="30.5" cy="3.5" r="3.5"></circle>
+                    <circle id="Dot-Filled" cx="17.5" cy="3.5" r="3.5"></circle>
+                    <circle id="Dot-Filled" cx="3.5" cy="3.5" r="3.5"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
