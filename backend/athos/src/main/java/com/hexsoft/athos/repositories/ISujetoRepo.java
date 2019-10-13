@@ -1,12 +1,14 @@
 package com.hexsoft.athos.repositories;
 
-import com.hexsoft.athos.entities.Sujeto;
+import com.hexsoft.athos.entities.SujetoDAO;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface ISujetoRepo extends JpaRepository<Sujeto, Long> {
+@Repository
+public interface ISujetoRepo extends JpaRepository<SujetoDAO, String> {
 
-    List<Sujeto> findByDni(String dni);
+    //List<SujetoDAO> findByDni(String dni);
 
 }

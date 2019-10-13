@@ -6,7 +6,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "profesional")
-public class Profesional {
+public class ProfesionalDAO {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -21,20 +21,21 @@ public class Profesional {
     @NotEmpty
     private String apellido;
 
-    @OneToMany(mappedBy = "profesional")
-    private List<Sujeto> sujetos;
+
+    @OneToMany //(mappedBy = "profesional")
+    private List<SujetoDAO> sujetos;
 
 
-    public Profesional() {
+    public ProfesionalDAO() {
     }
 
-    public Profesional(@NotEmpty String dni, @NotEmpty String nombre, @NotEmpty String apellido) {
+    public ProfesionalDAO(@NotEmpty String dni, @NotEmpty String nombre, @NotEmpty String apellido) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
     }
 
-    public Profesional(Long id, @NotEmpty String dni, @NotEmpty String nombre, @NotEmpty String apellido) {
+    public ProfesionalDAO(Long id, @NotEmpty String dni, @NotEmpty String nombre, @NotEmpty String apellido) {
         this.id = id;
         this.dni = dni;
         this.nombre = nombre;
