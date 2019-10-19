@@ -1,12 +1,12 @@
 package com.hexsoft.athos.repositories;
 
-import com.hexsoft.athos.entities.SujetoDAO;
+import com.hexsoft.athos.entities.EvaluacionPsicologicaDAO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ISujetoRepo extends JpaRepository<SujetoDAO, String> {
+public interface IEvaluacionPsicologicaRepo extends JpaRepository<EvaluacionPsicologicaDAO, Long> {
 
-    //List<SujetoDAO> findByDni(String dni);
+
 
 }

@@ -14,6 +14,7 @@ public class SujetoService {
     @Autowired
     private ISujetoRepo sujetoRepo;
 
+
     public List<SujetoDAO> getAllSujeto() {
         return sujetoRepo.findAll();
     }
@@ -34,6 +35,8 @@ public class SujetoService {
 
         return sujetoDAO;
     }
+
+    
 
 
 /*    public List<SujetoDAO> obtenerSujetosPorProfesional(String profesionalDNI) {
