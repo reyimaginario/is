@@ -17,8 +17,11 @@ public class EvaluacionPsicologicaDAO {
 
     private Date fechaFin;
 
+
     private ProfesionalDAO profesional;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sujetoDni")
     private SujetoDAO sujeto;
 
     private List<TestAplicadoDAO> listaTestsAplicados;

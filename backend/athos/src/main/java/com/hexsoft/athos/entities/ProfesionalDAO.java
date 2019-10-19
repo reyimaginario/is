@@ -7,12 +7,8 @@ import java.util.List;
 @Entity
 @Table(name = "profesional")
 public class ProfesionalDAO {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
 
-    @NotEmpty
-    @Column(unique = true)
+    @Id
     private String dni;
 
     @NotEmpty
@@ -21,34 +17,24 @@ public class ProfesionalDAO {
     @NotEmpty
     private String apellido;
 
-
-    @OneToMany //(mappedBy = "profesional")
+    @OneToMany(
+            mappedBy = "profesional",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
     private List<SujetoDAO> sujetos;
 
 
     public ProfesionalDAO() {
     }
 
-    public ProfesionalDAO(@NotEmpty String dni, @NotEmpty String nombre, @NotEmpty String apellido) {
+    public ProfesionalDAO(String dni, @NotEmpty String nombre, @NotEmpty String apellido, List<SujetoDAO> sujetos) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.sujetos = sujetos;
     }
 
-    public ProfesionalDAO(Long id, @NotEmpty String dni, @NotEmpty String nombre, @NotEmpty String apellido) {
-        this.id = id;
-        this.dni = dni;
-        this.nombre = nombre;
-        this.apellido = apellido;
-    }
-
-
-    public Long getId() {
-        return id;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
     public String getDni() {
         return dni;
     }
@@ -67,4 +53,11 @@ public class ProfesionalDAO {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
+    public List<SujetoDAO> getSujetos() {
+        return sujetos;
+    }
+    public void setSujetos(List<SujetoDAO> sujetos) {
+        this.sujetos = sujetos;
+    }
+
 }

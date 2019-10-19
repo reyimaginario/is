@@ -36,7 +36,7 @@ public class SujetoService {
         return sujetoDAO;
     }
 
-    
+
 
 
 /*    public List<SujetoDAO> obtenerSujetosPorProfesional(String profesionalDNI) {
