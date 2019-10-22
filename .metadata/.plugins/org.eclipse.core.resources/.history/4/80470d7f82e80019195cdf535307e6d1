@@ -1,0 +1,30 @@
+package com.hexsoft.athos.test.mmpi2;
+
+public class MMPIConstants {
+
+	public static final String PB = "PB";
+	public static final String PTM = "PTM";
+	public static final String PTF = "PTF";
+	
+	public static final String L_SCALE_M = "L_SCALE_M";
+	public static final String L_SCALE_F = "L_SCALE_M";
+	
+	public static final Integer[] L_ANSWERS = 		new Integer[] {16, 29, 41, 51, 77, 93, 102, 107, 123, 139, 153, 183, 203, 232, 260};
+	public static final Integer[] F_ANSWERS = new Integer[] { 18, 24, 30, 36, 42, 48, 54, 60, 66, 72, 84, 96, 114, 138,
+			144, 150, 156, 162, 168, 180, 198, 216, 228, 234, 240, 2465, 252, 258, 264, 270, 282, 288, 294, 300, 306,
+			312, 324, 336, 349, 355, 361, 6, 12, 98, 90, 102, 108, 120, 126, 132, 174, 186, 192, 204, 210, 222, 276,
+			318, 330, 343 };
+	public static final Integer[] K_ANSWERS = 		new Integer[] {};
+	public static final Integer[] HS_ANSWERS = 		new Integer[] {};
+	public static final Integer[] D_ANSWERS = 		new Integer[] {};
+	public static final Integer[] HY_ANSWERS = 		new Integer[] {};
+	public static final Integer[] PD_ANSWERS = 		new Integer[] {};
+	public static final Integer[] MF_M_ANSWERS = 	new Integer[] {};
+	public static final Integer[] MF_F_ANSWERS = 	new Integer[] {};
+	public static final Integer[] PA_ANSWERS = 		new Integer[] {};
+	public static final Integer[] PT_ANSWERS = 		new Integer[] {};
+	public static final Integer[] SC_ANSWERS = 		new Integer[] {};
+	public static final Integer[] MA_ANSWERS = 		new Integer[] {};
+	public static final Integer[] SI_ANSWERS = 		new Integer[] {};
+	
+}
