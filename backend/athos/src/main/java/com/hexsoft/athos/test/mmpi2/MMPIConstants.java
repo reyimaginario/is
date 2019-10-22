@@ -36,19 +36,19 @@ public class MMPIConstants {
 	public static final Integer[] MF_F_ANSWERS_T = 	new Integer[] {4, 25, 62, 64, 67, 74, 80, 112, 119, 121, 122, 128, 137, 177, 187, 191, 196, 205, 219, 236, 251, 256, 271};
 	public static final Integer[] MF_F_ANSWERS_F = 	new Integer[] {1, 19, 26, 27, 63, 68, 69, 76, 86, 103, 104, 107, 120, 132, 133, 163, 166, 184, 193, 194, 197, 199, 201, 207, 209, 231, 235, 2374, 239, 254, 257, 268, 272};
 	
-	public static final Integer[] PA_ANSWERS_T = 	new Integer[] {};
-	public static final Integer[] PA_ANSWERS_F = 	new Integer[] {};
+	public static final Integer[] PA_ANSWERS_T = 	new Integer[] {17, 18, 23, 24, 25, 43, 100, 114, 139, 145, 146, 147, 163, 235, 260, 272, 278, 286, 306, 308, 334, 335, 337, 356, 362};
+	public static final Integer[] PA_ANSWERS_F = 	new Integer[] {82, 96, 99, 101, 105, 111, 245, 256, 267, 284, 285, 287, 298, 315, 316};
 	
-	public static final Integer[] PT_ANSWERS_T = 	new Integer[] {};
-	public static final Integer[] PT_ANSWERS_F = 	new Integer[] {};
+	public static final Integer[] PT_ANSWERS_T = 	new Integer[] {12, 17, 24, 32, 39, 57, 66, 74, 83, 90, 95, 131, 148, 171, 176, 197, 219, 243, 274, 276, 278, 286, 290, 302, 303, 305, 309, 310, 311, 314, 317, 318, 321, 326, 327, 328, 29, 330, 332}; //+ puntaje K
+	public static final Integer[] PT_ANSWERS_F = 	new Integer[] {4, 10, 34, 110, 141, 166, 175, 294, 322};
 	
-	public static final Integer[] SC_ANSWERS_T = 	new Integer[] {};
-	public static final Integer[] SC_ANSWERS_F = 	new Integer[] {};
+	public static final Integer[] SC_ANSWERS_T = 	new Integer[] {17, 18, 22, 23, 24, 32, 33, 36, 39, 43, 45, 47, 49, 66, 86, 93, 139, 146, 148, 167, 169, 171, 181, 183, 191, 219, 222, 230, 234, 235, 243, 248, 253, 257, 269, 274, 275, 278, 280, 282, 288, 292, 293, 297, 299, 300, 304, 308, 312, 317, 320, 321, 323, 324, 326, 330, 333, 334, 356}; //+ puntajes k
+	public static final Integer[] SC_ANSWERS_F = 	new Integer[] {7, 10, 13, 35, 91, 92, 107, 166, 178, 180, 193, 211, 256, 277, 279, 281, 291, 296, 344};
 	
-	public static final Integer[] MA_ANSWERS_T = 	new Integer[] {};
-	public static final Integer[] MA_ANSWERS_F = 	new Integer[] {};
+	public static final Integer[] MA_ANSWERS_T = 	new Integer[] {14, 16, 22, 24, 51, 56, 62, 86, 88, 99, 114, 123, 132, 146, 156, 169, 170, 183, 191, 201, 206, 207, 212, 213, 219, 221, 228, 230, 239, 243, 245, 249, 251, 254, 270}; // + puntajes k *.2
+	public static final Integer[] MA_ANSWERS_F = 	new Integer[] {89, 94, 101, 107, 108, 137, 155, 159, 168, 244, 264};
 	
-	public static final Integer[] SI_ANSWERS_T = 	new Integer[] {};
-	public static final Integer[] SI_ANSWERS_F = 	new Integer[] {};
+	public static final Integer[] SI_ANSWERS_T = 	new Integer[] {32, 57, 71, 101, 106, 111, 128, 136, 159, 162, 168, 186, 216, 244, 252, 266, 276, 285, 290, 297, 303, 309, 327, 338, 339, 348, 349, 352, 353, 358, 365, 368, 369, 370};
+	public static final Integer[] SI_ANSWERS_F = 	new Integer[] {26, 33, 50, 80, 87, 107, 113, 132, 182, 190, 208, 210, 232, 238, 256, 263, 268, 281, 322, 329, 336, 341, 343, 345, 346, 351, 354, 355, 359, 360, 361, 363, 364, 367, 371};
 	
 }
