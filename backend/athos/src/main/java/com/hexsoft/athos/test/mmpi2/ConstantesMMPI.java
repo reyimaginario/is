@@ -1,13 +1,18 @@
 package com.hexsoft.athos.test.mmpi2;
 
-public class MMPIConstants {
-
+public class ConstantesMMPI {
+	
+	public static final String BASICAS = "BASICAS";
+	
+	public static final String SUBESCALA_L = "SUBESCALA_L";
+	public static final String SUBESCALA_F = "SUBESCALA_F";
+	
 	public static final String PB = "PB";
 	public static final String PTM = "PTM";
 	public static final String PTF = "PTF";
 	
-	public static final String L_SCALE_M = "L_SCALE_M";
-	public static final String L_SCALE_F = "L_SCALE_M";
+	public static final String ESCALA_L_MASC = "ESCALA_L_MASC";
+	public static final String ESCALA_L_FEM = "ESCALA_L_FEM";
 	
 	public static final Integer[] L_ANSWERS_T = 	new Integer[] {};
 	public static final Integer[] L_ANSWERS_F = 	new Integer[] {16, 29, 41, 51, 77, 93, 102, 107, 123, 139, 153, 183, 203, 232, 260};
