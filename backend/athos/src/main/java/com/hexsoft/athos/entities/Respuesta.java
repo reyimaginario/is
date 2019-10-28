@@ -1,6 +1,6 @@
 package com.hexsoft.athos.entities;
 
-import org.json.JSONObject;
+import org.json.simple.JSONObject;
 
 public class Respuesta {
 	public JSONObject obterneRespuestasComoJSON(){

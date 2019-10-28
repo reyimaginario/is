@@ -407,3 +407,24 @@ Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Could not find
 
 !ENTRY org.eclipse.recommenders.models.rcp 1 0 2019-10-27 17:11:45.905
 !MESSAGE org.eclipse.recommenders:index::zip:0.0.0 could not be resolved from the model repositories. Are you offline?
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-10-27 20:53:33.584
+!MESSAGE The POM for com.googlecode.json-simple:json-simple:jar:{version} is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-10-27 20:53:34.591
+!MESSAGE The POM for com.googlecode.json-simple:json-simple:jar:{version} is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-10-27 20:53:34.822
+!MESSAGE The POM for com.googlecode.json-simple:json-simple:jar:{version} is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-10-27 20:53:47.057
+!MESSAGE The POM for com.googlecode.json-simple:json-simple:jar: is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-10-27 20:53:55.149
+!MESSAGE The POM for com.googlecode.json-simple:json-simple:jar:{version} is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-10-27 20:53:55.762
+!MESSAGE The POM for com.googlecode.json-simple:json-simple:jar:{version} is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-10-27 20:53:55.937
+!MESSAGE The POM for com.googlecode.json-simple:json-simple:jar:{version} is missing, no dependency information available

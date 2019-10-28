@@ -3,8 +3,7 @@ package com.hexsoft.athos.test.mmpi2.calculador;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.simple.JSONObject;
 
 import com.hexsoft.athos.test.mmpi2.ConstantesMMPI;
 
@@ -18,7 +17,7 @@ public abstract class ACalculadorSubescalas {
 	
 	public JSONObject getPuntaje(Integer[] preguntasAChequearPorV, Integer[] preguntasAChequearPorF, JSONObject respuestas) {
 		inicializarConstantesMyF();
-		return getPuntaje(preguntasAChequearPorV, preguntasAChequearPorF, respuestas);
+		return getPuntajeBruto(preguntasAChequearPorV, preguntasAChequearPorF, respuestas);
 	}
 	
 	protected Map<Integer, Integer> getSubEscalaMasc(){
@@ -30,28 +29,29 @@ public abstract class ACalculadorSubescalas {
 	};
 	
 	// Calcula los puntajes basicos y los T para sujetos masculinos y femeninos
-	private JSONObject getPuntajeBruto(Integer[] preguntasAChequearPorV, Integer[] preguntasAChequearPorF, JSONObject respuestas) throws JSONException {
+	@SuppressWarnings("unchecked")
+	private JSONObject getPuntajeBruto(Integer[] preguntasAChequearPorV, Integer[] preguntasAChequearPorF, JSONObject respuestas) {
 		JSONObject resultado = new JSONObject();
 		Integer pb = new Integer(0);
 		
 		// Suma 1 por cada pregunta en la lista si se encuetnra en Verdadero
 		for (Integer answerNbr : preguntasAChequearPorV){
-			Boolean ans = (Boolean) respuestas.get(answerNbr.toString());
-			pb = (ans != null && ans)? pb++ : pb;
+			String ans = (String) respuestas.get(answerNbr.toString());
+			pb = (ans != null && ans.equalsIgnoreCase("True"))? pb+1 : pb;
 		}
 
 		// Suma 1 por cada pregunta en la lista si se encuetnra en Falso
 		for (Integer answerNbr : preguntasAChequearPorF){
-			Boolean ans = (Boolean) respuestas.get(answerNbr.toString());
-			pb = (ans != null && !ans)? pb++ : pb;
+			String ans = (String) respuestas.get(answerNbr.toString());
+			pb = (ans != null && ans.equalsIgnoreCase("False"))? pb+1 : pb;
 		}
 				
 		Integer ptm = subEscalaMasc.get(pb);
 		Integer ptf = subEscalaFem.get(pb);
 		
-		resultado.put(ConstantesMMPI.PB, pb)
-			.put(ConstantesMMPI.PTM, ptm)
-			.put(ConstantesMMPI.PTF, ptf);
+		resultado.put(ConstantesMMPI.PB, pb);
+		resultado.put(ConstantesMMPI.PTM, ptm);
+		resultado.put(ConstantesMMPI.PTF, ptf);
 		
 		return resultado;
 	}

@@ -19,9 +19,60 @@ public class CalculadorSubescalaF extends ACalculadorSubescalas {
 	protected void inicializarConstantesMyF() {
 		
 		// F Masculina
-		getSubEscalaMasc();
+		getSubEscalaMasc().put(0, 36);
+		getSubEscalaMasc().put(1, 39);
+		getSubEscalaMasc().put(2, 42);
+		getSubEscalaMasc().put(3, 45);
+		getSubEscalaMasc().put(4, 48);
+		getSubEscalaMasc().put(5, 51);
+		getSubEscalaMasc().put(6, 55);
+		getSubEscalaMasc().put(7, 58);
+		getSubEscalaMasc().put(8, 62);
+		getSubEscalaMasc().put(9, 64);
+		getSubEscalaMasc().put(10, 67);
+		getSubEscalaMasc().put(11, 71);
+		getSubEscalaMasc().put(12, 73);
+		getSubEscalaMasc().put(13, 76);
+		getSubEscalaMasc().put(14, 79);
+		getSubEscalaMasc().put(15, 82);
+		getSubEscalaMasc().put(16, 85);
+		getSubEscalaMasc().put(17, 89);
+		getSubEscalaMasc().put(18, 92);
+		getSubEscalaMasc().put(19, 95);
+		getSubEscalaMasc().put(20, 98);
+		getSubEscalaMasc().put(21, 101);
+		getSubEscalaMasc().put(22, 104);
+		getSubEscalaMasc().put(23, 107);
+		getSubEscalaMasc().put(24, 110);
+		getSubEscalaMasc().put(25, 113);
+		getSubEscalaMasc().put(26, 116);
+		getSubEscalaMasc().put(27, 119);
+		getSubEscalaMasc().put(28, 120);
 		
 		// F Femenina
-		getSubEscalaFem();
+		getSubEscalaFem().put(0, 37);
+		getSubEscalaFem().put(10, 41);
+		getSubEscalaFem().put(20, 44);
+		getSubEscalaFem().put(30, 48);
+		getSubEscalaFem().put(40, 51);
+		getSubEscalaFem().put(50, 55);
+		getSubEscalaFem().put(60, 58);
+		getSubEscalaFem().put(70, 61);
+		getSubEscalaFem().put(80, 65);
+		getSubEscalaFem().put(90, 68);
+		getSubEscalaFem().put(10, 72);
+		getSubEscalaFem().put(11, 75);
+		getSubEscalaFem().put(12, 79);
+		getSubEscalaFem().put(13, 82);
+		getSubEscalaFem().put(14, 85);
+		getSubEscalaFem().put(15, 89);
+		getSubEscalaFem().put(16, 92);
+		getSubEscalaFem().put(17, 96);
+		getSubEscalaFem().put(18, 99);
+		getSubEscalaFem().put(19, 100);
+		getSubEscalaFem().put(20, 106);
+		getSubEscalaFem().put(21, 109);
+		getSubEscalaFem().put(22, 113);
+		getSubEscalaFem().put(23, 116);
 	}
 }

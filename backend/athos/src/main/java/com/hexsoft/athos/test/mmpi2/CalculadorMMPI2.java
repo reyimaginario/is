@@ -2,8 +2,7 @@ package com.hexsoft.athos.test.mmpi2;
 
 import java.util.List;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.simple.JSONObject;
 
 import com.hexsoft.athos.entities.Respuesta;
 import com.hexsoft.athos.test.ICalculador;
@@ -14,15 +13,12 @@ public class CalculadorMMPI2 implements ICalculador {
 	@Override
 	public String procesarRespuestas(List<Respuesta> respuestas) {
 		JSONObject respestasAProcesar = respuestas.get(0).obterneRespuestasComoJSON();
-		try {
-			construirEscalas(respestasAProcesar);
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
+		construirEscalas(respestasAProcesar);
+
 		return null;
 	}	
 	
-	public void construirEscalas(JSONObject respuestasAProcesar) throws JSONException {
+	public void construirEscalas(JSONObject respuestasAProcesar) {
 		CalculadorEscalasBasicas.getInstance().construirEscalas(respuestasAProcesar);
 		// Contenido
 		// Suplementarias

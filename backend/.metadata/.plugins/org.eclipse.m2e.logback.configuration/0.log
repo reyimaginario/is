@@ -520,3 +520,261 @@ Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Could not find
 2019-10-27 17:58:41,117 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2019-10-27 17:58:41,118 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2019-10-27 17:58:41,119 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-27 18:19:57,918 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 18:19:57,919 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-27 18:19:57,920 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-27 18:19:57,921 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 18:19:57,921 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-27 18:41:07,288 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 18:41:07,288 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-27 18:41:07,288 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-27 18:41:07,290 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 18:41:07,290 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-27 19:03:11,416 [Worker-48] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 19:03:11,417 [Worker-48] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-27 19:03:11,418 [Worker-48] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-27 19:03:11,420 [Worker-48] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 19:03:11,420 [Worker-48] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-27 19:08:41,352 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 19:08:41,352 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-27 19:08:41,353 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-27 19:08:41,355 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 19:08:41,355 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-27 19:16:55,746 [Worker-54] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 19:16:55,747 [Worker-54] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-27 19:16:55,748 [Worker-54] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-27 19:16:55,751 [Worker-54] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 19:16:55,751 [Worker-54] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-27 20:32:45,003 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 20:32:45,004 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-27 20:32:45,005 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-27 20:32:45,007 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 20:32:45,007 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-27 20:33:09,197 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 20:33:09,197 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-27 20:33:09,198 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-27 20:33:09,199 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 20:33:09,199 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-27 20:37:09,295 [Worker-62] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 20:37:09,295 [Worker-62] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-27 20:37:09,296 [Worker-62] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-27 20:37:09,298 [Worker-62] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 20:37:09,298 [Worker-62] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-27 20:38:14,136 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 20:38:14,136 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-27 20:38:14,137 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-27 20:38:14,138 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 20:38:14,138 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-27 20:53:32,260 [Worker-70] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.hexsoft:athos:0.0.1-SNAPSHOT @ G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\pom.xml.
+2019-10-27 20:53:33,580 [Worker-70] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/googlecode/json-simple/json-simple/{version}/json-simple-{version}.pom
+2019-10-27 20:53:33,583 [Worker-70] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.googlecode.json-simple:json-simple:jar:{version} is missing, no dependency information available
+2019-10-27 20:53:33,786 [Worker-70] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/googlecode/json-simple/json-simple/{version}/json-simple-{version}.jar
+2019-10-27 20:53:34,269 [Worker-70] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 20:53:34,273 [Worker-70] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-27 20:53:34,273 [Worker-70] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-27 20:53:34,275 [Worker-70] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 20:53:34,275 [Worker-70] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-27 20:53:34,591 [Worker-71] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.googlecode.json-simple:json-simple:jar:{version} is missing, no dependency information available
+2019-10-27 20:53:34,822 [Worker-71] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.googlecode.json-simple:json-simple:jar:{version} is missing, no dependency information available
+2019-10-27 20:53:45,174 [Worker-66] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.hexsoft:athos:0.0.1-SNAPSHOT @ G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\pom.xml.
+2019-10-27 20:53:47,053 [Worker-69] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/googlecode/json-simple/json-simple//json-simple-.pom
+2019-10-27 20:53:47,057 [Worker-69] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.googlecode.json-simple:json-simple:jar: is missing, no dependency information available
+2019-10-27 20:53:54,932 [Worker-69] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.hexsoft:athos:0.0.1-SNAPSHOT @ G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\pom.xml.
+2019-10-27 20:53:55,148 [Worker-69] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.googlecode.json-simple:json-simple:jar:{version} is missing, no dependency information available
+2019-10-27 20:53:55,553 [Worker-69] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 20:53:55,557 [Worker-69] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-27 20:53:55,557 [Worker-69] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-27 20:53:55,559 [Worker-69] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 20:53:55,560 [Worker-69] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-27 20:53:55,762 [Worker-66] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.googlecode.json-simple:json-simple:jar:{version} is missing, no dependency information available
+2019-10-27 20:53:55,937 [Worker-66] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.googlecode.json-simple:json-simple:jar:{version} is missing, no dependency information available
+2019-10-27 20:54:36,205 [Worker-66] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.hexsoft:athos:0.0.1-SNAPSHOT @ G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\pom.xml.
+2019-10-27 20:54:37,091 [Worker-66] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.pom
+2019-10-27 20:54:37,253 [Worker-66] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.pom
+2019-10-27 20:54:37,486 [Worker-66] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar
+2019-10-27 20:54:37,797 [Worker-66] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar
+2019-10-27 20:54:38,288 [Worker-66] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 20:54:38,291 [Worker-66] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-27 20:54:38,291 [Worker-66] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-27 20:54:38,293 [Worker-66] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 20:54:38,294 [Worker-66] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-27 20:54:39,467 [Worker-75] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 20:54:39,468 [Worker-75] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-27 20:54:39,481 [Worker-75] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-27 20:54:39,483 [Worker-75] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 20:54:39,483 [Worker-75] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-27 20:55:04,434 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 20:55:04,435 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-27 20:55:04,436 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-27 20:55:04,437 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 20:55:04,437 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-27 20:55:24,580 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 20:55:24,581 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-27 20:55:24,582 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-27 20:55:24,583 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 20:55:24,583 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-27 20:56:14,602 [Worker-71] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 20:56:14,602 [Worker-71] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-27 20:56:14,603 [Worker-71] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-27 20:56:14,605 [Worker-71] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 20:56:14,605 [Worker-71] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-27 20:56:42,326 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 20:56:42,327 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-27 20:56:42,328 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-27 20:56:42,329 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 20:56:42,329 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-27 23:56:50,196 [Worker-103] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 23:56:50,197 [Worker-103] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-27 23:56:50,197 [Worker-103] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-27 23:56:50,199 [Worker-103] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 23:56:50,199 [Worker-103] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-27 23:57:48,772 [Worker-102] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 23:57:48,773 [Worker-102] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-27 23:57:48,774 [Worker-102] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-27 23:57:48,775 [Worker-102] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 23:57:48,775 [Worker-102] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-27 23:58:49,553 [Worker-105] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 23:58:49,554 [Worker-105] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-27 23:58:49,555 [Worker-105] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-27 23:58:49,557 [Worker-105] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 23:58:49,557 [Worker-105] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-27 23:59:53,433 [Worker-103] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 23:59:53,434 [Worker-103] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-27 23:59:53,435 [Worker-103] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-27 23:59:53,436 [Worker-103] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-27 23:59:53,436 [Worker-103] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-28 00:00:46,676 [Worker-103] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:00:46,676 [Worker-103] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 00:00:46,677 [Worker-103] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-28 00:00:46,678 [Worker-103] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:00:46,678 [Worker-103] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-28 00:01:25,716 [Worker-104] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:01:25,716 [Worker-104] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 00:01:25,717 [Worker-104] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-28 00:01:25,718 [Worker-104] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:01:25,718 [Worker-104] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-28 00:02:30,344 [Worker-107] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:02:30,345 [Worker-107] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 00:02:30,346 [Worker-107] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-28 00:02:30,347 [Worker-107] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:02:30,348 [Worker-107] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-28 00:04:09,668 [Worker-107] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:04:09,668 [Worker-107] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 00:04:09,669 [Worker-107] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-28 00:04:09,672 [Worker-107] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:04:09,672 [Worker-107] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-28 00:10:14,759 [Worker-110] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:10:14,760 [Worker-110] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 00:10:14,761 [Worker-110] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-28 00:10:14,762 [Worker-110] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:10:14,762 [Worker-110] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-28 00:10:59,111 [Worker-110] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:10:59,111 [Worker-110] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 00:10:59,112 [Worker-110] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-28 00:10:59,114 [Worker-110] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:10:59,114 [Worker-110] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-28 00:11:39,735 [Worker-113] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:11:39,735 [Worker-113] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 00:11:39,736 [Worker-113] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-28 00:11:39,737 [Worker-113] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:11:39,737 [Worker-113] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-28 00:12:50,700 [Worker-113] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:12:50,701 [Worker-113] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 00:12:50,702 [Worker-113] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-28 00:12:50,703 [Worker-113] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:12:50,704 [Worker-113] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-28 00:12:57,289 [Worker-114] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:12:57,290 [Worker-114] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 00:12:57,291 [Worker-114] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-28 00:12:57,292 [Worker-114] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:12:57,292 [Worker-114] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-28 00:13:16,390 [Worker-114] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:13:16,391 [Worker-114] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 00:13:16,391 [Worker-114] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-28 00:13:16,393 [Worker-114] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:13:16,393 [Worker-114] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-28 00:14:09,050 [Worker-115] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:14:09,050 [Worker-115] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 00:14:09,051 [Worker-115] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-28 00:14:09,053 [Worker-115] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:14:09,053 [Worker-115] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-28 00:14:33,969 [Worker-105] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:14:33,969 [Worker-105] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 00:14:33,970 [Worker-105] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-28 00:14:33,972 [Worker-105] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:14:33,972 [Worker-105] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-28 00:14:38,131 [Worker-110] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:14:38,132 [Worker-110] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 00:14:38,133 [Worker-110] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-28 00:14:38,134 [Worker-110] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:14:38,135 [Worker-110] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-28 00:14:49,857 [Worker-112] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:14:49,857 [Worker-112] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 00:14:49,858 [Worker-112] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-28 00:14:49,859 [Worker-112] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:14:49,859 [Worker-112] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-28 00:15:10,477 [Worker-110] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:15:10,477 [Worker-110] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 00:15:10,478 [Worker-110] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-28 00:15:10,479 [Worker-110] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:15:10,479 [Worker-110] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-28 00:15:37,411 [Worker-114] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:15:37,412 [Worker-114] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 00:15:37,413 [Worker-114] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-28 00:15:37,415 [Worker-114] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:15:37,415 [Worker-114] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-28 00:16:02,353 [Worker-116] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:16:02,353 [Worker-116] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 00:16:02,354 [Worker-116] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-28 00:16:02,356 [Worker-116] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:16:02,356 [Worker-116] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-28 00:16:05,943 [Worker-115] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:16:05,943 [Worker-115] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 00:16:05,944 [Worker-115] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-28 00:16:05,945 [Worker-115] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:16:05,945 [Worker-115] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-28 00:16:24,107 [Worker-113] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:16:24,107 [Worker-113] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 00:16:24,108 [Worker-113] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-28 00:16:24,109 [Worker-113] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:16:24,109 [Worker-113] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-28 00:16:31,646 [Worker-116] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:16:31,647 [Worker-116] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 00:16:31,648 [Worker-116] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-28 00:16:31,650 [Worker-116] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:16:31,650 [Worker-116] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-28 00:19:34,095 [Worker-117] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:19:34,096 [Worker-117] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 00:19:34,096 [Worker-117] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-28 00:19:34,097 [Worker-117] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:19:34,097 [Worker-117] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-28 00:21:51,529 [Worker-122] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:21:51,530 [Worker-122] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 00:21:51,531 [Worker-122] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-28 00:21:51,532 [Worker-122] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:21:51,532 [Worker-122] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-28 00:21:54,226 [Worker-123] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:21:54,226 [Worker-123] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 00:21:54,227 [Worker-123] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-28 00:21:54,229 [Worker-123] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:21:54,229 [Worker-123] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-28 00:27:35,062 [Worker-121] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:27:35,062 [Worker-121] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 00:27:35,063 [Worker-121] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-28 00:27:35,064 [Worker-121] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:27:35,064 [Worker-121] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-28 00:29:28,603 [Worker-117] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:29:28,604 [Worker-117] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 00:29:28,604 [Worker-117] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-28 00:29:28,605 [Worker-117] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:29:28,606 [Worker-117] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-28 00:34:03,195 [Worker-127] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:34:03,196 [Worker-127] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 00:34:03,197 [Worker-127] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-28 00:34:03,198 [Worker-127] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:34:03,198 [Worker-127] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources
+2019-10-28 00:34:10,316 [Worker-128] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:34:10,316 [Worker-128] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 00:34:10,317 [Worker-128] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-28 00:34:10,318 [Worker-128] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 00:34:10,318 [Worker-128] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\Mis Documentos\ORT Analista de Sistemas\3° 2°\Integración de Sistemas\is\backend\athos\src\test\resources

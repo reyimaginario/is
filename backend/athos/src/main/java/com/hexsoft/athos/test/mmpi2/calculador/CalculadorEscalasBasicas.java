@@ -1,7 +1,6 @@
 package com.hexsoft.athos.test.mmpi2.calculador;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.simple.JSONObject;
 
 import com.hexsoft.athos.test.mmpi2.ConstantesMMPI;
 
@@ -18,11 +17,11 @@ public class CalculadorEscalasBasicas extends ACalculadorEscalas {
 	}
 	
 	@Override
-	public JSONObject construirEscalas(JSONObject respuestasAProcesar) throws JSONException {
+	public JSONObject construirEscalas(JSONObject respuestasAProcesar) {
 		return construirEscalasBasicas(respuestasAProcesar);
 	}
 
-	private JSONObject construirEscalasBasicas(JSONObject respuestasAProcesar) throws JSONException  {
+	private JSONObject construirEscalasBasicas(JSONObject respuestasAProcesar) {
 		JSONObject escalasBasicas = new JSONObject();
 		escalasBasicas.put(ConstantesMMPI.SUBESCALA_L, getValoresL(respuestasAProcesar));
 		escalasBasicas.put(ConstantesMMPI.SUBESCALA_F, getValoresF(respuestasAProcesar));
@@ -100,11 +99,11 @@ public class CalculadorEscalasBasicas extends ACalculadorEscalas {
 		
 	}
 
-	private JSONObject getValoresF(JSONObject respuestas) throws JSONException {
+	private JSONObject getValoresF(JSONObject respuestas) {
 		return CalculadorSubescalaL.getInstance().getPuntaje(ConstantesMMPI.F_ANSWERS_T, ConstantesMMPI.F_ANSWERS_F, respuestas);
 	}
 
-	private JSONObject getValoresL(JSONObject respuestas) throws JSONException {
+	private JSONObject getValoresL(JSONObject respuestas) {
 		return CalculadorSubescalaL.getInstance().getPuntaje(ConstantesMMPI.L_ANSWERS_T, ConstantesMMPI.L_ANSWERS_F, respuestas);
 	}
 }
