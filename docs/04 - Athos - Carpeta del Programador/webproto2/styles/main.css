@@ -1,0 +1,269 @@
+/*******************
+ Box Sizing
+ *******************/
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+/****************************
+ Generic Margins and Paddings
+ ****************************/
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+p,
+pre,
+blockquote,
+figure,
+hr {
+  margin: 0;
+  padding: 0;
+}
+
+/*******************
+ Lists
+ *******************/
+ul {
+  list-style: none;
+}
+
+/*******************
+ Forms and buttons
+ *******************/
+input,
+textarea,
+select,
+button {
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+/* I usually expand input and textarea to full-width */
+/*input[type="text"],*/
+textarea {
+  width: 100%;
+}
+
+/* More friendly border */
+input,
+textarea,
+button {
+  border: 1px solid gray;
+}
+
+/* Some defaults for one-liner buttons */
+button {
+  padding: 0.75em 1em;
+  border-radius: 0;
+  line-height: 1;
+  background-color: transparent;
+}
+
+button * {
+  pointer-events: none;
+}
+
+/***********************************
+ Easy responsive for media elements
+ ***********************************/
+img,
+svg,
+iframe,
+video,
+object,
+embed {
+  display: block;
+  max-width: 100%;
+}
+
+/*******************
+ Useful table styles
+ *******************/
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+/*******************
+ The hidden attribute
+ *******************/
+[hidden] {
+  display: none !important;
+}
+
+/*******************
+ Noscript
+ *******************/
+noscript {
+  display: block;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+/*******************
+ Tabindex
+ *******************/
+[tabindex="-1"] {
+  outline: none !important;
+}
+
+
+body {
+    background: #fff;
+    font-family: 'Oswald', sans-serif;
+    height: 100vh;
+}
+h1,h2,h3,h4,h5,h6, p {
+    margin-bottom: 15px;
+    font-family: 'Oswald', sans-serif;
+    color: #2d3748;
+}
+/**global **/
+.center {
+    text-align: center;
+}
+.bg-gray-500 {
+    background-color: #a0aec0;
+  
+}
+.bg-gray-600 {
+    background-color: #718096;
+  }
+  
+  .bg-gray-700 {
+    background-color: #4a5568;
+  }
+  
+  .bg-gray-800 {
+    background-color: #2d3748;
+  }
+  
+  .bg-gray-900 {
+    background-color: #1a202c;
+  }
+.layout-main {
+    display: flex;
+    -webkit-display: box;
+    -moz-display: box;
+    -ms-display: flexbox;
+    -webkit-display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    padding: 6%;
+    margin: 0;
+}
+
+/** flex layout **/
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.item {
+  flex-grow: 1;
+ 
+}
+
+.item + .item {
+  margin-left: 2%;
+}
+
+/* login */
+
+.login-form , .pacient-form {
+  background-color: #FFF;
+  padding: 2em;
+  padding-bottom: 3em;
+  border-radius: 8px;
+  width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 10px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.form-button {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/*test options */
+.test > .item {
+  height: 100px;
+  width: calc(100% / 4);
+  box-shadow: 0 10px 40px -14px rgba(0, 0, 0, 0.25);  
+}
+.test-link {
+  color: #2d3748;
+  display: block;
+  height: inherit;
+  width: 100%;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  top: 40%;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.questions-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  flex-wrap: wrap;
+  padding: 15px;
+  justify-content: center;
+  box-shadow: 0 10px 40px -14px rgba(0, 0, 0, 0.25);  
+}
+.questions-form__title {
+  font-size: 21px;
+  text-transform: capitalize;
+  text-align: justify;
+  padding: 0 20px;
+  margin-bottom: 30px;
+}
+.questions-form__number-question {
+  font-size: 25px;
+  color:#4778d9;
+  font-weight: 900;
+}
+.questions-wrapper {
+ align-self: stretch;
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content: space-around;
+ align-items: center;
+ margin-bottom: 15px;
+ padding: 15px;
+}
+.field-required {
+ padding: 0 15px;
+  
+}
+.form-button {
+  align-self: flex-end;
+}
