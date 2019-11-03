@@ -21,7 +21,7 @@ body{
     background: #fafafa;
 }
 .login-form{
-    width: 350px;
+    width: 70%;
     margin: 0 auto;
     border: 1px solid #ddd;
     padding: 2rem;
@@ -37,7 +37,7 @@ body{
     margin-bottom: 1rem;
 }
 .form-button{
-    background: #69d2e7;
+    background: #000000;
     border: 1px solid #ddd;
     color: #ffffff;
     padding: 10px;
@@ -45,7 +45,7 @@ body{
     text-transform: uppercase;
 }
 .form-button:hover{
-    background: #69c8e7;
+    background: #2c2c2c;
 }
 .form-header{
     text-align: center;
