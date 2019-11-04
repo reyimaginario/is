@@ -24,5 +24,5 @@ public class TestAplicadoService {
     }
 
     public TestAplicadoDAO obtenerTestAplicadoBy
-            
+
 }
