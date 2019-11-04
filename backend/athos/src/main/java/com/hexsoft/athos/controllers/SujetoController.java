@@ -1,5 +1,6 @@
 package com.hexsoft.athos.controllers;
 
+import com.hexsoft.athos.dtos.SujetoDTO;
 import com.hexsoft.athos.entities.SujetoDAO;
 import com.hexsoft.athos.services.SujetoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,19 +17,19 @@ public class SujetoController {
     
 
     @GetMapping
-    public List<SujetoDAO> getAllSujeto() {
-        return sujetoService.getAllSujeto();
+    public List<SujetoDTO> obenerTodosLosSujetos() {
+        return sujetoService.obenerTodosLosSujetos();
     }
 
     @GetMapping(value = "/{dni}")
-    public SujetoDAO getSujeto(@PathVariable(value = "dni") String dni) {
-        return sujetoService.getSujeto(dni);
+    public SujetoDTO obtenerSujeto(@PathVariable(value = "dni") String dni) {
+        return sujetoService.obtenerSujeto(dni);
     }
 
 
     @PostMapping
-    public SujetoDAO saveSujeto(@RequestBody SujetoDAO sujeto) {
-        return sujetoService.saveSujeto(sujeto);
+    public SujetoDTO guardarSujeto(@RequestBody SujetoDTO sujetoDTO) {
+        return sujetoService.guardarSujeto(sujetoDTO);
     }
 
 

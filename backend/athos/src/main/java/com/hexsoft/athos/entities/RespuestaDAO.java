@@ -12,7 +12,7 @@ public class RespuestaDAO {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "testAplicadoId")
-    private TestAplicadoDAO testAplicado;
+    private TestAplicadoDAO testAplicadoDAO;
 
     private Integer pregunta;
 
@@ -22,9 +22,9 @@ public class RespuestaDAO {
     public RespuestaDAO() {
     }
 
-    public RespuestaDAO(Long respuestaId, TestAplicadoDAO testAplicado, Integer pregunta, Integer respuesta) {
+    public RespuestaDAO(Long respuestaId, TestAplicadoDAO testAplicadoDAO, Integer pregunta, Integer respuesta) {
         this.respuestaId = respuestaId;
-        this.testAplicado = testAplicado;
+        this.testAplicadoDAO = testAplicadoDAO;
         this.pregunta = pregunta;
         this.respuesta = respuesta;
     }
@@ -33,31 +33,24 @@ public class RespuestaDAO {
     public Long getRespuestaId() {
         return respuestaId;
     }
-
     public void setRespuestaId(Long respuestaId) {
         this.respuestaId = respuestaId;
     }
-
-    public TestAplicadoDAO getTestAplicado() {
-        return testAplicado;
+    public TestAplicadoDAO getTestAplicadoDAO() {
+        return testAplicadoDAO;
     }
-
-    public void setTestAplicado(TestAplicadoDAO testAplicado) {
-        this.testAplicado = testAplicado;
+    public void setTestAplicadoDAO(TestAplicadoDAO testAplicadoDAO) {
+        this.testAplicadoDAO = testAplicadoDAO;
     }
-
     public Integer getPregunta() {
         return pregunta;
     }
-
     public void setPregunta(Integer pregunta) {
         this.pregunta = pregunta;
     }
-
     public Integer getRespuesta() {
         return respuesta;
     }
-
     public void setRespuesta(Integer respuesta) {
         this.respuesta = respuesta;
     }

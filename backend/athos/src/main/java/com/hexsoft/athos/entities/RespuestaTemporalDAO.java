@@ -10,7 +10,9 @@ public class RespuestaTemporalDAO {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long respuestaId;
 
-    private EvaluacionPsicologicaDAO evaluacionPsicologica;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "evaluacionId")
+    private EvaluacionPsicologicaDAO evaluacionPsicologicaDAO;
 
     private String testCode;;
 
@@ -21,24 +23,33 @@ public class RespuestaTemporalDAO {
 
     public RespuestaTemporalDAO() {
     }
-    public RespuestaTemporalDAO(Long respuestaId, EvaluacionPsicologicaDAO evaluacionPsicologica, String testCode, Integer pregunta, Integer respuesta) {
-        this.respuestaId = respuestaId;
-        this.evaluacionPsicologica = evaluacionPsicologica;
+
+    public RespuestaTemporalDAO(String testCode, Integer pregunta, Integer respuesta) {
         this.testCode = testCode;
         this.pregunta = pregunta;
         this.respuesta = respuesta;
     }
+
+    public RespuestaTemporalDAO(Long respuestaId, EvaluacionPsicologicaDAO evaluacionPsicologicaDAO, String testCode, Integer pregunta, Integer respuesta) {
+        this.respuestaId = respuestaId;
+        this.evaluacionPsicologicaDAO = evaluacionPsicologicaDAO;
+        this.testCode = testCode;
+        this.pregunta = pregunta;
+        this.respuesta = respuesta;
+    }
+
+
     public Long getRespuestaId() {
         return respuestaId;
     }
     public void setRespuestaId(Long respuestaId) {
         this.respuestaId = respuestaId;
     }
-    public EvaluacionPsicologicaDAO getEvaluacionPsicologica() {
-        return evaluacionPsicologica;
+    public EvaluacionPsicologicaDAO getEvaluacionPsicologicaDAO() {
+        return evaluacionPsicologicaDAO;
     }
-    public void setEvaluacionPsicologica(EvaluacionPsicologicaDAO evaluacionPsicologica) {
-        this.evaluacionPsicologica = evaluacionPsicologica;
+    public void setEvaluacionPsicologicaDAO(EvaluacionPsicologicaDAO evaluacionPsicologicaDAO) {
+        this.evaluacionPsicologicaDAO = evaluacionPsicologicaDAO;
     }
     public String getTestCode() {
         return testCode;
@@ -58,5 +69,4 @@ public class RespuestaTemporalDAO {
     public void setRespuesta(Integer respuesta) {
         this.respuesta = respuesta;
     }
-
 }

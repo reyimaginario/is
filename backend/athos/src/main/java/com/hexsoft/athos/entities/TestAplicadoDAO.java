@@ -14,45 +14,57 @@ public class TestAplicadoDAO {
     private String testCode;
 
     @OneToMany(
-            mappedBy = "testAplicado",
+            mappedBy = "testAplicadoDAO",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private List<RespuestaDAO> listaRespuestas;
+    private List<RespuestaDAO> listaRespuestasDAO;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "evaluacionId")
+    private EvaluacionPsicologicaDAO evaluacionDAO;
 
 
     public TestAplicadoDAO() {
     }
 
-    public TestAplicadoDAO(Long testAplicadoId, String testCode, List<RespuestaDAO> listaRespuestas) {
+    public TestAplicadoDAO(String testCode, List<RespuestaDAO> listaRespuestasDAO, EvaluacionPsicologicaDAO evaluacionDAO) {
+        this.testCode = testCode;
+        this.listaRespuestasDAO = listaRespuestasDAO;
+        this.evaluacionDAO = evaluacionDAO;
+    }
+
+    public TestAplicadoDAO(Long testAplicadoId, String testCode, List<RespuestaDAO> listaRespuestasDAO, EvaluacionPsicologicaDAO evaluacionDAO) {
         this.testAplicadoId = testAplicadoId;
         this.testCode = testCode;
-        this.listaRespuestas = listaRespuestas;
+        this.listaRespuestasDAO = listaRespuestasDAO;
+        this.evaluacionDAO = evaluacionDAO;
     }
 
 
     public Long getTestAplicadoId() {
         return testAplicadoId;
     }
-
     public void setTestAplicadoId(Long testAplicadoId) {
         this.testAplicadoId = testAplicadoId;
     }
-
     public String getTestCode() {
         return testCode;
     }
-
     public void setTestCode(String testCode) {
         this.testCode = testCode;
     }
-
-    public List<RespuestaDAO> getListaRespuestas() {
-        return listaRespuestas;
+    public List<RespuestaDAO> getListaRespuestasDAO() {
+        return listaRespuestasDAO;
     }
-
-    public void setListaRespuestas(List<RespuestaDAO> listaRespuestas) {
-        this.listaRespuestas = listaRespuestas;
+    public void setListaRespuestasDAO(List<RespuestaDAO> listaRespuestasDAO) {
+        this.listaRespuestasDAO = listaRespuestasDAO;
+    }
+    public EvaluacionPsicologicaDAO getEvaluacionDAO() {
+        return evaluacionDAO;
+    }
+    public void setEvaluacionDAO(EvaluacionPsicologicaDAO evaluacionDAO) {
+        this.evaluacionDAO = evaluacionDAO;
     }
 
 }

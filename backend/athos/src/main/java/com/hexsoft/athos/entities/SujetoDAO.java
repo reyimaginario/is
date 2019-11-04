@@ -1,5 +1,7 @@
 package com.hexsoft.athos.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.util.List;
@@ -17,27 +19,42 @@ public class SujetoDAO {
     @NotEmpty
     private String apellido;
 
+    private String localidad;
+
+    private String edad;
+
+    private String genero;
+
+    private String nivelDeEstudio;
+
+    private String ocupacion;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "profesionalDni")
-    private ProfesionalDAO profesional;
+    @JsonIgnoreProperties("listaSujetos")
+    private ProfesionalDAO profesionalDAO;
 
     @OneToMany(
-            mappedBy = "sujeto",
+            mappedBy = "sujetoDAO",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private List<EvaluacionPsicologicaDAO> evaluacionesPsicologicas;
+    private List<EvaluacionPsicologicaDAO> listaEvaluacionesPsicologicasDAO;
 
 
     public SujetoDAO() {
     }
 
-    public SujetoDAO(String dni, @NotEmpty String nombre, @NotEmpty String apellido, ProfesionalDAO profesional, List<EvaluacionPsicologicaDAO> evaluacionesPsicologicas) {
+    public SujetoDAO(String dni) {
+        this.dni = dni;
+    }
+
+    public SujetoDAO(String dni, @NotEmpty String nombre, @NotEmpty String apellido, ProfesionalDAO profesionalDAO, List<EvaluacionPsicologicaDAO> listaEvaluacionesPsicologicasDAO) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.profesional = profesional;
-        this.evaluacionesPsicologicas = evaluacionesPsicologicas;
+        this.profesionalDAO = profesionalDAO;
+        this.listaEvaluacionesPsicologicasDAO = listaEvaluacionesPsicologicasDAO;
     }
 
 
@@ -59,17 +76,17 @@ public class SujetoDAO {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-    public ProfesionalDAO getProfesional() {
-        return profesional;
+    public ProfesionalDAO getProfesionalDAO() {
+        return profesionalDAO;
     }
-    public void setProfesional(ProfesionalDAO profesional) {
-        this.profesional = profesional;
+    public void setProfesionalDAO(ProfesionalDAO profesionalDAO) {
+        this.profesionalDAO = profesionalDAO;
     }
-    public List<EvaluacionPsicologicaDAO> getEvaluacionesPsicologicas() {
-        return evaluacionesPsicologicas;
+    public List<EvaluacionPsicologicaDAO> getListaEvaluacionesPsicologicasDAO() {
+        return listaEvaluacionesPsicologicasDAO;
     }
-    public void setEvaluacionesPsicologicas(List<EvaluacionPsicologicaDAO> evaluacionesPsicologicas) {
-        this.evaluacionesPsicologicas = evaluacionesPsicologicas;
+    public void setListaEvaluacionesPsicologicasDAO(List<EvaluacionPsicologicaDAO> listaEvaluacionesPsicologicasDAO) {
+        this.listaEvaluacionesPsicologicasDAO = listaEvaluacionesPsicologicasDAO;
     }
 
 }
