@@ -6,7 +6,7 @@ import org.json.simple.JSONObject;
 
 import com.hexsoft.athos.entities.Respuesta;
 import com.hexsoft.athos.test.ICalculador;
-import com.hexsoft.athos.test.mmpi2.calculador.CalculadorEscalasBasicas;
+import com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorEscalasBasicas;
 
 public class CalculadorMMPI2 implements ICalculador {
 	

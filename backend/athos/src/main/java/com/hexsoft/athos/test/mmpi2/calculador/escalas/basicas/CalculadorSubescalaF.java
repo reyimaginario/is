@@ -1,11 +1,13 @@
-package com.hexsoft.athos.test.mmpi2.calculador;
+package com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas;
+
+import com.hexsoft.athos.test.mmpi2.calculador.ACalculadorSubescalas;
 
 public class CalculadorSubescalaF extends ACalculadorSubescalas {
 
 	private static CalculadorSubescalaF instance;
 	
 	private CalculadorSubescalaF() {
-		// Do something
+		inicializarConstantesMyF();
 	}
 	
 	public static ACalculadorSubescalas getInstance() {
@@ -51,15 +53,15 @@ public class CalculadorSubescalaF extends ACalculadorSubescalas {
 		
 		// F Femenina
 		getSubEscalaFem().put(0, 37);
-		getSubEscalaFem().put(10, 41);
-		getSubEscalaFem().put(20, 44);
-		getSubEscalaFem().put(30, 48);
-		getSubEscalaFem().put(40, 51);
-		getSubEscalaFem().put(50, 55);
-		getSubEscalaFem().put(60, 58);
-		getSubEscalaFem().put(70, 61);
-		getSubEscalaFem().put(80, 65);
-		getSubEscalaFem().put(90, 68);
+		getSubEscalaFem().put(1, 41);
+		getSubEscalaFem().put(2, 44);
+		getSubEscalaFem().put(3, 48);
+		getSubEscalaFem().put(4, 51);
+		getSubEscalaFem().put(5, 55);
+		getSubEscalaFem().put(6, 58);
+		getSubEscalaFem().put(7, 61);
+		getSubEscalaFem().put(8, 65);
+		getSubEscalaFem().put(9, 68);
 		getSubEscalaFem().put(10, 72);
 		getSubEscalaFem().put(11, 75);
 		getSubEscalaFem().put(12, 79);
@@ -74,5 +76,20 @@ public class CalculadorSubescalaF extends ACalculadorSubescalas {
 		getSubEscalaFem().put(21, 109);
 		getSubEscalaFem().put(22, 113);
 		getSubEscalaFem().put(23, 116);
+	}
+
+	@Override
+	protected Integer[] getPreguntasAChequearPorVerdadero() {
+		return ConstantesEscalasBasicas.F_ANSWERS_T;
+	}
+
+	@Override
+	protected Integer[] getpreguntasAChequearPorFalso() {
+		return ConstantesEscalasBasicas.F_ANSWERS_F;
+	}
+	
+	@Override
+	public String getDenominadorEscala() {
+		return ConstantesEscalasBasicas.SUBESCALA_F;
 	}
 }

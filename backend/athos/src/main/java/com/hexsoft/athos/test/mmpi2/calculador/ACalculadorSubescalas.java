@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.json.simple.JSONObject;
 
-import com.hexsoft.athos.test.mmpi2.ConstantesMMPI;
+import com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.ConstantesEscalasBasicas;
 
 public abstract class ACalculadorSubescalas {
 	
@@ -14,11 +14,6 @@ public abstract class ACalculadorSubescalas {
 	
 	
 	abstract protected void inicializarConstantesMyF();
-	
-	public JSONObject getPuntaje(Integer[] preguntasAChequearPorV, Integer[] preguntasAChequearPorF, JSONObject respuestas) {
-		inicializarConstantesMyF();
-		return getPuntajeBruto(preguntasAChequearPorV, preguntasAChequearPorF, respuestas);
-	}
 	
 	protected Map<Integer, Integer> getSubEscalaMasc(){
 		return subEscalaMasc;
@@ -30,29 +25,52 @@ public abstract class ACalculadorSubescalas {
 	
 	// Calcula los puntajes basicos y los T para sujetos masculinos y femeninos
 	@SuppressWarnings("unchecked")
-	private JSONObject getPuntajeBruto(Integer[] preguntasAChequearPorV, Integer[] preguntasAChequearPorF, JSONObject respuestas) {
+	public JSONObject getPuntajes(JSONObject respuestas) {
 		JSONObject resultado = new JSONObject();
+		Integer pb = getPuntajeBruto(respuestas);
+		Integer ptm = subEscalaMasc.get(pb);
+		Integer ptf = subEscalaFem.get(pb);
+		
+		resultado.put(ConstantesEscalasBasicas.PB, pb);
+		resultado.put(ConstantesEscalasBasicas.PTM, ptm);
+		resultado.put(ConstantesEscalasBasicas.PTF, ptf);
+		
+		return resultado;
+	}
+
+	public Integer getPuntajeBruto(JSONObject respuestas) {
 		Integer pb = new Integer(0);
 		
-		// Suma 1 por cada pregunta en la lista si se encuetnra en Verdadero
-		for (Integer answerNbr : preguntasAChequearPorV){
+		// Suma 1 por cada pregunta en la lista si se encuentra en Verdadero
+		for (Integer answerNbr : getPreguntasAChequearPorVerdadero()){
 			String ans = (String) respuestas.get(answerNbr.toString());
 			pb = (ans != null && ans.equalsIgnoreCase("True"))? pb+1 : pb;
 		}
 
-		// Suma 1 por cada pregunta en la lista si se encuetnra en Falso
-		for (Integer answerNbr : preguntasAChequearPorF){
+		// Suma 1 por cada pregunta en la lista si se encuentra en Falso
+		for (Integer answerNbr : getpreguntasAChequearPorFalso()){
 			String ans = (String) respuestas.get(answerNbr.toString());
 			pb = (ans != null && ans.equalsIgnoreCase("False"))? pb+1 : pb;
 		}
 				
-		Integer ptm = subEscalaMasc.get(pb);
-		Integer ptf = subEscalaFem.get(pb);
+		pb = pb + geDesvio(respuestas);
 		
-		resultado.put(ConstantesMMPI.PB, pb);
-		resultado.put(ConstantesMMPI.PTM, ptm);
-		resultado.put(ConstantesMMPI.PTF, ptf);
-		
-		return resultado;
+		return pb;
 	}
+
+	protected abstract Integer[] getPreguntasAChequearPorVerdadero();
+	
+	protected abstract Integer[] getpreguntasAChequearPorFalso();
+	
+	/***
+	 * Este método debe ser sobreescrito por aquellas subescalas que tengan un desvío,
+	 * de manera que calculen y regresen el valor de dicho desvío.
+	 * @return
+	 * 	El desvío calculado o 0 si no se sobreescribe.
+	 */
+	protected Integer geDesvio(JSONObject respuestas) {
+		return 0;
+	}
+	
+	public abstract String getDenominadorEscala();
 }

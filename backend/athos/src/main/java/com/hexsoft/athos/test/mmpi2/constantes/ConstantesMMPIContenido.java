@@ -1,6 +1,6 @@
-package com.hexsoft.athos.test.mmpi2;
+package com.hexsoft.athos.test.mmpi2.constantes;
 
-public class ConstantesMMPI_1{
+public class ConstantesMMPIContenido{
 
 	public static final String CONTENIDO = "Contenido";
 

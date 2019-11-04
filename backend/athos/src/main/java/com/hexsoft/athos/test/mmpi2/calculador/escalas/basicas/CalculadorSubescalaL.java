@@ -1,11 +1,14 @@
-package com.hexsoft.athos.test.mmpi2.calculador;
+package com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas;
+
+import com.hexsoft.athos.test.mmpi2.calculador.ACalculadorSubescalas;
+import com.hexsoft.athos.test.mmpi2.constantes.ConstantesMMPIContenido;
 
 public class CalculadorSubescalaL extends ACalculadorSubescalas {
 
 	private static CalculadorSubescalaL instance;
 	
 	private CalculadorSubescalaL() {
-		// Do something
+		inicializarConstantesMyF();
 	}
 	
 	public static ACalculadorSubescalas getInstance() {
@@ -17,6 +20,7 @@ public class CalculadorSubescalaL extends ACalculadorSubescalas {
 	
 	@Override
 	protected void inicializarConstantesMyF() {
+		
 		// L Masculina
 		getSubEscalaMasc().put(0, 35);
 		getSubEscalaMasc().put(1, 39);
@@ -54,4 +58,18 @@ public class CalculadorSubescalaL extends ACalculadorSubescalas {
 		getSubEscalaFem().put(15, 105);
 	}
 
+	@Override
+	protected Integer[] getPreguntasAChequearPorVerdadero() {
+		return ConstantesEscalasBasicas.L_ANSWERS_T;
+	}
+
+	@Override
+	protected Integer[] getpreguntasAChequearPorFalso() {
+		return ConstantesEscalasBasicas.L_ANSWERS_F;
+	}
+
+	@Override
+	public String getDenominadorEscala() {
+		return ConstantesEscalasBasicas.SUBESCALA_L;
+	}
 }
