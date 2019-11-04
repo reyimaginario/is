@@ -6,17 +6,13 @@ formulario.addEventListener("submit", function(e){
     e.preventDefault()
 
     var datos = new FormData(formulario);
-    /*console.log(datos)
-    console.log(datos.get("username"))
-    console.log(datos.get("password"))*/
     var booty = { "username" : datos.get("username"),  "password" : datos.get("password")};
     
     fetch("http://localhost:3000/chat/user/login/", {
         method: 'POST',
-        credentials: 'include',
         mode: 'no-cors',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(booty) //{"username": "mediavla", "password": "123"}//datos
+        body: JSON.stringify(booty) 
     })
 
     .then( res => res.json())
@@ -24,6 +20,9 @@ formulario.addEventListener("submit", function(e){
         console.log(data)
     })
     .catch(err => console.error('Caught error: ', err))
+});
+
+
     /*
     fetch(...).then(function(response) {
     if (response.ok) {
@@ -35,7 +34,11 @@ formulario.addEventListener("submit", function(e){
     }
     })
 
+    console.log(datos)
+    console.log(datos.get("username"))
+    console.log(datos.get("password"))
 
+//{"username": "mediavla", "password": "123"}//datos
     .then(res => {
         if(res.ok) {
             console.log( res)
@@ -44,4 +47,3 @@ formulario.addEventListener("submit", function(e){
         }
       })
       .catch(console.error)*/
-});
