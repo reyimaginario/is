@@ -7,7 +7,6 @@
 <fullyQualifiedTypeName name="org.json.JSONObject"/>
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
 <fullyQualifiedTypeName name="org.apache.tomcat.util.json.JSONParser"/>
-<fullyQualifiedTypeName name="org.json.simple.JSONObject"/>
 <fullyQualifiedTypeName name="org.json.simple.JSONArray"/>
 <fullyQualifiedTypeName name="java.nio.file.Files"/>
 <fullyQualifiedTypeName name="java.nio.file.Paths"/>
@@ -15,4 +14,25 @@
 <fullyQualifiedTypeName name="org.json.simple.parser.JSONParser"/>
 <fullyQualifiedTypeName name="com.hexsoft.athos.test.mmpi2.ConstantesMMPI"/>
 <fullyQualifiedTypeName name="org.json.JSONException"/>
+<fullyQualifiedTypeName name="com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CaulculadorSubescalaK"/>
+<fullyQualifiedTypeName name="com.hexsoft.athos.test.mmpi2.constantes.ConstantesMMPIContenido"/>
+<fullyQualifiedTypeName name="org.json.simple.JSONObject"/>
+<fullyQualifiedTypeName name="com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorSubescalaF"/>
+<fullyQualifiedTypeName name="com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorSubescalaHS"/>
+<fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorSubescalaD"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.hexsoft.athos.test.mmpi2.calculador.ACalculadorSubescalas"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorSubescalaHY"/>
+<fullyQualifiedTypeName name="com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorSubescalaPD"/>
+<fullyQualifiedTypeName name="com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorSubescalaMF_M"/>
+<fullyQualifiedTypeName name="com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorSubescalaMF_F"/>
+<fullyQualifiedTypeName name="com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorSubescalaPA"/>
+<fullyQualifiedTypeName name="com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorSubescalaPT"/>
+<fullyQualifiedTypeName name="com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorSubescalasSC"/>
+<fullyQualifiedTypeName name="com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorSubescalaK"/>
+<fullyQualifiedTypeName name="com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorSubescalaMA"/>
+<fullyQualifiedTypeName name="com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.ConstantesEscalasBasicas"/>
+<fullyQualifiedTypeName name="com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorSubescalaSI"/>
 </qualifiedTypeNameHistroy>

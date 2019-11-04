@@ -11,12 +11,14 @@ import com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorSubesca
 import com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorSubescalaHY;
 import com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorSubescalaK;
 import com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorSubescalaL;
+import com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorSubescalaMA;
 import com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorSubescalaMF_F;
 import com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorSubescalaMF_M;
 import com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorSubescalaPA;
 import com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorSubescalaPD;
 import com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorSubescalaPT;
 import com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorSubescalaSC;
+import com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorSubescalaSI;
 import com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.ConstantesEscalasBasicas;
 
 public class tetCalcu {
@@ -36,6 +38,8 @@ public class tetCalcu {
 		System.out.println(CalculadorSubescalaPA.getInstance().getDenominadorEscala() + CalculadorSubescalaPA.getInstance().getPuntajes(respuestasJSON));
 		System.out.println(CalculadorSubescalaPT.getInstance().getDenominadorEscala() + CalculadorSubescalaPT.getInstance().getPuntajes(respuestasJSON));
 		System.out.println(CalculadorSubescalaSC.getInstance().getDenominadorEscala() + CalculadorSubescalaSC.getInstance().getPuntajes(respuestasJSON));
+		System.out.println(CalculadorSubescalaMA.getInstance().getDenominadorEscala() + CalculadorSubescalaMA.getInstance().getPuntajes(respuestasJSON));
+		System.out.println(CalculadorSubescalaSI.getInstance().getDenominadorEscala() + CalculadorSubescalaSI.getInstance().getPuntajes(respuestasJSON));
     }
 	
 	public static Object readJsonSimpleDemo(String filename) throws Exception {
