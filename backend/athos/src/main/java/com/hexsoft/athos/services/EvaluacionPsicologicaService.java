@@ -2,6 +2,7 @@ package com.hexsoft.athos.services;
 
 import com.hexsoft.athos.dtos.EvaluacionPsicologicaDTO;
 import com.hexsoft.athos.dtos.RespuestaTemporalDTO;
+import com.hexsoft.athos.dtos.SujetoDTO;
 import com.hexsoft.athos.dtos.TestAplicadoDTO;
 import com.hexsoft.athos.entities.*;
 import com.hexsoft.athos.repositories.IEvaluacionPsicologicaRepo;
@@ -73,15 +74,29 @@ public class EvaluacionPsicologicaService {
     }
 
     public EvaluacionPsicologicaDTO crearEvaluacion(EvaluacionPsicologicaDTO evaluacionPsicologicaDTO) {
-        EvaluacionPsicologicaDAO evaluacionPsicologicaDAO = new EvaluacionPsicologicaDAO();
-        EvaluacionPsicologicaDAO evaluacionTmp = evaluacionPsicologicaRepo.save(evaluacionPsicologicaDAO);
+/*
 
+        EvaluacionPsicologicaDAO evaluacionPsicologicaDAO = new EvaluacionPsicologicaDAO();
+        return new EvaluacionPsicologicaDTO(evaluacionPsicologicaRepo.save(evaluacionPsicologicaDAO));
+*/
+
+
+        EvaluacionPsicologicaDAO evaluacionPsicologicaDAO = new EvaluacionPsicologicaDAO();
         String profesionalDni = evaluacionPsicologicaDTO.getProfesionalDTO().getDni();
-        String sujetoDni = evaluacionPsicologicaDTO.getSujetoDTO().getDni();
+        SujetoDTO sujetoDTOTmp = evaluacionPsicologicaDTO.getSujetoDTO();
+        SujetoDTO sujetoDTO = sujetoService.guardarSujeto(sujetoDTOTmp);
+        SujetoDAO sujetoDAO = sujetoDTO.toDAO();
         ProfesionalDAO profesionalDAO = profesionalService.obtenerProfesionalDAO(profesionalDni);
-        SujetoDAO sujetoDAO = sujetoService.obtenerSujetoDAO(sujetoDni);
+        //SujetoDAO sujetoDAOTmp = sujetoDTOTmp.toDAO();  // sujetoService.obtenerSujetoDAO(sujetoDTO.getDni());  TODO borrar
+
         Date fechaInicio = FechaUtils.obtenerFechaActual();
         String motivo = evaluacionPsicologicaDTO.getMotivo();
+        evaluacionPsicologicaDAO.setProfesionalDAO(profesionalDAO);
+        evaluacionPsicologicaDAO.setSujetoDAO(sujetoDAO);
+        evaluacionPsicologicaDAO.setFechaInicio(fechaInicio);
+        evaluacionPsicologicaDAO.setMotivo(motivo);
+        EvaluacionPsicologicaDAO evaluacionTmp = evaluacionPsicologicaRepo.save(evaluacionPsicologicaDAO);
+
         List<TestAplicadoDTO> listaTestsAplicadosDTO = evaluacionPsicologicaDTO.getListaTestsAplicadosDTO();
         List<TestAplicadoDAO> listaTestsAplicadosDAOTmp = new ArrayList<>();
         for (TestAplicadoDTO testAplicadoDTO : listaTestsAplicadosDTO) {
@@ -97,6 +112,9 @@ public class EvaluacionPsicologicaService {
         evaluacionTmp.setListaTestsAplicadosDAO(listaTestsAplicadosDAOTmp);
 
         return new EvaluacionPsicologicaDTO(evaluacionPsicologicaRepo.save(evaluacionTmp));
+
+
+
     }
 
     public EvaluacionPsicologicaDTO finalizarEvaluacion(Long evaluacionId) {
