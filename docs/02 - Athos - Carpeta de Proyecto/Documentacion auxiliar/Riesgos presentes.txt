@@ -1,0 +1,16 @@
+Falta de experiencia en tareas de planificación
+-Hacer pantallas antes de tener el modelo, no coincidían los datos solicitados. Esto produjo que se pierda tiempo haciendo dos veces una misma pantalla, e incluso se presentaron pantallas que no iban a formar parte del producto final.
+-Las pantallas necesarias posteriormente se basaron en el diagrama de clases.
+
+Diseño erroneo
+-En más de una ocasión hizo falta refactorizar el código.
+-Se recurrió al asesoramiento de profesionales mejor capacitados para resolver estos problemas.
+
+Subestimación de tareas
+-Inicialmente quisimos abarcar más funcionalidad para la demo, pero conforme se aproximaba la fecha, notamos que no era posible.
+-Se reevaluó qué debería ser el MVP, se acordó con el cliente hasta donde abarcaría la demo.
+
+Interpretación del lenguaje de negocio
+-Al armar el modelo de dominio y presentarlo al cliente, algunos términos resutlaban ambigüos o erroneos en el contexto del negocio del cliente
+-Se rehizo el modelo de dominio en presencia del cliente, validando toda la terminología y se elaboró un glosario de términos de negocio para que esté disponible para todo el equipo.
+
