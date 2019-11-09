@@ -5,6 +5,7 @@ import java.io.FileReader;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import com.hexsoft.athos.test.mmpi2.TestMMPI2;
 import com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorSubescalaD;
 import com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorSubescalaF;
 import com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorSubescalaHS;
@@ -24,7 +25,10 @@ import com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.ConstantesEscalas
 public class tetCalcu {
 
 	public static void main(String[] args) throws Exception {
-		JSONObject respuestasJSON = (JSONObject) readJsonSimpleDemo("src\\main\\java\\com\\hexsoft\\athos\\test\\mmpi2\\calculador\\respuestas.json");
+		TestMMPI2 mmpi2 = new TestMMPI2();
+			
+		System.out.println(mmpi2.obtenerPreguntasComoJSON());
+		/*JSONObject respuestasJSON = (JSONObject) readJsonSimpleDemo("src\\main\\java\\com\\hexsoft\\athos\\test\\mmpi2\\calculador\\respuestas.json");
 
 		System.out.println(CalculadorSubescalaL.getInstance().getDenominadorEscala() + CalculadorSubescalaL.getInstance().getPuntajes(respuestasJSON));
 		System.out.println(CalculadorSubescalaF.getInstance().getDenominadorEscala() + CalculadorSubescalaF.getInstance().getPuntajes(respuestasJSON));
@@ -40,6 +44,7 @@ public class tetCalcu {
 		System.out.println(CalculadorSubescalaSC.getInstance().getDenominadorEscala() + CalculadorSubescalaSC.getInstance().getPuntajes(respuestasJSON));
 		System.out.println(CalculadorSubescalaMA.getInstance().getDenominadorEscala() + CalculadorSubescalaMA.getInstance().getPuntajes(respuestasJSON));
 		System.out.println(CalculadorSubescalaSI.getInstance().getDenominadorEscala() + CalculadorSubescalaSI.getInstance().getPuntajes(respuestasJSON));
+		*/
     }
 	
 	public static Object readJsonSimpleDemo(String filename) throws Exception {
