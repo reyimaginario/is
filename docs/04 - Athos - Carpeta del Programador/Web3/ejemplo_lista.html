@@ -1,0 +1,73 @@
+<html>
+<head>
+        <link href="../styles/login.css" rel="stylesheet" type="text/css">
+        <script>
+    var preguntas = [
+    {
+            "id": "001",
+            "texto": "mayor a 18?",
+            "respuesta": null
+        },
+        {
+            "id": "002",
+            "texto": "mayor a 21?",
+            "respuesta": null
+        },
+        {
+            "id": "003",
+            "texto": "mayor a 40?",
+            "respuesta": null
+        },
+        {
+            "id": "004",
+            "texto": "mayor a 70?",
+            "respuesta": null
+        }
+    ];
+    var actual = 0;
+
+
+    function showPregunta(offset) {
+        actual = actual + offset;
+        if (actual < 0) actual = 0;
+        if (actual >= preguntas.length) actual = preguntas.length - 1;
+        var pregunta = preguntas[actual];
+        document.getElementById("pregId").innerText = pregunta.id;
+        document.getElementById("pregTexto").innerText = pregunta.texto;
+        document.getElementById("btn_true").style.backgroundColor = (pregunta.respuesta === 1) ? "#008000" : "";
+        document.getElementById("btn_false").style.backgroundColor = (pregunta.respuesta === 0) ? "#008000" : "";
+    }
+
+    function selectTrue() {
+        var pregunta = preguntas[actual];
+        if (pregunta.respuesta == 1) pregunta.respuesta = null;
+        else (pregunta.respuesta = 1);
+        showPregunta(0);
+    }
+
+    function selectFalse() {
+        var pregunta = preguntas[actual];
+        if (pregunta.respuesta == 0) pregunta.respuesta = null;
+        else (pregunta.respuesta = 0);
+        showPregunta(0);
+    }
+//sqlite integrado a chrome - 
+//carlos.ruiz@ort.edu.ar
+
+    function crearLista() {
+        var lista = document.getElementById("lista");
+        for (i = 0; i < preguntas.length; i++) {
+            var container = document.createElement("div");
+            container.id = "pregunta" + i;
+            container.style.border = "1px solid #808080";
+            lista.appendChild(container);
+            container.innerHTML = "<b>Id:<b><span id='pregId" + i + "'>" + preguntas[i].id + "</span>";
+        }
+    }
+    </script>
+</head>
+<body onload="crearLista()">
+<div id="lista">
+</div>
+</body>
+</html>
