@@ -51,6 +51,7 @@ import java.util.List;
         this.dni = profesionalDAO.getDni();
         this.nombre = profesionalDAO.getNombre();
         this.apellido = profesionalDAO.getApellido();
+        this.matricula = profesionalDAO.getMatricula();
         this.listaSujetosDTO = listaSujetosDTO;
     }
 

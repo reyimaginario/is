@@ -1,6 +1,7 @@
 package com.hexsoft.athos.controllers;
 
 import com.hexsoft.athos.dtos.EvaluacionPsicologicaDTO;
+import com.hexsoft.athos.dtos.RespuestaTemporalDTO;
 import com.hexsoft.athos.services.EvaluacionPsicologicaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -30,31 +31,23 @@ public class EvaluacionPsicologicaController {
         return evaluacionPsicologicaService.obtenerEvaluacion(evaluacionId);
     }
 
-    @GetMapping(value = "/finalizar/{evaluacionId}")
+    @GetMapping(value = "/{evaluacionId}/finalizar")
     public EvaluacionPsicologicaDTO finalizarEvaluacion(@PathVariable(value = "evaluacionId") Long evaluacionId) {
         return evaluacionPsicologicaService.finalizarEvaluacion(evaluacionId);
     }
 
-/*
+
     @PostMapping(value = "/respuestaTemporal")
-    public boolean guardarRespuestaTemporal(@RequestBody RespuestaTemporalDTO respuestaTemporal) {
-        return evaluacionPsicologicaService.guardarRespuestaTemporal(respuestaTemporal);
+    public boolean guardarRespuestaTemporal(@RequestBody RespuestaTemporalDTO respuestaTemporalDTO) {
+        return evaluacionPsicologicaService.guardarRespuestaTemporal(respuestaTemporalDTO);
     }
 
- */
 
-/*
-    @GetMapping(value = "/porSujeto/{dni}")
-    public List<EvaluacionPsicologicaDAO> listarEvaluacionesPorSujeto(@PathVariable(value = "dni") String dni) {
-        return evaluacionPsicologicaService.obtenerEvaluacionesPsicologicas(dni);
+    @GetMapping(value = "/{evaluacionId}/respuestastemporales")
+    public List<RespuestaTemporalDTO> obtenerRespuestasTemporales(@PathVariable(value = "evaluacionId") Long evaluacionId) {
+        return evaluacionPsicologicaService.obtenerRespuestasTemporales(evaluacionId);
     }
 
- */
-
-/*
-    @GetMapping(value = "/finalizar")
-    public EvaluacionPsicologicaDAO finalizarEvaluacion(@RequestBody )
-*/
 
 
 }

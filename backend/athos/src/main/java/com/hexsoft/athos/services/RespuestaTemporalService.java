@@ -21,6 +21,9 @@ public class RespuestaTemporalService {
     @Autowired
     private TestAplicadoService testAplicadoService;
 
+    @Autowired
+    private RespuestaService respuestaService;
+
     public void finalizarRespuestas(EvaluacionPsicologicaDAO evaluacionPsicologicaDAO) {
 
         Long evaluacionId = evaluacionPsicologicaDAO.getEvaluacionId();
@@ -33,7 +36,10 @@ public class RespuestaTemporalService {
         for (RespuestaTemporalDAO respuestaTemporalDAO : listaRespuestasTemporalesDAO) {
             String testCode = respuestaTemporalDAO.getTestCode();
             TestAplicadoDAO testAplicadoDAO = null;
-            RespuestaDAO respuestaDAO = temporalAFinal(respuestaTemporalDAO);
+            RespuestaDAO respuestaDAOTmp = temporalAFinal(respuestaTemporalDAO);
+            // TODO hacer el save de la respuesta DAO primero y seguir laburando
+            RespuestaDAO respuestaDAO = respuestaService.guardar(respuestaDAOTmp);
+            // TODO falta setearle el testAplicadoDAO
             int i = 0;
             boolean seguirBuscando = true;
 
@@ -45,16 +51,18 @@ public class RespuestaTemporalService {
             }
 
             if (testAplicadoDAO != null) {
-                if (testAplicadoDAO.getListaRespuestasDAO() == null) {
+                if (testAplicadoDAO.getListaRespuestasDAO() == null) {    // .isempty  o no  TODO
                     testAplicadoDAO.setListaRespuestasDAO(new ArrayList<RespuestaDAO>());
                 }
+                respuestaDAO.setTestAplicadoDAO(testAplicadoDAO);
+                respuestaService.guardar(respuestaDAO);
                 List<RespuestaDAO> listaRespuestasDAOTmp = testAplicadoDAO.getListaRespuestasDAO();
                 listaRespuestasDAOTmp.add(respuestaDAO);
                 testAplicadoDAO.setListaRespuestasDAO(listaRespuestasDAOTmp);
-                listaRespuestasTemporalesDAO.remove(respuestaTemporalDAO);
+
+                testAplicadoService.guardarTestAplicado(testAplicadoDAO);      // TODO respuestaID = null & testAplicadoDAO = null
             }
 
-            testAplicadoService.guardarTestAplicado(testAplicadoDAO);
         }
 
     }

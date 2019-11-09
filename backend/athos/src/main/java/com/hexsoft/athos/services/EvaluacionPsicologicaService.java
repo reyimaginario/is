@@ -99,7 +99,6 @@ public class EvaluacionPsicologicaService {
         return new EvaluacionPsicologicaDTO(evaluacionPsicologicaRepo.save(evaluacionTmp));
     }
 
-
     public EvaluacionPsicologicaDTO finalizarEvaluacion(Long evaluacionId) {
 
         EvaluacionPsicologicaDAO evaluacionPsicologicaDAO = null;
@@ -113,10 +112,12 @@ public class EvaluacionPsicologicaService {
 
             respuestaTemporalService.finalizarRespuestas(evaluacionPsicologicaDAO);
 
-        }
+            evaluacionPsicologicaDAO.setFechaFin(FechaUtils.obtenerFechaActual());
+            evaluacionPsicologicaDAO.setFinalizado(1);
+            evaluacionPsicologicaDAO.getRespuestasTemporalesDAO().clear();
+            evaluacionPsicologicaRepo.save(evaluacionPsicologicaDAO);
 
-        evaluacionPsicologicaDAO.setFechaFin(FechaUtils.obtenerFechaActual());
-        evaluacionPsicologicaRepo.save(evaluacionPsicologicaDAO);
+        }
 
         return new EvaluacionPsicologicaDTO(evaluacionPsicologicaDAO);
     }
@@ -129,5 +130,16 @@ public class EvaluacionPsicologicaService {
             listaEvaluacionesPsicologicasDTO.add(evaluacionPsicologicaDTO);
         }
         return listaEvaluacionesPsicologicasDTO;
+    }
+
+    public List<RespuestaTemporalDTO> obtenerRespuestasTemporales(Long evaluacionId) {
+        EvaluacionPsicologicaDAO evaluacionPsicologicaDAO = obtenerEvaluacionDAO(evaluacionId);
+        List<RespuestaTemporalDAO> listaRespuestasTemporalesDAO = evaluacionPsicologicaDAO.getRespuestasTemporalesDAO();
+        List<RespuestaTemporalDTO> listaRespuestasTemporalesDTO = new ArrayList<>();
+        for (RespuestaTemporalDAO respuestaTemporalDAO : listaRespuestasTemporalesDAO) {
+            RespuestaTemporalDTO respuestaTemporalDTO = new RespuestaTemporalDTO(respuestaTemporalDAO);
+            listaRespuestasTemporalesDTO.add(respuestaTemporalDTO);
+        }
+        return listaRespuestasTemporalesDTO;
     }
 }

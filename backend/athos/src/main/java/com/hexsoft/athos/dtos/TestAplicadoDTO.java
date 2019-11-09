@@ -17,6 +17,7 @@ public class TestAplicadoDTO {
     }
     public TestAplicadoDTO(TestAplicadoDAO testAplicadoDAO) {
         this.testCode = testAplicadoDAO.getTestCode();
+        this.listaRespuestasDTO = new ArrayList<>();
         for (RespuestaDAO respuestaDAO : testAplicadoDAO.getListaRespuestasDAO()) {
             RespuestaDTO respuestaDTO = new RespuestaDTO(respuestaDAO);
             this.listaRespuestasDTO.add(respuestaDTO);

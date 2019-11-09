@@ -1,5 +1,6 @@
 package com.hexsoft.athos.services;
 
+import com.hexsoft.athos.entities.RespuestaDAO;
 import com.hexsoft.athos.entities.RespuestaTemporalDAO;
 import com.hexsoft.athos.repositories.IRespuestaRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,4 +22,7 @@ public class RespuestaService {
 
     }
 
+    public RespuestaDAO guardar(RespuestaDAO respuestaDAO) {
+        return respuestaRepo.save(respuestaDAO);
+    }
 }

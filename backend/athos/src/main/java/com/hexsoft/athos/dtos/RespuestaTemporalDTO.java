@@ -1,5 +1,7 @@
 package com.hexsoft.athos.dtos;
 
+import com.hexsoft.athos.entities.RespuestaTemporalDAO;
+
 public class RespuestaTemporalDTO {
 
     private Long evaluacionId;
@@ -9,7 +11,12 @@ public class RespuestaTemporalDTO {
 
     public RespuestaTemporalDTO() {
     }
-
+    public RespuestaTemporalDTO(RespuestaTemporalDAO respuestaTemporalDAO) {
+        this.evaluacionId = respuestaTemporalDAO.getEvaluacionPsicologicaDAO().getEvaluacionId();
+        this.testCode     = respuestaTemporalDAO.getTestCode();
+        this.pregunta     = respuestaTemporalDAO.getPregunta();
+        this.respuesta    = respuestaTemporalDAO.getRespuesta();
+    }
     public RespuestaTemporalDTO(Long evaluacionId, String testCode, Integer pregunta, Integer respuesta) {
         this.evaluacionId = evaluacionId;
         this.testCode = testCode;
@@ -41,4 +48,6 @@ public class RespuestaTemporalDTO {
     public void setRespuesta(Integer respuesta) {
         this.respuesta = respuesta;
     }
+
+
 }
