@@ -22,23 +22,21 @@ public class TestAplicadoDAO {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "evaluacionId")
-    private EvaluacionPsicologicaDAO evaluacionDAO;
+    private EvaluacionPsicologicaDAO evaluacionPsicologicaDAO;
 
 
     public TestAplicadoDAO() {
     }
-
-    public TestAplicadoDAO(String testCode, List<RespuestaDAO> listaRespuestasDAO, EvaluacionPsicologicaDAO evaluacionDAO) {
+    public TestAplicadoDAO(String testCode, List<RespuestaDAO> listaRespuestasDAO, EvaluacionPsicologicaDAO evaluacionPsicologicaDAO) {
         this.testCode = testCode;
         this.listaRespuestasDAO = listaRespuestasDAO;
-        this.evaluacionDAO = evaluacionDAO;
+        this.evaluacionPsicologicaDAO = evaluacionPsicologicaDAO;
     }
-
-    public TestAplicadoDAO(Long testAplicadoId, String testCode, List<RespuestaDAO> listaRespuestasDAO, EvaluacionPsicologicaDAO evaluacionDAO) {
+    public TestAplicadoDAO(Long testAplicadoId, String testCode, List<RespuestaDAO> listaRespuestasDAO, EvaluacionPsicologicaDAO evaluacionPsicologicaDAO) {
         this.testAplicadoId = testAplicadoId;
         this.testCode = testCode;
         this.listaRespuestasDAO = listaRespuestasDAO;
-        this.evaluacionDAO = evaluacionDAO;
+        this.evaluacionPsicologicaDAO = evaluacionPsicologicaDAO;
     }
 
 
@@ -60,11 +58,11 @@ public class TestAplicadoDAO {
     public void setListaRespuestasDAO(List<RespuestaDAO> listaRespuestasDAO) {
         this.listaRespuestasDAO = listaRespuestasDAO;
     }
-    public EvaluacionPsicologicaDAO getEvaluacionDAO() {
-        return evaluacionDAO;
+    public EvaluacionPsicologicaDAO getEvaluacionPsicologicaDAO() {
+        return evaluacionPsicologicaDAO;
     }
-    public void setEvaluacionDAO(EvaluacionPsicologicaDAO evaluacionDAO) {
-        this.evaluacionDAO = evaluacionDAO;
+    public void setEvaluacionPsicologicaDAO(EvaluacionPsicologicaDAO evaluacionPsicologicaDAO) {
+        this.evaluacionPsicologicaDAO = evaluacionPsicologicaDAO;
     }
 
 }

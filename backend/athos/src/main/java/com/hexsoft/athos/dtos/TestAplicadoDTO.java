@@ -3,10 +3,12 @@ package com.hexsoft.athos.dtos;
 import com.hexsoft.athos.entities.RespuestaDAO;
 import com.hexsoft.athos.entities.TestAplicadoDAO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TestAplicadoDTO {
 
+    private Long testAplicadoId;
     private String testCode;
     private List<RespuestaDTO> listaRespuestasDTO;
 
@@ -20,7 +22,8 @@ public class TestAplicadoDTO {
             this.listaRespuestasDTO.add(respuestaDTO);
         }
     }
-    public TestAplicadoDTO(String testCode, List<RespuestaDTO> listaRespuestasDTO) {
+    public TestAplicadoDTO(Long testAplicadoId, String testCode, List<RespuestaDTO> listaRespuestasDTO) {
+        this.testAplicadoId = testAplicadoId;
         this.testCode = testCode;
         this.listaRespuestasDTO = listaRespuestasDTO;
     }
@@ -36,6 +39,29 @@ public class TestAplicadoDTO {
     }
     public void setListaRespuestasDTO(List<RespuestaDTO> listaRespuestasDTO) {
         this.listaRespuestasDTO = listaRespuestasDTO;
+    }
+    public Long getTestAplicadoId() {
+        return testAplicadoId;
+    }
+    public void setTestAplicadoId(Long testAplicadoId) {
+        this.testAplicadoId = testAplicadoId;
+    }
+
+
+
+    public TestAplicadoDAO toDAO() {
+        TestAplicadoDAO testAplicadoDAO = new TestAplicadoDAO();
+        List<RespuestaDAO> listaRespuestasDAOTmp = new ArrayList<>();
+        if (getListaRespuestasDTO() != null) {
+            for (RespuestaDTO respuestaDTO : getListaRespuestasDTO()) {
+                RespuestaDAO respuestaDAO = respuestaDTO.toDAO();
+                listaRespuestasDAOTmp.add(respuestaDAO);
+            }
+        }
+        testAplicadoDAO.setTestAplicadoId(getTestAplicadoId());
+        testAplicadoDAO.setTestCode(getTestCode());
+        testAplicadoDAO.setListaRespuestasDAO(listaRespuestasDAOTmp);
+        return testAplicadoDAO;
     }
 
 }

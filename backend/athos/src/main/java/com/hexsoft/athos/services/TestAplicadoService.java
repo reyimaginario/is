@@ -23,6 +23,10 @@ public class TestAplicadoService {
         return testAplicadoDAO;
     }
 
-    public TestAplicadoDAO obtenerTestAplicadoBy
+    public void guardarTestAplicado(TestAplicadoDAO testAplicadoDAO) {
+        testAplicadoRepo.save(testAplicadoDAO);
+    }
+
+    //public TestAplicadoDAO obtenerTestAplicadoBy
 
 }

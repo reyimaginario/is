@@ -30,7 +30,7 @@ public class ProfesionalDAO {
     private List<SujetoDAO> listaSujetosDAO;
 
     @OneToMany(
-            mappedBy = "profesional",
+            mappedBy = "profesionalDAO",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )

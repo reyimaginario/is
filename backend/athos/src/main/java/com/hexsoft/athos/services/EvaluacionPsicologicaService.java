@@ -2,15 +2,14 @@ package com.hexsoft.athos.services;
 
 import com.hexsoft.athos.dtos.EvaluacionPsicologicaDTO;
 import com.hexsoft.athos.dtos.RespuestaTemporalDTO;
-import com.hexsoft.athos.entities.EvaluacionPsicologicaDAO;
-import com.hexsoft.athos.entities.ProfesionalDAO;
-import com.hexsoft.athos.entities.RespuestaTemporalDAO;
-import com.hexsoft.athos.entities.SujetoDAO;
+import com.hexsoft.athos.dtos.TestAplicadoDTO;
+import com.hexsoft.athos.entities.*;
 import com.hexsoft.athos.repositories.IEvaluacionPsicologicaRepo;
 import com.hexsoft.athos.utils.FechaUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -31,7 +30,11 @@ public class EvaluacionPsicologicaService {
     private ProfesionalService profesionalService;
 
 
-    public EvaluacionPsicologicaDAO obtenerEvaluacion(Long evaluacionId) {
+    public EvaluacionPsicologicaDTO obtenerEvaluacion(Long evaluacionId) {
+        return new EvaluacionPsicologicaDTO(obtenerEvaluacionDAO(evaluacionId));
+    }
+
+    public EvaluacionPsicologicaDAO obtenerEvaluacionDAO(Long evaluacionId) {
 
         EvaluacionPsicologicaDAO evaluacionDAO = null;
 
@@ -51,7 +54,7 @@ public class EvaluacionPsicologicaService {
     public boolean guardarRespuestaTemporal(RespuestaTemporalDTO respuestaTemporal) {
 
         boolean respuesta = false;
-        EvaluacionPsicologicaDAO evaluacionDAO = obtenerEvaluacion(respuestaTemporal.getEvaluacionId());
+        EvaluacionPsicologicaDAO evaluacionDAO = obtenerEvaluacionDAO(respuestaTemporal.getEvaluacionId());
         List<RespuestaTemporalDAO> listaRespuestasTemporalesDAO = null;
 
         RespuestaTemporalDAO respuestaTemporalDAO = new RespuestaTemporalDAO(respuestaTemporal.getTestCode()
@@ -70,19 +73,30 @@ public class EvaluacionPsicologicaService {
     }
 
     public EvaluacionPsicologicaDTO crearEvaluacion(EvaluacionPsicologicaDTO evaluacionPsicologicaDTO) {
+        EvaluacionPsicologicaDAO evaluacionPsicologicaDAO = new EvaluacionPsicologicaDAO();
+        EvaluacionPsicologicaDAO evaluacionTmp = evaluacionPsicologicaRepo.save(evaluacionPsicologicaDAO);
+
         String profesionalDni = evaluacionPsicologicaDTO.getProfesionalDTO().getDni();
         String sujetoDni = evaluacionPsicologicaDTO.getSujetoDTO().getDni();
         ProfesionalDAO profesionalDAO = profesionalService.obtenerProfesionalDAO(profesionalDni);
         SujetoDAO sujetoDAO = sujetoService.obtenerSujetoDAO(sujetoDni);
-        Date fechaInicio = FechaUtils.stringToDate(evaluacionPsicologicaDTO.getFechaInicio());
-        EvaluacionPsicologicaDAO evaluacionPsicologicaDAO = new EvaluacionPsicologicaDAO();
-        evaluacionPsicologicaDAO.setProfesionalDAO(profesionalDAO);
-        evaluacionPsicologicaDAO.setSujetoDAO(sujetoDAO);
-        evaluacionPsicologicaDAO.setFechaInicio(fechaInicio);
+        Date fechaInicio = FechaUtils.obtenerFechaActual();
+        String motivo = evaluacionPsicologicaDTO.getMotivo();
+        List<TestAplicadoDTO> listaTestsAplicadosDTO = evaluacionPsicologicaDTO.getListaTestsAplicadosDTO();
+        List<TestAplicadoDAO> listaTestsAplicadosDAOTmp = new ArrayList<>();
+        for (TestAplicadoDTO testAplicadoDTO : listaTestsAplicadosDTO) {
+            TestAplicadoDAO testAplicadoDAO = testAplicadoDTO.toDAO();
+            testAplicadoDAO.setEvaluacionPsicologicaDAO(evaluacionTmp);
+            listaTestsAplicadosDAOTmp.add(testAplicadoDAO);
+        }
 
-        EvaluacionPsicologicaDAO evaluacionTmp = evaluacionPsicologicaRepo.save(evaluacionPsicologicaDAO);
+        evaluacionTmp.setProfesionalDAO(profesionalDAO);
+        evaluacionTmp.setSujetoDAO(sujetoDAO);
+        evaluacionTmp.setFechaInicio(fechaInicio);
+        evaluacionTmp.setMotivo(motivo);
+        evaluacionTmp.setListaTestsAplicadosDAO(listaTestsAplicadosDAOTmp);
 
-        return new EvaluacionPsicologicaDTO(evaluacionTmp);
+        return new EvaluacionPsicologicaDTO(evaluacionPsicologicaRepo.save(evaluacionTmp));
     }
 
 
@@ -93,12 +107,27 @@ public class EvaluacionPsicologicaService {
         if (evaluacionPsicologicaDAOOptional.isPresent()) {
             evaluacionPsicologicaDAO = evaluacionPsicologicaDAOOptional.get();
 
-            for (RespuestaTemporalDAO respuestaTemporalDAO : evaluacionPsicologicaDAO.getRespuestasTemporalesDAO()) {
-
+            if (evaluacionPsicologicaDAO.getFinalizado() == 1) {
+                return null;
             }
+
+            respuestaTemporalService.finalizarRespuestas(evaluacionPsicologicaDAO);
+
         }
 
+        evaluacionPsicologicaDAO.setFechaFin(FechaUtils.obtenerFechaActual());
+        evaluacionPsicologicaRepo.save(evaluacionPsicologicaDAO);
 
+        return new EvaluacionPsicologicaDTO(evaluacionPsicologicaDAO);
     }
 
+    public List<EvaluacionPsicologicaDTO> obtenerEvaluaciones() {
+        List<EvaluacionPsicologicaDTO> listaEvaluacionesPsicologicasDTO = new ArrayList<>();
+        List<EvaluacionPsicologicaDAO> listaEvaluacionesPsicologicasDAO = evaluacionPsicologicaRepo.findAll();
+        for (EvaluacionPsicologicaDAO evaluacionPsicologicaDAO : listaEvaluacionesPsicologicasDAO) {
+            EvaluacionPsicologicaDTO evaluacionPsicologicaDTO = new EvaluacionPsicologicaDTO(evaluacionPsicologicaDAO);
+            listaEvaluacionesPsicologicasDTO.add(evaluacionPsicologicaDTO);
+        }
+        return listaEvaluacionesPsicologicasDTO;
+    }
 }

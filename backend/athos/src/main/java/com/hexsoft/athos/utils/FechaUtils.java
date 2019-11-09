@@ -28,4 +28,8 @@ public class FechaUtils {
         return fechaDate;
     }
 
+    public static Date obtenerFechaActual() {
+        return new Date();
+    }
+
 }

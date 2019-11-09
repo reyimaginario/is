@@ -4,6 +4,7 @@ import com.hexsoft.athos.entities.RespuestaDAO;
 
 public class RespuestaDTO {
 
+    private Long respuestaId;
     private Integer pregunta;
     private Integer respuesta;
 
@@ -13,7 +14,8 @@ public class RespuestaDTO {
         this.pregunta  = respuestaDAO.getPregunta();
         this.respuesta = respuestaDAO.getRespuesta();
     }
-    public RespuestaDTO(Integer pregunta, Integer respuesta) {
+    public RespuestaDTO(Long respuestaId, Integer pregunta, Integer respuesta) {
+        this.respuestaId = respuestaId;
         this.pregunta = pregunta;
         this.respuesta = respuesta;
     }
@@ -30,5 +32,18 @@ public class RespuestaDTO {
     public void setRespuesta(Integer respuesta) {
         this.respuesta = respuesta;
     }
+    public Long getRespuestaId() {
+        return respuestaId;
+    }
+    public void setRespuestaId(Long respuestaId) {
+        this.respuestaId = respuestaId;
+    }
 
+    public RespuestaDAO toDAO() {
+        RespuestaDAO respuestaDAO = new RespuestaDAO();
+        respuestaDAO.setRespuestaId(getRespuestaId());
+        respuestaDAO.setPregunta(getPregunta());
+        respuestaDAO.setRespuesta(getRespuesta());
+        return respuestaDAO;
+    }
 }

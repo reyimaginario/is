@@ -4,6 +4,7 @@ import com.hexsoft.athos.entities.EvaluacionPsicologicaDAO;
 import com.hexsoft.athos.entities.TestAplicadoDAO;
 import com.hexsoft.athos.utils.FechaUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class EvaluacionPsicologicaDTO {
@@ -22,12 +23,17 @@ public class EvaluacionPsicologicaDTO {
     }
     public EvaluacionPsicologicaDTO(EvaluacionPsicologicaDAO evaluacionPsicologicaDAO) {
         this.evaluacionId           = evaluacionPsicologicaDAO.getEvaluacionId();
-        this.fechaInicio            = FechaUtils.fechaToString(evaluacionPsicologicaDAO.getFechaInicio());
-        this.fechaFin               = FechaUtils.fechaToString(evaluacionPsicologicaDAO.getFechaFin());
         this.motivo                 = evaluacionPsicologicaDAO.getMotivo();
         this.profesionalDTO         = new ProfesionalDTO(evaluacionPsicologicaDAO.getProfesionalDAO());
         this.sujetoDTO              = new SujetoDTO(evaluacionPsicologicaDAO.getSujetoDAO());
         this.informe                = evaluacionPsicologicaDAO.getInforme();
+        this.listaTestsAplicadosDTO = new ArrayList<>();
+        if (evaluacionPsicologicaDAO.getFechaInicio() != null) {
+            this.fechaInicio = FechaUtils.fechaToString(evaluacionPsicologicaDAO.getFechaInicio());
+        }
+        if (evaluacionPsicologicaDAO.getFechaFin() != null) {
+            this.fechaFin = FechaUtils.fechaToString(evaluacionPsicologicaDAO.getFechaFin());
+        }
         for (TestAplicadoDAO testAplicadoDAO: evaluacionPsicologicaDAO.getListaTestsAplicadosDAO()) {
             TestAplicadoDTO testAplicadoDTO = new TestAplicadoDTO(testAplicadoDAO);
             this.listaTestsAplicadosDTO.add(testAplicadoDTO);

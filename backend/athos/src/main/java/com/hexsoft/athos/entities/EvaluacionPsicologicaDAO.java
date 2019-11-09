@@ -36,17 +36,19 @@ public class EvaluacionPsicologicaDAO {
     private String informe;
 
     @OneToMany(
-            mappedBy = "evaluacionPsicologica",
+            mappedBy = "evaluacionPsicologicaDAO",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
     private List<RespuestaTemporalDAO> respuestasTemporalesDAO;
 
+    private Integer finalizado;
+
 
     public EvaluacionPsicologicaDAO() {
     }
 
-    public EvaluacionPsicologicaDAO(Long evaluacionId, Date fechaInicio, Date fechaFin, String motivo, ProfesionalDAO profesionalDAO, SujetoDAO sujetoDAO, List<TestAplicadoDAO> listaTestsAplicadosDAO, String informe, List<RespuestaTemporalDAO> respuestasTemporalesDAO) {
+    public EvaluacionPsicologicaDAO(Long evaluacionId, Date fechaInicio, Date fechaFin, String motivo, ProfesionalDAO profesionalDAO, SujetoDAO sujetoDAO, List<TestAplicadoDAO> listaTestsAplicadosDAO, String informe, List<RespuestaTemporalDAO> respuestasTemporalesDAO, Integer finalizado) {
         this.evaluacionId = evaluacionId;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
@@ -56,6 +58,7 @@ public class EvaluacionPsicologicaDAO {
         this.listaTestsAplicadosDAO = listaTestsAplicadosDAO;
         this.informe = informe;
         this.respuestasTemporalesDAO = respuestasTemporalesDAO;
+        this.finalizado = finalizado;
     }
 
     public Long getEvaluacionId() {
@@ -112,5 +115,10 @@ public class EvaluacionPsicologicaDAO {
     public void setRespuestasTemporalesDAO(List<RespuestaTemporalDAO> respuestasTemporalesDAO) {
         this.respuestasTemporalesDAO = respuestasTemporalesDAO;
     }
-
+    public Integer getFinalizado() {
+        return finalizado;
+    }
+    public void setFinalizado(Integer finalizado) {
+        this.finalizado = finalizado;
+    }
 }
