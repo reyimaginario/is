@@ -24,7 +24,7 @@ import com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.ConstantesEscalas
 public class tetCalcu {
 
 	public static void main(String[] args) throws Exception {
-		JSONObject respuestasJSON = (JSONObject) readJsonSimpleDemo("G:\\Mis Documentos\\ORT Analista de Sistemas\\3° 2°\\Integración de Sistemas\\is\\backend\\athos\\src\\main\\java\\com\\hexsoft\\athos\\test\\mmpi2\\calculador\\respuestas.json");
+		JSONObject respuestasJSON = (JSONObject) readJsonSimpleDemo("src\\main\\java\\com\\hexsoft\\athos\\test\\mmpi2\\calculador\\respuestas.json");
 
 		System.out.println(CalculadorSubescalaL.getInstance().getDenominadorEscala() + CalculadorSubescalaL.getInstance().getPuntajes(respuestasJSON));
 		System.out.println(CalculadorSubescalaF.getInstance().getDenominadorEscala() + CalculadorSubescalaF.getInstance().getPuntajes(respuestasJSON));
