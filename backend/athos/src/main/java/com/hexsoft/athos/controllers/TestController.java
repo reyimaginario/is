@@ -1,4 +1,4 @@
 package com.hexsoft.athos.controllers;
 
-public class EvaluacionController {
+public class TestController {
 }
