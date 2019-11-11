@@ -1,7 +1,8 @@
-package com.hexsoft.athos.test;
+package com.hexsoft.athos.services;
 
 import java.util.HashMap;
 
+import com.hexsoft.athos.test.ATest;
 import com.hexsoft.athos.test.mmpi2.TestMMPI2;
 
 public class TestService {
