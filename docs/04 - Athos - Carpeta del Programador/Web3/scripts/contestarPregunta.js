@@ -6,22 +6,22 @@ const noRes = -1
 var preguntas = [
     {
             "id": "001",
-            "texto": "mayor a 18?",
+            "texto": "Me gustan las revistas de mecanica.",
             "respuesta": noRes
         },
         {
             "id": "002",
-            "texto": "mayor a 21?",
+            "texto": "Tengo buen apetito.",
             "respuesta": noRes
         },
         {
-            "id": "003",
-            "texto": "mayor a 40?",
+            "id": "022",
+            "texto": "Nadie parece comprenderme.",
             "respuesta": noRes
         },
         {
-            "id": "004",
-            "texto": "mayor a 70?",
+            "id": "049",
+            "texto": "Soy una persona sociable.",
             "respuesta": noRes
         }
     ];
@@ -78,7 +78,7 @@ var preguntas = [
             pregunta: pregunta.id, //empieza en 0?
             respuesta: pregunta.respuesta
         }
-        
+
         fetch(url, {
             method: 'POST',
             //mode: 'no-cors',
