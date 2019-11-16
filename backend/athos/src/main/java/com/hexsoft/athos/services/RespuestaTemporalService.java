@@ -75,4 +75,9 @@ public class RespuestaTemporalService {
         return respuestaDAO;
     }
 
+
+    public RespuestaTemporalDAO guardarRespuestaTemporal(RespuestaTemporalDAO respuestaTemporalDAO) {
+        return respuestaTemporalRepo.save(respuestaTemporalDAO);
+    }
+
 }

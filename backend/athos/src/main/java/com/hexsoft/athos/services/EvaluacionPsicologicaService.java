@@ -1,15 +1,17 @@
 package com.hexsoft.athos.services;
 
-import com.hexsoft.athos.dtos.EvaluacionPsicologicaDTO;
-import com.hexsoft.athos.dtos.RespuestaTemporalDTO;
-import com.hexsoft.athos.dtos.SujetoDTO;
-import com.hexsoft.athos.dtos.TestAplicadoDTO;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.hexsoft.athos.dtos.*;
 import com.hexsoft.athos.entities.*;
 import com.hexsoft.athos.repositories.IEvaluacionPsicologicaRepo;
 import com.hexsoft.athos.utils.FechaUtils;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -29,6 +31,11 @@ public class EvaluacionPsicologicaService {
 
     @Autowired
     private ProfesionalService profesionalService;
+
+    @Autowired
+    private TestAplicadoService testAplicadoService;
+
+    private TestService testService = TestService.getInstance();
 
 
     public EvaluacionPsicologicaDTO obtenerEvaluacion(Long evaluacionId) {
@@ -58,9 +65,13 @@ public class EvaluacionPsicologicaService {
         EvaluacionPsicologicaDAO evaluacionDAO = obtenerEvaluacionDAO(respuestaTemporal.getEvaluacionId());
         List<RespuestaTemporalDAO> listaRespuestasTemporalesDAO;
 
-        RespuestaTemporalDAO respuestaTemporalDAO = new RespuestaTemporalDAO(respuestaTemporal.getTestCode()
-                                                                            ,respuestaTemporal.getPregunta()
-                                                                            ,respuestaTemporal.getRespuesta());
+        RespuestaTemporalDAO respuestaTemporalDAO = new RespuestaTemporalDAO();
+        respuestaTemporalDAO = respuestaTemporalService.guardarRespuestaTemporal(respuestaTemporalDAO);
+        respuestaTemporalDAO.setTestCode(respuestaTemporal.getTestCode());
+        respuestaTemporalDAO.setPregunta(respuestaTemporal.getPregunta());
+        respuestaTemporalDAO.setRespuesta(respuestaTemporal.getRespuesta());
+        respuestaTemporalDAO.setEvaluacionPsicologicaDAO(evaluacionDAO);
+        respuestaTemporalDAO = respuestaTemporalService.guardarRespuestaTemporal(respuestaTemporalDAO);
 
         if (evaluacionDAO != null) {
             listaRespuestasTemporalesDAO = evaluacionDAO.getRespuestasTemporalesDAO();
@@ -93,7 +104,10 @@ public class EvaluacionPsicologicaService {
         List<TestAplicadoDTO> listaTestsAplicadosDTO = evaluacionPsicologicaDTO.getListaTestsAplicadosDTO();
         List<TestAplicadoDAO> listaTestsAplicadosDAOTmp = new ArrayList<>();
         for (TestAplicadoDTO testAplicadoDTO : listaTestsAplicadosDTO) {
-            TestAplicadoDAO testAplicadoDAO = testAplicadoDTO.toDAO();
+            String testCode = testAplicadoDTO.getTestCode();
+            TestAplicadoDAO testAplicadoDAO = new TestAplicadoDAO();
+            testAplicadoDAO.setTestCode(testCode);
+            testAplicadoDAO = testAplicadoService.guardarTestAplicado(testAplicadoDAO);
             testAplicadoDAO.setEvaluacionPsicologicaDAO(evaluacionTmp);
             listaTestsAplicadosDAOTmp.add(testAplicadoDAO);
         }
@@ -104,7 +118,9 @@ public class EvaluacionPsicologicaService {
         evaluacionTmp.setMotivo(motivo);
         evaluacionTmp.setListaTestsAplicadosDAO(listaTestsAplicadosDAOTmp);
 
-        return new EvaluacionPsicologicaDTO(evaluacionPsicologicaRepo.save(evaluacionTmp));
+        EvaluacionPsicologicaDTO evaluacionDTO = new EvaluacionPsicologicaDTO(evaluacionPsicologicaRepo.save(evaluacionTmp));
+
+        return evaluacionDTO;
 
     }
 
