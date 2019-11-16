@@ -1,0 +1,5 @@
+package com.hexsoft.athos.entities;
+
+public class Respuesta {
+
+}
