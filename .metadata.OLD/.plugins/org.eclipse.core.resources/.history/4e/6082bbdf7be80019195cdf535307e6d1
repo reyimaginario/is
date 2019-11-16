@@ -1,9 +1,0 @@
-package com.hexsoft.athos.test.mmpi2;
-
-public class MMPIConstants {
-
-	public static final String PB = "PB";
-	public static final String PTM = "PTM";
-	public static final String PTF = "PTF";
-
-}
