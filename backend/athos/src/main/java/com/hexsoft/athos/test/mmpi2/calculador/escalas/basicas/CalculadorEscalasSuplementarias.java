@@ -1,0 +1,42 @@
+package com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas;
+
+import java.util.ArrayList;
+
+import com.hexsoft.athos.test.mmpi2.calculador.ACalculadorEscalas;
+import com.hexsoft.athos.test.mmpi2.calculador.CalculadorSubescalas;
+import com.hexsoft.athos.test.mmpi2.constantes.ConstantesEscalaContenido;
+import com.hexsoft.athos.test.mmpi2.constantes.ConstantesEscalaSuplementaria;
+
+public class CalculadorEscalasSuplementarias extends ACalculadorEscalas {
+	
+	private static CalculadorEscalasSuplementarias instance;
+
+	private CalculadorEscalasSuplementarias() {
+		subescalas = new ArrayList<>();
+		subescalas.add(new CalculadorSubescalas(ConstantesEscalaSuplementaria.SUBESCALA_A, ConstantesEscalaSuplementaria.A_RESPUESTAS_T, ConstantesEscalaSuplementaria.A_RESPUESTAS_F, ConstantesEscalaSuplementaria.A_MASCULINA, ConstantesEscalaSuplementaria.A_FEMENINA));
+		subescalas.add(new CalculadorSubescalas(ConstantesEscalaSuplementaria.SUBESCALA_R, ConstantesEscalaSuplementaria.R_RESPUESTAS_T, ConstantesEscalaSuplementaria.R_RESPUESTAS_F, ConstantesEscalaSuplementaria.R_MASCULINA, ConstantesEscalaSuplementaria.R_FEMENINA));
+		subescalas.add(new CalculadorSubescalas(ConstantesEscalaSuplementaria.SUBESCALA_ES, ConstantesEscalaSuplementaria.ES_RESPUESTAS_T, ConstantesEscalaSuplementaria.ES_RESPUESTAS_F, ConstantesEscalaSuplementaria.ES_MASCULINA, ConstantesEscalaSuplementaria.ES_FEMENINA));
+		subescalas.add(new CalculadorSubescalas(ConstantesEscalaSuplementaria.SUBESCALA_MAC_R, ConstantesEscalaSuplementaria.MAC_R_RESPUESTAS_T, ConstantesEscalaSuplementaria.MAC_R_RESPUESTAS_F, ConstantesEscalaSuplementaria.MAC_R_MASCULINA, ConstantesEscalaSuplementaria.MAC_R_FEMENINA));
+		subescalas.add(new CalculadorSubescalas(ConstantesEscalaSuplementaria.SUBESCALA_O_H, ConstantesEscalaSuplementaria.O_H_RESPUESTAS_T, ConstantesEscalaSuplementaria.O_H_RESPUESTAS_F, ConstantesEscalaSuplementaria.O_H_MASCULINA, ConstantesEscalaSuplementaria.O_H_FEMENINA));
+		subescalas.add(new CalculadorSubescalas(ConstantesEscalaSuplementaria.SUBESCALA_DO, ConstantesEscalaSuplementaria.DO_RESPUESTAS_T, ConstantesEscalaSuplementaria.DO_RESPUESTAS_F, ConstantesEscalaSuplementaria.DO_MASCULINA, ConstantesEscalaSuplementaria.DO_FEMENINA));
+		subescalas.add(new CalculadorSubescalas(ConstantesEscalaSuplementaria.SUBESCALA_RE, ConstantesEscalaSuplementaria.RE_RESPUESTAS_T, ConstantesEscalaSuplementaria.RE_RESPUESTAS_F, ConstantesEscalaSuplementaria.RE_MASCULINA, ConstantesEscalaSuplementaria.RE_FEMENINA));
+		subescalas.add(new CalculadorSubescalas(ConstantesEscalaSuplementaria.SUBESCALA_MT, ConstantesEscalaSuplementaria.MT_RESPUESTAS_T, ConstantesEscalaSuplementaria.MT_RESPUESTAS_F, ConstantesEscalaSuplementaria.MT_MASCULINA, ConstantesEscalaSuplementaria.MT_FEMENINA));
+		subescalas.add(new CalculadorSubescalas(ConstantesEscalaSuplementaria.SUBESCALA_GM, ConstantesEscalaSuplementaria.GM_RESPUESTAS_T, ConstantesEscalaSuplementaria.GM_RESPUESTAS_F, ConstantesEscalaSuplementaria.GM_MASCULINA, ConstantesEscalaSuplementaria.GM_FEMENINA));
+		subescalas.add(new CalculadorSubescalas(ConstantesEscalaSuplementaria.SUBESCALA_GF, ConstantesEscalaSuplementaria.GF_RESPUESTAS_T, ConstantesEscalaSuplementaria.GF_RESPUESTAS_F, ConstantesEscalaSuplementaria.GF_MASCULINA, ConstantesEscalaSuplementaria.GF_FEMENINA));
+		subescalas.add(new CalculadorSubescalas(ConstantesEscalaSuplementaria.SUBESCALA_PK, ConstantesEscalaSuplementaria.PK_RESPUESTAS_T, ConstantesEscalaSuplementaria.PK_RESPUESTAS_F, ConstantesEscalaSuplementaria.PK_MASCULINA, ConstantesEscalaSuplementaria.PK_FEMENINA));
+		subescalas.add(new CalculadorSubescalas(ConstantesEscalaSuplementaria.SUBESCALA_PS, ConstantesEscalaSuplementaria.PS_RESPUESTAS_T, ConstantesEscalaSuplementaria.PS_RESPUESTAS_F, ConstantesEscalaSuplementaria.PS_MASCULINA, ConstantesEscalaSuplementaria.PS_FEMENINA));
+		subescalas.add(new CalculadorSubescalas(ConstantesEscalaSuplementaria.SUBESCALA_SI1, ConstantesEscalaSuplementaria.SI1_RESPUESTAS_T, ConstantesEscalaSuplementaria.SI1_RESPUESTAS_F, ConstantesEscalaSuplementaria.SI1_MASCULINA, ConstantesEscalaSuplementaria.SI1_FEMENINA));
+		subescalas.add(new CalculadorSubescalas(ConstantesEscalaSuplementaria.SUBESCALA_SI2, ConstantesEscalaSuplementaria.SI2_RESPUESTAS_T, ConstantesEscalaSuplementaria.SI2_RESPUESTAS_F, ConstantesEscalaSuplementaria.SI2_MASCULINA, ConstantesEscalaSuplementaria.SI2_FEMENINA));
+		subescalas.add(new CalculadorSubescalas(ConstantesEscalaSuplementaria.SUBESCALA_SI3, ConstantesEscalaSuplementaria.SI3_RESPUESTAS_T, ConstantesEscalaSuplementaria.SI3_RESPUESTAS_F, ConstantesEscalaSuplementaria.SI3_MASCULINA, ConstantesEscalaSuplementaria.SI3_FEMENINA));
+		subescalas.add(new CalculadorSubescalas(ConstantesEscalaSuplementaria.SUBESCALA_MDS, ConstantesEscalaSuplementaria.MDS_RESPUESTAS_T, ConstantesEscalaSuplementaria.MDS_RESPUESTAS_F, ConstantesEscalaSuplementaria.MDS_MASCULINA, ConstantesEscalaSuplementaria.MDS_FEMENINA));
+		subescalas.add(new CalculadorSubescalas(ConstantesEscalaSuplementaria.SUBESCALA_APS, ConstantesEscalaSuplementaria.APS_RESPUESTAS_T, ConstantesEscalaSuplementaria.APS_RESPUESTAS_F, ConstantesEscalaSuplementaria.APS_MASCULINA, ConstantesEscalaSuplementaria.APS_FEMENINA));
+		subescalas.add(new CalculadorSubescalas(ConstantesEscalaSuplementaria.SUBESCALA_AAS, ConstantesEscalaSuplementaria.AAS_RESPUESTAS_T, ConstantesEscalaSuplementaria.AAS_RESPUESTAS_F, ConstantesEscalaSuplementaria.AAS_MASCULINA, ConstantesEscalaSuplementaria.AAS_FEMENINA));
+	}
+
+	public static CalculadorEscalasSuplementarias getInstance() {
+		if (instance == null) {
+			instance = new CalculadorEscalasSuplementarias();
+		}
+		return instance;
+	}
+}

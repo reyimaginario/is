@@ -1,7 +1,0 @@
-package com.hexsoft.athos.controllers;
-
-import java.util.List;
-
-public interface ICalculador {
-    public String procesarRespuestas(List<Respuesta> respuestas);
-}

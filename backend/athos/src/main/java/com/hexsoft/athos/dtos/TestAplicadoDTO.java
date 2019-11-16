@@ -2,6 +2,7 @@ package com.hexsoft.athos.dtos;
 
 import com.hexsoft.athos.entities.RespuestaDAO;
 import com.hexsoft.athos.entities.TestAplicadoDAO;
+import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +11,7 @@ public class TestAplicadoDTO {
 
     private Long testAplicadoId;
     private String testCode;
+    private List<JSONObject> listaPreguntas;
     private List<RespuestaDTO> listaRespuestasDTO;
 
 
@@ -23,9 +25,10 @@ public class TestAplicadoDTO {
             this.listaRespuestasDTO.add(respuestaDTO);
         }
     }
-    public TestAplicadoDTO(Long testAplicadoId, String testCode, List<RespuestaDTO> listaRespuestasDTO) {
+    public TestAplicadoDTO(Long testAplicadoId, String testCode, List<JSONObject> listaPreguntas, List<RespuestaDTO> listaRespuestasDTO) {
         this.testAplicadoId = testAplicadoId;
         this.testCode = testCode;
+        this.listaPreguntas = listaPreguntas;
         this.listaRespuestasDTO = listaRespuestasDTO;
     }
 
@@ -47,7 +50,12 @@ public class TestAplicadoDTO {
     public void setTestAplicadoId(Long testAplicadoId) {
         this.testAplicadoId = testAplicadoId;
     }
-
+    public List<JSONObject> getListaPreguntas() {
+        return listaPreguntas;
+    }
+    public void setListaPreguntas(List<JSONObject> listaPreguntas) {
+        this.listaPreguntas = listaPreguntas;
+    }
 
 
     public TestAplicadoDAO toDAO() {

@@ -1,0 +1,33 @@
+package com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas;
+
+import java.util.ArrayList;
+
+import com.hexsoft.athos.test.mmpi2.calculador.ACalculadorEscalas;
+import com.hexsoft.athos.test.mmpi2.calculador.CalculadorSubescalaVRIN;
+import com.hexsoft.athos.test.mmpi2.calculador.CalculadorSubescalas;
+import com.hexsoft.athos.test.mmpi2.constantes.ConstantesEscalaAdicionalesDeValidez;
+
+public class CalculadorEscalasAdicionalesDeValidez extends ACalculadorEscalas {
+	
+	private static CalculadorEscalasAdicionalesDeValidez instance;
+
+	private CalculadorEscalasAdicionalesDeValidez() {
+		subescalas = new ArrayList<>();
+		subescalas.add(new CalculadorSubescalas(ConstantesEscalaAdicionalesDeValidez.SUBESCALA_FB_BACK, ConstantesEscalaAdicionalesDeValidez.FB_BACK_RESPUESTAS_T, ConstantesEscalaAdicionalesDeValidez.FB_BACK_RESPUESTAS_F, ConstantesEscalaAdicionalesDeValidez.FB_BACK_MASCULINA, ConstantesEscalaAdicionalesDeValidez.FB_BACK_FEMENINA));
+		subescalas.add(new CalculadorSubescalas(ConstantesEscalaAdicionalesDeValidez.SUBESCALA_F_P, ConstantesEscalaAdicionalesDeValidez.F_P_RESPUESTAS_T, ConstantesEscalaAdicionalesDeValidez.F_P_RESPUESTAS_F, ConstantesEscalaAdicionalesDeValidez.F_P_MASCULINA, ConstantesEscalaAdicionalesDeValidez.F_P_FEMENINA));
+		subescalas.add(new CalculadorSubescalas(ConstantesEscalaAdicionalesDeValidez.SUBESCALA_DS, ConstantesEscalaAdicionalesDeValidez.DS_RESPUESTAS_T, ConstantesEscalaAdicionalesDeValidez.DS_RESPUESTAS_F, ConstantesEscalaAdicionalesDeValidez.DS_MASCULINA, ConstantesEscalaAdicionalesDeValidez.DS_FEMENINA));
+		subescalas.add(new CalculadorSubescalas(ConstantesEscalaAdicionalesDeValidez.SUBESCALA_DS_R, ConstantesEscalaAdicionalesDeValidez.DS_R_RESPUESTAS_T, ConstantesEscalaAdicionalesDeValidez.DS_R_RESPUESTAS_F, ConstantesEscalaAdicionalesDeValidez.DS_R_MASCULINA, ConstantesEscalaAdicionalesDeValidez.DS_R_FEMENINA));
+		subescalas.add(new CalculadorSubescalas(ConstantesEscalaAdicionalesDeValidez.SUBESCALA_S, ConstantesEscalaAdicionalesDeValidez.S_RESPUESTAS_T, ConstantesEscalaAdicionalesDeValidez.S_RESPUESTAS_F, ConstantesEscalaAdicionalesDeValidez.S_MASCULINA, ConstantesEscalaAdicionalesDeValidez.S_FEMENINA));
+		subescalas.add(new CalculadorSubescalas(ConstantesEscalaAdicionalesDeValidez.SUBESCALA_SD, ConstantesEscalaAdicionalesDeValidez.SD_RESPUESTAS_T, ConstantesEscalaAdicionalesDeValidez.SD_RESPUESTAS_F, ConstantesEscalaAdicionalesDeValidez.SD_MASCULINA, ConstantesEscalaAdicionalesDeValidez.SD_FEMENINA));
+		subescalas.add(new CalculadorSubescalas(ConstantesEscalaAdicionalesDeValidez.SUBESCALA_SO, ConstantesEscalaAdicionalesDeValidez.SO_RESPUESTAS_T, ConstantesEscalaAdicionalesDeValidez.SO_RESPUESTAS_F, ConstantesEscalaAdicionalesDeValidez.SO_MASCULINA, ConstantesEscalaAdicionalesDeValidez.SO_FEMENINA));
+		subescalas.add(new CalculadorSubescalaVRIN(ConstantesEscalaAdicionalesDeValidez.SUBESCALA_VRIN, ConstantesEscalaAdicionalesDeValidez.VRIN_MASCULINA, ConstantesEscalaAdicionalesDeValidez.VRIN_FEMENINA));
+		subescalas.add(new CalculadorSubescalas(ConstantesEscalaAdicionalesDeValidez.SUBESCALA_TRIN, ConstantesEscalaAdicionalesDeValidez.TRIN_RESPUESTAS_T, ConstantesEscalaAdicionalesDeValidez.TRIN_RESPUESTAS_F, ConstantesEscalaAdicionalesDeValidez.TRIN_MASCULINA, ConstantesEscalaAdicionalesDeValidez.TRIN_FEMENINA));
+	}
+
+	public static CalculadorEscalasAdicionalesDeValidez getInstance() {
+		if (instance == null) {
+			instance = new CalculadorEscalasAdicionalesDeValidez();
+		}
+		return instance;
+	}
+}

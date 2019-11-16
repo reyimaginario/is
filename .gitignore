@@ -1,6 +1,10 @@
 ### Eclipse ###
 .metadata/
 .recommenders/
+/.metadata/*
+/.recommenders/*
+backend/.metadata/*
+backend/.metadata
 
 ### IntelliJ IDEA ###
 .idea
