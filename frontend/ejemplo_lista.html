@@ -26,31 +26,6 @@
     ];
     var actual = 0;
 
-
-    function showPregunta(offset) {
-        actual = actual + offset;
-        if (actual < 0) actual = 0;
-        if (actual >= preguntas.length) actual = preguntas.length - 1;
-        var pregunta = preguntas[actual];
-        document.getElementById("pregId").innerText = pregunta.id;
-        document.getElementById("pregTexto").innerText = pregunta.texto;
-        document.getElementById("btn_true").style.backgroundColor = (pregunta.respuesta === 1) ? "#008000" : "";
-        document.getElementById("btn_false").style.backgroundColor = (pregunta.respuesta === 0) ? "#008000" : "";
-    }
-
-    function selectTrue() {
-        var pregunta = preguntas[actual];
-        if (pregunta.respuesta == 1) pregunta.respuesta = null;
-        else (pregunta.respuesta = 1);
-        showPregunta(0);
-    }
-
-    function selectFalse() {
-        var pregunta = preguntas[actual];
-        if (pregunta.respuesta == 0) pregunta.respuesta = null;
-        else (pregunta.respuesta = 0);
-        showPregunta(0);
-    }
 //sqlite integrado a chrome - 
 //carlos.ruiz@ort.edu.ar
 

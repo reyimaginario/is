@@ -1,5 +1,6 @@
 var formulario = document.getElementById("formulario");
 var url = "http://192.168.0.127:8080/evaluacion";
+//var url = "http://localhost:8080/evaluacion";
 
 formulario.addEventListener("submit", function(e){
     e.preventDefault()
@@ -16,16 +17,33 @@ formulario.addEventListener("submit", function(e){
     .then( res => res.json())
     .then( data => {
         console.log(data)
-        //sessionStorage.setItem("evaluacion", data)
-        //ACA GUARDAR LA RESPUESTA EN EL LOCAL STORAGE DEL BROWSER
-        //JSON CON PREGUNTAS, JSON CON EVALUACION, CREAR EL INDICE PARA RECORRER LAS PREGUNTAS
-        //cargar nueva pagina
+        
+        saveResponse("evaluacion", JSON.stringify(data.evaluacion))
+        saveResponse("preguntas", JSON.stringify(data.evaluacion.listaTestsAplicadosDTO[0].listaPreguntas))
+        saveResponse("actual", 0)
+        //ACA createAnswers y guardar en sesStor
+        window.location.href = "pregunta.html";
+        
     })
     .catch(err => {
         console.error('Caught error: ', err)
         alert("Ocurrio un error! :c")
     });
 });
+
+function saveResponse(name, data){
+    if (typeof(Storage) !== 'undefined') {
+        sessionStorage.setItem(name,data)
+        /*sessionStorage.getItem("key")
+        sessionStorage.removeItem("key")
+        sessionStorage.clear()*/
+    // Código cuando Storage es compatible
+    } else {
+        alert("No hay Local Storage! :c")
+    // Código cuando Storage NO es compatible
+    }
+}
+
 
 function createJson(){
     var datos = new FormData(formulario);
@@ -61,7 +79,22 @@ function createJson(){
         },
         listaTestsAplicadosDTO: [{
             testCode:"mmpi2",
-            listaPreguntas:[],
+            listaPreguntas:[{
+                "id": "001",
+                "texto": "mayor a 18?"
+            },
+            {
+                "id": "002",
+                "texto": "mayor a 21?"
+            },
+            {
+                "id": "003",
+                "texto": "mayor a 40?"
+            },
+            {
+                "id": "004",
+                "texto": "mayor a 70?"
+            }],
             listaRespuestasDTO:[]
         }],
         informe: ""

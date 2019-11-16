@@ -1,5 +1,27 @@
-//console.log("funcionando")
+const post = function post(url, datos){
+    fetch(url, {
+        method: 'POST',
+        //mode: 'no-cors',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(datos) 
+    })
 
+    .then( res => res.json())
+    .then( data => {
+        console.log(data)
+        return data
+    })
+    .catch(err => {
+        console.error('Caught error: ', err)
+        alert("Ocurrio un error! :c")
+        return null
+    });
+}
+
+
+
+//console.log("funcionando")
+/*
 var formulario = document.getElementById("formulario");
 
 formulario.addEventListener("submit", function(e){
@@ -20,7 +42,7 @@ formulario.addEventListener("submit", function(e){
         console.log(data)
     })
     .catch(err => console.error('Caught error: ', err))
-});
+});*/
 
 
     /*

@@ -1,36 +1,49 @@
-var preguntas = [
-    {
-            "id": "001",
-            "texto": "mayor a 18?",
-            "respuesta": null
-        },
-        {
-            "id": "002",
-            "texto": "mayor a 21?",
-            "respuesta": null
-        },
-        {
-            "id": "003",
-            "texto": "mayor a 40?",
-            "respuesta": null
-        },
-        {
-            "id": "004",
-            "texto": "mayor a 70?",
-            "respuesta": null
-        }
-    ];
-    
 //sqlite integrado a chrome - 
 //carlos.ruiz@ort.edu.ar
 
+    var preguntas = JSON.parse(sessionStorage.getItem("preguntas"))
+    var respuestas = JSON.parse(sessionStorage.getItem("respuestas"))
+    //var actual = 0;
+
+    //sqlite integrado a chrome - 
+    //carlos.ruiz@ort.edu.ar
+
     function crearLista() {
-        var lista = document.getElementById("lista");
+        //console.log(preguntas)
+        var lista = document.getElementById("lista_preguntas");
+        var textoResp = "";
         for (i = 0; i < preguntas.length; i++) {
-            var container = document.createElement("div");
+            if(respuestas[i].respuesta === 1){
+                textoResp = "True"
+            }else if(respuestas[i].respuesta === 0){
+                textoResp = "False"
+            }else{
+                textoResp = "Null"
+            }
+            var container = document.createElement("tr");
             container.id = "pregunta" + i;
-            container.style.border = "1px solid #808080";
+            container.className = "form-group";
             lista.appendChild(container);
-            container.innerHTML = "<b>Id:<b><span id='pregId" + i + "'>" + preguntas[i].id + "</span>";
+            container.innerHTML = "<td><a href='' onclick='volverA(" + i + ")' id='pregId" + i + "'>" + preguntas[i].id + "</a></td>" + 
+                                    "<td><a class='tab' id='pregText" + i + "'> - " + preguntas[i].texto + " - </a></td>" +
+                                    "<td><a class='tab' id='pregText" + i + "'>" + textoResp + "</a></td>";
         }
     }
+
+    function volverA(index){
+        sessionStorage.setItem("actual", index)
+        window.location.href = "pregunta.html";
+    }
+    
+    function startTest(){
+        var pregs = JSON.parse(sessionStorage.getItem("respuestas"))
+        document.getElementById("ela").innerHTML = sessionStorage.getItem("respuestas")
+
+    }
+
+    function sendResults(){
+        event.preventDefault()
+        window.location.href = "../screens/listar_preguntas.html";
+    }
+
+    

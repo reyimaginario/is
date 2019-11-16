@@ -2,11 +2,11 @@
 <html>
 <head>
     <title>Athos</title>
-    <link href="../styles/login.css" rel="stylesheet" type="text/css">
+    <link href="../styles/basic_style.css" rel="stylesheet" type="text/css">
     
 
 </head>
-<body onload="showPregunta(0)">
+<body onload="startTest()">
     <div class="wrap">
         <form enctype="application/json" class="login-form" action="http://localhost:3000/chat/user/login/"  method="POST">
             <div class="form-header">
@@ -22,11 +22,11 @@
             </div>
 
             <div class="form-group">
-                <button id="btn_next" type = "submit" class="form-button" onclick="showPregunta(+1)">Siguiente</button>
+                <button id="btn_next" type = "submit" class="form-button" onclick="sendForm()">Siguiente</button>
             </div>
 
             <div class= "form-footer">
-                <a href="">Ver todas las preguntas</a>
+                <a href="../screens/listar_preguntas.html">Ver todas las preguntas</a>
             </div>
         </form>
     </div>
