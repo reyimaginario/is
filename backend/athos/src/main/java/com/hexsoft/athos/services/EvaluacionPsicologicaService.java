@@ -48,7 +48,7 @@ public class EvaluacionPsicologicaService {
         return evaluacionDAO;
     }
 
-    public EvaluacionPsicologicaDAO guardarEvaluacion(EvaluacionPsicologicaDAO evaluacion) {
+    private EvaluacionPsicologicaDAO guardarEvaluacion(EvaluacionPsicologicaDAO evaluacion) {
         return evaluacionPsicologicaRepo.save(evaluacion);
     }
 
@@ -56,7 +56,7 @@ public class EvaluacionPsicologicaService {
 
         boolean respuesta = false;
         EvaluacionPsicologicaDAO evaluacionDAO = obtenerEvaluacionDAO(respuestaTemporal.getEvaluacionId());
-        List<RespuestaTemporalDAO> listaRespuestasTemporalesDAO = null;
+        List<RespuestaTemporalDAO> listaRespuestasTemporalesDAO;
 
         RespuestaTemporalDAO respuestaTemporalDAO = new RespuestaTemporalDAO(respuestaTemporal.getTestCode()
                                                                             ,respuestaTemporal.getPregunta()
@@ -74,12 +74,6 @@ public class EvaluacionPsicologicaService {
     }
 
     public EvaluacionPsicologicaDTO crearEvaluacion(EvaluacionPsicologicaDTO evaluacionPsicologicaDTO) {
-/*
-
-        EvaluacionPsicologicaDAO evaluacionPsicologicaDAO = new EvaluacionPsicologicaDAO();
-        return new EvaluacionPsicologicaDTO(evaluacionPsicologicaRepo.save(evaluacionPsicologicaDAO));
-*/
-
 
         EvaluacionPsicologicaDAO evaluacionPsicologicaDAO = new EvaluacionPsicologicaDAO();
         String profesionalDni = evaluacionPsicologicaDTO.getProfesionalDTO().getDni();
@@ -87,7 +81,6 @@ public class EvaluacionPsicologicaService {
         SujetoDTO sujetoDTO = sujetoService.guardarSujeto(sujetoDTOTmp);
         SujetoDAO sujetoDAO = sujetoDTO.toDAO();
         ProfesionalDAO profesionalDAO = profesionalService.obtenerProfesionalDAO(profesionalDni);
-        //SujetoDAO sujetoDAOTmp = sujetoDTOTmp.toDAO();  // sujetoService.obtenerSujetoDAO(sujetoDTO.getDni());  TODO borrar
 
         Date fechaInicio = FechaUtils.obtenerFechaActual();
         String motivo = evaluacionPsicologicaDTO.getMotivo();
@@ -112,8 +105,6 @@ public class EvaluacionPsicologicaService {
         evaluacionTmp.setListaTestsAplicadosDAO(listaTestsAplicadosDAOTmp);
 
         return new EvaluacionPsicologicaDTO(evaluacionPsicologicaRepo.save(evaluacionTmp));
-
-
 
     }
 
