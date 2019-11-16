@@ -3,6 +3,7 @@
     <link href="../styles/basic_style.css" rel="stylesheet" type="text/css">
     
 </head>
+
 <body onload="crearLista()">
     <div class="wrap">
         <form enctype="application/json" class="login-form">
@@ -16,6 +17,10 @@
         </form>
     </div>
 
+    <div class="form-group">
+        <button id="btn_next" type = "submit" class="form-button" onclick="sendForm()">Finalizar</button>
+    </div>
+    
     <script src="../scripts/mostrarLista.js"></script>
 
 </body>

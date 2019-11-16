@@ -40,7 +40,7 @@
         document.getElementById("ela").innerHTML = sessionStorage.getItem("respuestas")
 
     }
-
+    
     function sendResults(){
         event.preventDefault()
         window.location.href = "../screens/listar_preguntas.html";

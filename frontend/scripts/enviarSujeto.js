@@ -1,6 +1,7 @@
 var formulario = document.getElementById("formulario");
 var url = "http://192.168.0.127:8080/evaluacion";
 //var url = "http://localhost:8080/evaluacion";
+var repFactory = require("./crearRespuestas")
 
 formulario.addEventListener("submit", function(e){
     e.preventDefault()
@@ -18,11 +19,16 @@ formulario.addEventListener("submit", function(e){
     .then( data => {
         console.log(data)
         
-        saveResponse("evaluacion", JSON.stringify(data.evaluacion))
+        //saveResponse("evaluacion", JSON.stringify(data.evaluacion)) //TODO
+        
+        saveResponse("evaluacion_id", JSON.stringify(data.evaluacion.evaluacionId))
         saveResponse("preguntas", JSON.stringify(data.evaluacion.listaTestsAplicadosDTO[0].listaPreguntas))
         saveResponse("actual", 0)
         //ACA createAnswers y guardar en sesStor
-        window.location.href = "pregunta.html";
+        var respuestas = repFactory.createAnswers();
+        saveResponse("respuestas", JSON.stringify(respuestas));
+
+        //window.location.href = "pregunta.html";
         
     })
     .catch(err => {
@@ -79,22 +85,7 @@ function createJson(){
         },
         listaTestsAplicadosDTO: [{
             testCode:"mmpi2",
-            listaPreguntas:[{
-                "id": "001",
-                "texto": "mayor a 18?"
-            },
-            {
-                "id": "002",
-                "texto": "mayor a 21?"
-            },
-            {
-                "id": "003",
-                "texto": "mayor a 40?"
-            },
-            {
-                "id": "004",
-                "texto": "mayor a 70?"
-            }],
+            listaPreguntas:[],
             listaRespuestasDTO:[]
         }],
         informe: ""

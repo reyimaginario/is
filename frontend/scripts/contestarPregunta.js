@@ -3,8 +3,8 @@ const isFalse = 0
 const noRes = -1
 
 //obtener json
-//var preguntas = JSON.parse(sessionStorage.getItem("preguntas"))
-var preguntas = [
+var preguntas = JSON.parse(sessionStorage.getItem("preguntas"))
+/*var preguntas = [
     {
             "id": "001",
             "texto": "mayor a 18?"
@@ -21,10 +21,10 @@ var preguntas = [
             "id": "004",
             "texto": "mayor a 70?"
         }
-    ];
+    ];*/
     
-
-    function createAnswers(){
+    var respFactory = require("./crearRespuestas")
+    /*function createAnswers(){
         var lista = [];
         var evId = 123 //JSON.parse(sessionStorage.getItem("evaluacion")).evaluacionId;
 
@@ -43,7 +43,7 @@ var preguntas = [
         }else{
             return JSON.parse(sessionStorage.getItem("respuestas"))
         }
-    }
+    }*/
 
     var actual = 0;
     
@@ -54,16 +54,11 @@ var preguntas = [
         actual = parseInt(sessionStorage.getItem("actual"));
         //console.log(typeof(sessionStorage.getItem("actual")))
     }
-    var respuestas = createAnswers();// JSON.parse(sessionStorage.getItem("respuestas")) //se crean en enviarSujeto
+    var respuestas = respFactory.createAnswers();// JSON.parse(sessionStorage.getItem("respuestas")) //se crean en enviarSujeto
 
-    saveResponse("actual", actual)
+    /*saveResponse("actual", actual)
     saveResponse("respuestas", JSON.stringify(respuestas))
-    saveResponse("preguntas", JSON.stringify(preguntas))
-
-    function startTest(){
-        //createAnswers();
-        showPregunta(0);
-    }
+    saveResponse("preguntas", JSON.stringify(preguntas))*/
 
     function showPregunta(offset) {
         event.preventDefault()
