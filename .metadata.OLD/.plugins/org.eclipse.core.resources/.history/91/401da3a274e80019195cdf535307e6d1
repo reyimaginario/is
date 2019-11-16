@@ -1,0 +1,127 @@
+package com.hexsoft.athos.test.mmpi2;
+
+import java.util.List;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.hexsoft.athos.entities.Respuesta;
+import com.hexsoft.athos.test.ICalculador;
+
+public class CalculadorMMPI2 implements ICalculador {
+
+	private JSONObject answers = null;
+	
+	@Override
+	public String procesarRespuestas(List<Respuesta> respuestas) {
+		this.answers = respuestas.get(0).getAnswersAsJson();
+		try {
+			buildBasicScales();
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	private void buildBasicScales() throws JSONException {
+		getLscore();
+		getFscore();
+		getKscore();
+		getHSscore();
+		getDscore();
+		getHYscore();
+		getPDscore();
+		getMFFscore();
+		getMFMscore();
+		getPAscore();
+		getPTscore();
+		getSCscore();
+		getMAscore();
+		getSIscore();
+	}
+
+	private void getSIscore() {
+				
+	}
+
+	private void getMAscore() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void getSCscore() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void getPTscore() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void getPAscore() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void getMFMscore() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void getMFFscore() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void getPDscore() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void getHYscore() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void getDscore() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void getHSscore() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void getKscore() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void getFscore() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private Integer getLscore() throws JSONException {
+		Integer pb = new Integer(0);
+		pb = answers.getBoolean("16")? pb++ : pb;
+		pb = answers.getBoolean("29")? pb++ : pb;
+		pb = answers.getBoolean("41")? pb++ : pb;
+		pb = answers.getBoolean("51")? pb++ : pb;
+		pb = answers.getBoolean("77")? pb++ : pb;
+		pb = answers.getBoolean("93")? pb++ : pb;
+		pb = answers.getBoolean("102")? pb++ : pb;
+		pb = answers.getBoolean("107")? pb++ : pb;
+		pb = answers.getBoolean("123")? pb++ : pb;
+		pb = answers.getBoolean("139")? pb++ : pb;
+		pb = answers.getBoolean("153")? pb++ : pb;
+		pb = answers.getBoolean("183")? pb++ : pb;
+		pb = answers.getBoolean("203")? pb++ : pb;
+		pb = answers.getBoolean("232")? pb++ : pb;
+		pb = answers.getBoolean("260")? pb++ : pb;
+		return pb;
+	}
+
+}

@@ -1,0 +1,14 @@
+package com.hexsoft.athos.controllers;
+
+import java.util.List;
+
+import com.hexsoft.athos.entities.Respuesta;
+
+public class CalculadorMMPI2 implements ICalculador {
+
+	@Override
+	public String procesarRespuestas(List<Respuesta> respuestas) {
+		return null;
+	}
+
+}
