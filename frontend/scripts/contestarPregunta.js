@@ -23,10 +23,9 @@ var preguntas = JSON.parse(sessionStorage.getItem("preguntas"))
         }
     ];*/
     
-    var respFactory = require("./crearRespuestas")
-    /*function createAnswers(){
-        var lista = [];
-        var evId = 123 //JSON.parse(sessionStorage.getItem("evaluacion")).evaluacionId;
+    function createAnswers(){
+        /*var lista = [];
+        var evId = JSON.parse(sessionStorage.getItem("evaluacion")).evaluacionId;
 
         if(JSON.parse(sessionStorage.getItem("respuestas")) === null){
 
@@ -40,10 +39,10 @@ var preguntas = JSON.parse(sessionStorage.getItem("preguntas"))
                 lista.push(respuesta);
             }
             return lista
-        }else{
+        }else{*/
             return JSON.parse(sessionStorage.getItem("respuestas"))
-        }
-    }*/
+        //}
+    }
 
     var actual = 0;
     
@@ -54,7 +53,7 @@ var preguntas = JSON.parse(sessionStorage.getItem("preguntas"))
         actual = parseInt(sessionStorage.getItem("actual"));
         //console.log(typeof(sessionStorage.getItem("actual")))
     }
-    var respuestas = respFactory.createAnswers();// JSON.parse(sessionStorage.getItem("respuestas")) //se crean en enviarSujeto
+    var respuestas = createAnswers();// JSON.parse(sessionStorage.getItem("respuestas")) //se crean en enviarSujeto
 
     /*saveResponse("actual", actual)
     saveResponse("respuestas", JSON.stringify(respuestas))
@@ -100,22 +99,23 @@ var preguntas = JSON.parse(sessionStorage.getItem("preguntas"))
 
     function sendForm(){
         event.preventDefault()
-        if(document.getElementById("btn_next").innerHTML === "FINALIZAR"){
-            window.location.href = "../screens/finalizarTest.html";
-        }else{
+        
         //Enviar mini json de respuesta
-        //postAnswer()
+        postAnswer()
 
-        showPregunta(+1)
         //Actualizar json en el local storage
         saveResponse("actual", actual)
         saveResponse("respuestas", JSON.stringify(respuestas))
+        if(document.getElementById("btn_next").innerHTML === "FINALIZAR"){
+            window.location.href = "../screens/finalizarTest.html";
+        }else{
+            showPregunta(+1)
         }
     }
 
     function postAnswer(){
+        //var url = "http://localhost:8080/evaluacion/respuestaTemporal";
         var url = "http://192.168.0.127:8080/evaluacion/respuestaTemporal";
-        
         var respuesta = respuestas[actual]
         
         fetch(url, {
@@ -131,7 +131,7 @@ var preguntas = JSON.parse(sessionStorage.getItem("preguntas"))
             //ACA GUARDAR LA RESPUESTA EN EL LOCAL STORAGE DEL BROWSER
             //JSON CON PREGUNTAS, JSON CON EVALUACION, CREAR EL INDICE PARA RECORRER LAS PREGUNTAS
             //cargar nueva pagina
-            saveResponse("actual", 0)
+            //saveResponse("actual", 0)
         })
         .catch(err => {
             console.error('Caught error: ', err)

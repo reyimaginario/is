@@ -1,4 +1,4 @@
-function createAnswers(){
+export function createAnswers(){
     var lista = [];
     var evId = parseInt(sessionStorage.getItem("evaluacion_id"));
     var preguntas = JSON.parse(sessionStorage.getItem("preguntas"));
