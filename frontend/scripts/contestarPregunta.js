@@ -65,17 +65,17 @@ var preguntas = JSON.parse(sessionStorage.getItem("preguntas"))
 
         actual = actual + offset;
         if (actual < 0) actual = 0;
-        if (actual >= preguntas.length) actual = preguntas.length - 1;
+        if (actual > preguntas.length) actual = preguntas.length - 1;
         
         saveResponse("actual", actual)
         
-        var pregunta = preguntas[actual];
-    
-        document.getElementById("pregTexto").innerText = pregunta.id + " - " + pregunta.texto;
+        //var pregunta = preguntas[actual];
+        var index = respuestas[actual].pregunta
+        document.getElementById("pregTexto").innerText = index + " - " + preguntas[index];
         document.getElementById("btn_true").style.backgroundColor = (respuestas[actual].respuesta === isTrue) ? "#757575" : "";
         document.getElementById("btn_false").style.backgroundColor = (respuestas[actual].respuesta === isFalse) ? "#757575" : "";
         
-        document.getElementById("btn_next").innerHTML = (actual == preguntas.length - 1) ? "FINALIZAR" : "SIGUIENTE";
+        document.getElementById("btn_next").innerHTML = (actual == Object.keys(preguntas).length - 1) ? "FINALIZAR" : "SIGUIENTE";
         
         
         //si es la ultima pregunta finalizar
@@ -114,8 +114,8 @@ var preguntas = JSON.parse(sessionStorage.getItem("preguntas"))
     }
 
     function postAnswer(){
-        //var url = "http://localhost:8080/evaluacion/respuestaTemporal";
-        var url = "http://192.168.0.127:8080/evaluacion/respuestaTemporal";
+        var url = "http://localhost:8080/evaluacion/respuestaTemporal";
+        //var url = "http://192.168.0.127:8080/evaluacion/respuestaTemporal";
         var respuesta = respuestas[actual]
         
         fetch(url, {
@@ -127,11 +127,7 @@ var preguntas = JSON.parse(sessionStorage.getItem("preguntas"))
     
         .then( res => res.json())
         .then( data => {
-            console.log(data)
-            //ACA GUARDAR LA RESPUESTA EN EL LOCAL STORAGE DEL BROWSER
-            //JSON CON PREGUNTAS, JSON CON EVALUACION, CREAR EL INDICE PARA RECORRER LAS PREGUNTAS
-            //cargar nueva pagina
-            //saveResponse("actual", 0)
+            console.log(data)//true
         })
         .catch(err => {
             console.error('Caught error: ', err)
