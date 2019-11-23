@@ -2,6 +2,7 @@ package com.hexsoft.athos.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hexsoft.athos.dtos.*;
+import com.hexsoft.athos.dtos.wrapper.ListaRespuestasTemporalesDTO;
 import com.hexsoft.athos.entities.*;
 import com.hexsoft.athos.repositories.IEvaluacionPsicologicaRepo;
 import com.hexsoft.athos.test.ATest;
@@ -87,6 +88,13 @@ public class EvaluacionPsicologicaService {
         }
 
         return respuesta;
+    }
+
+    public boolean guardarTodasLasRespuestasTemporales(ListaRespuestasTemporalesDTO listaRespuestasTemporalesDTO) {
+        for (RespuestaTemporalDTO respuestaTemporalDTO : listaRespuestasTemporalesDTO.getListaRespuestasTemporalesDTO()) {
+            guardarRespuestaTemporal(respuestaTemporalDTO);
+        }
+        return true;
     }
 
     public EvaluacionPsicologicaDTO crearEvaluacion(EvaluacionPsicologicaDTO evaluacionPsicologicaDTO) {

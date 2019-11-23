@@ -48,17 +48,4 @@ public class SujetoService {
 
 
 
-    /*
-    public List<EvaluacionPsicologicaDAO> obtenerEvaluacionesPsicologicas(String dni) {
-        SujetoDAO sujetoDAO = getSujeto(dni);
-        return sujetoDAO.getListaEvaluacionesPsicologicas();
-    }
-*/
-
-
-
-/*    public List<SujetoDAO> obtenerSujetosPorProfesional(String profesionalDNI) {
-        return sujetoRepo.findByDni(profesionalDNI);
-    }*/
-
 }

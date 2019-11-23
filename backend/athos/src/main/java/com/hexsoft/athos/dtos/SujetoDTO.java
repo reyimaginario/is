@@ -22,20 +22,17 @@ public class SujetoDTO {
 
     public SujetoDTO() {
     }
-
     public SujetoDTO(String dni, String nombre, String apellido) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
     }
-
     public SujetoDTO(String dni, String nombre, String apellido, ProfesionalDTO profesionalDTO) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
         this.profesionalDTO = profesionalDTO;
     }
-
     public SujetoDTO(SujetoDAO sujetoDAO) {
 
         String profesionalDni = sujetoDAO.getProfesionalDAO().getDni();
@@ -55,23 +52,18 @@ public class SujetoDTO {
     public String getDni() {
         return dni;
     }
-
     public void setDni(String dni) {
         this.dni = dni;
     }
-
     public String getNombre() {
         return nombre;
     }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
     public String getApellido() {
         return apellido;
     }
-
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }

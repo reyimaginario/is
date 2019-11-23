@@ -1,6 +1,7 @@
 package com.hexsoft.athos.services;
 
 import com.hexsoft.athos.dtos.RespuestaTemporalDTO;
+import com.hexsoft.athos.dtos.wrapper.ListaRespuestasTemporalesDTO;
 import com.hexsoft.athos.entities.EvaluacionPsicologicaDAO;
 import com.hexsoft.athos.entities.RespuestaDAO;
 import com.hexsoft.athos.entities.RespuestaTemporalDAO;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 @Service
@@ -79,5 +81,4 @@ public class RespuestaTemporalService {
     public RespuestaTemporalDAO guardarRespuestaTemporal(RespuestaTemporalDAO respuestaTemporalDAO) {
         return respuestaTemporalRepo.save(respuestaTemporalDAO);
     }
-
 }
