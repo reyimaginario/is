@@ -167,4 +167,7 @@ public class EvaluacionPsicologicaService {
         }
         return listaRespuestasTemporalesDTO;
     }
+
+    public List<JSONObject> calcularEvaluacion(Long evaluacionId) {
+    }
 }
