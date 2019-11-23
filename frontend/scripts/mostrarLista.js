@@ -62,6 +62,7 @@
         .then( data => {
             console.log("Whatisdis")
             console.log(data)
+            saveResponse("evaluacion_finalizada", data)
         })
         .catch(err => {
             console.error('Caught error: ', err)
@@ -90,4 +91,12 @@
                 setTimeout(() => reject(new Error('timeout')), timeout)
             )
         ]);
+    }
+
+    function saveResponse(name, data){
+        if (typeof(Storage) !== 'undefined') {
+            sessionStorage.setItem(name,data)
+        } else {
+            alert("No hay Local Storage! :c")
+        }
     }
