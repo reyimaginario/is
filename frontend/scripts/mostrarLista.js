@@ -36,6 +36,7 @@
     }
     
     function startTest(){
+        document.getElementById("btn_show").hidden = true
         var pregs = JSON.parse(sessionStorage.getItem("respuestas"))
         //document.getElementById("ela").innerHTML = sessionStorage.getItem("respuestas")
 
@@ -62,7 +63,9 @@
         .then( data => {
             console.log("Whatisdis")
             console.log(data)
-            saveResponse("evaluacion_finalizada", data)
+            saveResponse("evaluacion_finalizada", JSON.stringify(data))
+            document.getElementById("btn_send").hidden = true
+            document.getElementById("btn_show").hidden = false
         })
         .catch(err => {
             console.error('Caught error: ', err)
@@ -80,8 +83,13 @@
             // handle errors and timeout error
             console.log(e)
         })*/
+        
+        //
+    }
 
-        //window.location.href = "../screens/listar_preguntas.html";
+    function showResults(){
+        event.preventDefault()
+        window.location.href = "../screens/show_results.html";
     }
 
     function testFetch (url, options, timeout = 7000) {

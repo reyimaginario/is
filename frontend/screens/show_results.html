@@ -1,26 +1,23 @@
-<!DOCTYPE html>
 <html>
 <head>
     <title>Athos</title>
     <link href="../styles/basic_style.css" rel="stylesheet" type="text/css">
     
-
 </head>
-<body onload="startTest()">
-    <div class="wrap">
-        <form enctype="application/json" class="login-form" method="POST">
 
-
-            <div class="form-group">
-                <button id="btn_next" type = "submit" class="form-button" onclick="sendResults()">SEND RESULTS</button>
+<body onload="crearLista()">
+    <div class="login-form">
+            <div class="form-header">
+                <h3>RESULTADOS</h3>
             </div>
 
-            <div class= "form-footer">
-                <a id="ela" href="../screens/listar_preguntas.html">Volver</a>
-            </div>
-        </form>
+            <table id="lista_preguntas" border="1" cellpadding="20" cellspacing="5" >
+
+            </table></div>
     </div>
 
-    <script src="../scripts/mostrarLista.js"></script>
+    
+    <script src="../scripts/show_results.js"></script>
+
 </body>
-</html> 
+</html>
