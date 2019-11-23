@@ -1,8 +1,11 @@
 package com.hexsoft.athos.test;
 
 import java.util.List;
-import com.hexsoft.athos.entities.Respuesta;
+
+import org.json.simple.JSONObject;
+
+import com.hexsoft.athos.entities.RespuestaDAO;
 
 public interface ICalculador {
-    public String procesarRespuestas(List<Respuesta> respuestas);
+    public JSONObject procesarRespuestas(List<RespuestaDAO> respuestas);
 }

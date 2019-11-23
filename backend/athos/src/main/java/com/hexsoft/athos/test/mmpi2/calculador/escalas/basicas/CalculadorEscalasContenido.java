@@ -12,7 +12,6 @@ import com.hexsoft.athos.test.mmpi2.constantes.ConstantesEscalaContenido;
 public class CalculadorEscalasContenido extends ACalculadorEscalas{
 
 	private static CalculadorEscalasContenido instance;
-	private List<CalculadorSubescalas> subescalas;
 	
 	private CalculadorEscalasContenido() {
 		subescalas = new ArrayList<>();

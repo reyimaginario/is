@@ -13,8 +13,7 @@ import com.hexsoft.athos.test.mmpi2.constantes.ConstantesEscalaBasica;
 public class CalculadorEscalasBasicas extends ACalculadorEscalas {
 
 	private static CalculadorEscalasBasicas instance;
-	private List<CalculadorSubescalas> subescalas;
-	
+
 	private CalculadorEscalasBasicas() {
 		subescalas = new ArrayList<>();
 		CalculadorSubescalas calculadorSubescalaK = new CalculadorSubescalas(ConstantesEscalaBasica.SUBESCALA_K, ConstantesEscalaBasica.K_RESPUESTAS_T, ConstantesEscalaBasica.K_RESPUESTAS_F, ConstantesEscalaBasica.K_MASCULINA, ConstantesEscalaBasica.K_FEMENINA);

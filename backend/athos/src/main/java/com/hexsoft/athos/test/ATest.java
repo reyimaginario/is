@@ -7,14 +7,14 @@ import java.util.List;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 
-import com.hexsoft.athos.entities.Respuesta;
+import com.hexsoft.athos.entities.RespuestaDAO;
 
 public abstract class ATest {
 	private String codigo;
 	private JSONObject preguntas;
 	private ICalculador calculador;
 	
-	public abstract void procesarRespuestas(List<Respuesta> respuestas);
+	public abstract JSONObject procesarRespuestas(List<RespuestaDAO> respuestas);
 	public abstract File obtenerPreguntasComoFile();
 	public abstract JSONObject obtenerPreguntasComoJSON() throws IOException, ParseException;
 }
