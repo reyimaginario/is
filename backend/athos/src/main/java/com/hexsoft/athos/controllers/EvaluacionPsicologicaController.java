@@ -3,6 +3,7 @@ package com.hexsoft.athos.controllers;
 import com.hexsoft.athos.dtos.EvaluacionPsicologicaDTO;
 import com.hexsoft.athos.dtos.RespuestaTemporalDTO;
 import com.hexsoft.athos.services.EvaluacionPsicologicaService;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -46,6 +47,12 @@ public class EvaluacionPsicologicaController {
     @GetMapping(value = "/{evaluacionId}/respuestastemporales")
     public List<RespuestaTemporalDTO> obtenerRespuestasTemporales(@PathVariable(value = "evaluacionId") Long evaluacionId) {
         return evaluacionPsicologicaService.obtenerRespuestasTemporales(evaluacionId);
+    }
+
+
+    @GetMapping(value = "/{evaluacionId}/calcular")
+    public List<JSONObject> calcularEvaluacion(@PathVariable(value = "evaluacionId") Long evaluacionId) {
+        return evaluacionPsicologicaService.calcularEvaluacion(evaluacionId);
     }
 
 
