@@ -48,9 +48,10 @@
 
     function sendResults(){
         event.preventDefault()
-
-        //var end_url= "http://localhost:8080/" + sessionStorage.getItem("evaluacion_id") + "/finalizar"
-        var end_url= "http://192.168.0.127:8080/" + sessionStorage.getItem("evaluacion_id") + "/finalizar"
+        var evId = sessionStorage.getItem("evaluacion_id")
+        //var end_url= "http://localhost:8080/evaluacion/" + sessionStorage.getItem("evaluacion_id") + "/finalizar"
+        var end_url= "http://192.168.0.127:8080/evaluacion/" + String(evId) + "/finalizar"
+        
         console.log(end_url)
 
         fetch(end_url, {
@@ -67,7 +68,26 @@
             alert("Ocurrio un error en GET! :c")
         });
 
+        /*testFetch(end_url, {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'},
+         }, 5000) // throw after max 5 seconds timeout error
+        .then((result) => {
+            console.log(result.json())
+        })
+        .catch((e) => {
+            // handle errors and timeout error
+            console.log(e)
+        })*/
+
         //window.location.href = "../screens/listar_preguntas.html";
     }
 
-    
+    function testFetch (url, options, timeout = 7000) {
+        return Promise.race([
+            fetch(url, options),
+            new Promise((_, reject) =>
+                setTimeout(() => reject(new Error('timeout')), timeout)
+            )
+        ]);
+    }
