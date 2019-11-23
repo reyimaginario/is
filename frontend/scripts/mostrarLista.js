@@ -13,9 +13,9 @@
         var lista = document.getElementById("lista_preguntas");
         var textoResp = "";
         for (i = 1; i < 6/*Object.keys(preguntas).length*/; i++) {
-            if(respuestas[i].respuesta === 1){
+            if(respuestas[i-1].respuesta === 1){
                 textoResp = "True"
-            }else if(respuestas[i].respuesta === 0){
+            }else if(respuestas[i-1].respuesta === 0){
                 textoResp = "False"
             }else{
                 textoResp = "Null"
@@ -49,14 +49,17 @@
     function sendResults(){
         event.preventDefault()
 
-        var end_url= "http://localhost:8080/" + sessionStorage.getItem("evaluacion_id") + "/finalizar"
-        
+        //var end_url= "http://localhost:8080/" + sessionStorage.getItem("evaluacion_id") + "/finalizar"
+        var end_url= "http://192.168.0.127:8080/" + sessionStorage.getItem("evaluacion_id") + "/finalizar"
+        console.log(end_url)
+
         fetch(end_url, {
             method: 'GET',
             headers: {'Content-Type': 'application/json'},
          })
         .then( res => res.json())
         .then( data => {
+            console.log("Whatisdis")
             console.log(data)
         })
         .catch(err => {

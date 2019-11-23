@@ -114,8 +114,8 @@ var preguntas = JSON.parse(sessionStorage.getItem("preguntas"))
     }
 
     function postAnswer(){
-        var url = "http://localhost:8080/evaluacion/respuestaTemporal";
-        //var url = "http://192.168.0.127:8080/evaluacion/respuestaTemporal";
+        //var url = "http://localhost:8080/evaluacion/respuestaTemporal";
+        var url = "http://192.168.0.127:8080/evaluacion/respuestaTemporal";
         var respuesta = respuestas[actual]
         
         fetch(url, {
