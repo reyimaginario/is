@@ -35,6 +35,7 @@ public class CalculadorSubescalas {
 		Integer ptm = subEscalaMasc.get(pb);
 		Integer ptf = subEscalaFem.get(pb);
 		
+		resultado.put("Escala", denominadorEscala);
 		resultado.put(ConstantesEscalaBasica.PB, pb);
 		resultado.put(ConstantesEscalaBasica.PTM, ptm);
 		resultado.put(ConstantesEscalaBasica.PTF, ptf);
