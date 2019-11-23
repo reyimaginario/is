@@ -1,8 +1,7 @@
-//import { createAnswers } from "./crearRespuestas";
 const noRes = -1;
+
 var formulario = document.getElementById("formulario");
 //var url = "http://localhost:8080/evaluacion";
-//var repFactory = require("./crearRespuestas.js")
 
 formulario.addEventListener("submit", function(e){
     e.preventDefault()
@@ -20,18 +19,13 @@ formulario.addEventListener("submit", function(e){
     .then( res => res.json())
     .then( data => {
         console.log(data)
-        //data = createJson()
-        //data.evaluacionId=123
-        //saveResponse("evaluacion", JSON.stringify(data.evaluacion)) //TODO
-        
-        saveResponse("evaluacion_id", JSON.stringify(data.evaluacionId))
-        //saveResponse("preguntas", JSON.stringify(data.listaTestsAplicadosDTO[0].listaPreguntas))
-        saveResponse("actual", 0)
 
-            
+        saveResponse("evaluacion_id", JSON.stringify(data.evaluacionId))
+        saveResponse("actual", 0)
+        
         getPreguntas()
 
-        window.location.href = "pregunta.html";
+        //
         
     })
     .catch(err => {
@@ -59,6 +53,8 @@ function getPreguntas(){
         //ACA createAnswers y guardar en sesStor
         var respuestas = createAnswers(data);
         saveResponse("respuestas", JSON.stringify(respuestas));
+
+        window.location.href = "pregunta.html";
     })
     .catch(err => {
         console.error('Caught error: ', err)

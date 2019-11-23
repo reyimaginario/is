@@ -31,13 +31,13 @@
     }
 
     function volverA(index){
-        sessionStorage.setItem("actual", index)
+        sessionStorage.setItem("actual", index-1)
         window.location.href = "pregunta.html";
     }
     
     function startTest(){
         var pregs = JSON.parse(sessionStorage.getItem("respuestas"))
-        document.getElementById("ela").innerHTML = sessionStorage.getItem("respuestas")
+        //document.getElementById("ela").innerHTML = sessionStorage.getItem("respuestas")
 
     }
     
@@ -48,7 +48,23 @@
 
     function sendResults(){
         event.preventDefault()
-        window.location.href = "../screens/listar_preguntas.html";
+
+        var end_url= "http://localhost:8080/" + sessionStorage.getItem("evaluacion_id") + "/finalizar"
+        
+        fetch(end_url, {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'},
+         })
+        .then( res => res.json())
+        .then( data => {
+            console.log(data)
+        })
+        .catch(err => {
+            console.error('Caught error: ', err)
+            alert("Ocurrio un error en GET! :c")
+        });
+
+        //window.location.href = "../screens/listar_preguntas.html";
     }
 
     
