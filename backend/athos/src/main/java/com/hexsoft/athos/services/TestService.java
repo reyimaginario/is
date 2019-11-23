@@ -2,8 +2,10 @@ package com.hexsoft.athos.services;
 
 import java.util.HashMap;
 
+import com.hexsoft.athos.entities.TestAplicadoDAO;
 import com.hexsoft.athos.test.ATest;
 import com.hexsoft.athos.test.mmpi2.TestMMPI2;
+import org.json.simple.JSONObject;
 
 public class TestService {
 	

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hexsoft.athos.dtos.*;
 import com.hexsoft.athos.entities.*;
 import com.hexsoft.athos.repositories.IEvaluacionPsicologicaRepo;
+import com.hexsoft.athos.test.ATest;
 import com.hexsoft.athos.utils.FechaUtils;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
@@ -19,6 +20,10 @@ import java.util.Optional;
 
 @Service
 public class EvaluacionPsicologicaService {
+
+    private static final Integer FINALIZADO = 1;
+    private static final Integer NO_FINALIZADO = 0;
+
 
     @Autowired
     private IEvaluacionPsicologicaRepo evaluacionPsicologicaRepo;
@@ -117,6 +122,7 @@ public class EvaluacionPsicologicaService {
         evaluacionTmp.setFechaInicio(fechaInicio);
         evaluacionTmp.setMotivo(motivo);
         evaluacionTmp.setListaTestsAplicadosDAO(listaTestsAplicadosDAOTmp);
+        evaluacionTmp.setFinalizado(NO_FINALIZADO);
 
         EvaluacionPsicologicaDTO evaluacionDTO = new EvaluacionPsicologicaDTO(evaluacionPsicologicaRepo.save(evaluacionTmp));
 
@@ -131,14 +137,14 @@ public class EvaluacionPsicologicaService {
         if (evaluacionPsicologicaDAOOptional.isPresent()) {
             evaluacionPsicologicaDAO = evaluacionPsicologicaDAOOptional.get();
 
-            if (evaluacionPsicologicaDAO.getFinalizado() == 1) {
+            if (evaluacionPsicologicaDAO.getFinalizado() == FINALIZADO) {
                 return null;
             }
 
             respuestaTemporalService.finalizarRespuestas(evaluacionPsicologicaDAO);
 
             evaluacionPsicologicaDAO.setFechaFin(FechaUtils.obtenerFechaActual());
-            evaluacionPsicologicaDAO.setFinalizado(1);
+            evaluacionPsicologicaDAO.setFinalizado(FINALIZADO);
             evaluacionPsicologicaDAO.getRespuestasTemporalesDAO().clear();
             evaluacionPsicologicaRepo.save(evaluacionPsicologicaDAO);
 
@@ -169,5 +175,20 @@ public class EvaluacionPsicologicaService {
     }
 
     public List<JSONObject> calcularEvaluacion(Long evaluacionId) {
+
+        List<JSONObject> listaCalculos = new ArrayList<>();
+        TestService testService = TestService.getInstance();
+        ATest test = null;
+
+        EvaluacionPsicologicaDAO evaluacionDAO = obtenerEvaluacionDAO(evaluacionId);
+        for (TestAplicadoDAO testAplicadoDAO : evaluacionDAO.getListaTestsAplicadosDAO()) {
+            JSONObject calculo = null;
+            test = testService.obtenerTest(testAplicadoDAO.getTestCode().toUpperCase());
+            calculo = test.procesarRespuestas(testAplicadoDAO.getListaRespuestasDAO());
+            listaCalculos.add(calculo);
+        }
+
+        return listaCalculos;
+
     }
 }

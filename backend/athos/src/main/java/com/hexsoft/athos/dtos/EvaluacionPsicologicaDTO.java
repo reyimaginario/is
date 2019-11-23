@@ -17,6 +17,7 @@ public class EvaluacionPsicologicaDTO {
     private SujetoDTO sujetoDTO;
     private List<TestAplicadoDTO> listaTestsAplicadosDTO;
     private String informe;
+    private Integer finalizado;
 
 
     public EvaluacionPsicologicaDTO() {
@@ -28,6 +29,7 @@ public class EvaluacionPsicologicaDTO {
         this.sujetoDTO              = new SujetoDTO(evaluacionPsicologicaDAO.getSujetoDAO());
         this.informe                = evaluacionPsicologicaDAO.getInforme();
         this.listaTestsAplicadosDTO = new ArrayList<>();
+        this.finalizado             = evaluacionPsicologicaDAO.getFinalizado();
         if (evaluacionPsicologicaDAO.getFechaInicio() != null) {
             this.fechaInicio = FechaUtils.fechaToString(evaluacionPsicologicaDAO.getFechaInicio());
         }
@@ -39,7 +41,7 @@ public class EvaluacionPsicologicaDTO {
             this.listaTestsAplicadosDTO.add(testAplicadoDTO);
         }
     }
-    public EvaluacionPsicologicaDTO(Long evaluacionId, String fechaInicio, String fechaFin, String motivo, ProfesionalDTO profesionalDTO, SujetoDTO sujetoDTO, List<TestAplicadoDTO> listaTestsAplicadosDTO, String informe) {
+    public EvaluacionPsicologicaDTO(Long evaluacionId, String fechaInicio, String fechaFin, String motivo, ProfesionalDTO profesionalDTO, SujetoDTO sujetoDTO, List<TestAplicadoDTO> listaTestsAplicadosDTO, String informe, Integer finalizado) {
         this.evaluacionId = evaluacionId;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
@@ -48,6 +50,7 @@ public class EvaluacionPsicologicaDTO {
         this.sujetoDTO = sujetoDTO;
         this.listaTestsAplicadosDTO = listaTestsAplicadosDTO;
         this.informe = informe;
+        this.finalizado = finalizado;
     }
 
     public Long getEvaluacionId() {
@@ -98,5 +101,10 @@ public class EvaluacionPsicologicaDTO {
     public void setInforme(String informe) {
         this.informe = informe;
     }
-
+    public Integer getFinalizado() {
+        return finalizado;
+    }
+    public void setFinalizado(Integer finalizado) {
+        this.finalizado = finalizado;
+    }
 }

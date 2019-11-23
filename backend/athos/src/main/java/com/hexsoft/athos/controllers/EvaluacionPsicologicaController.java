@@ -51,10 +51,8 @@ public class EvaluacionPsicologicaController {
 
 
     @GetMapping(value = "/{evaluacionId}/calcular")
-    public List<JSONObject> calcularEvaluacion(@PathVariable(value = "evaluacionId") Long evaluacionId) {
+    public List<JSONObject> calularEvaluacion(@PathVariable(value = "evaluacionId") Long evaluacionId) {
         return evaluacionPsicologicaService.calcularEvaluacion(evaluacionId);
     }
-
-
 
 }

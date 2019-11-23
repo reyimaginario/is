@@ -40,16 +40,6 @@ public class ProfesionalService {
         return profesionalDAO;
     }
 
-/*
-    public List<SujetoDAO> listarSujetosPorProfesional(String dni) {
-        List<SujetoDAO> listaSujetos = null;
-        ProfesionalDAO profesionalDAO = obtenerProfesional(dni);
-        if (profesionalDAO != null) {
-            listaSujetos = profesionalDAO.getListaSujetos();
-        }
-        return listaSujetos;
-    }
-*/
 
     public List<ProfesionalDTO> obtenerTodosLosProfesionales() {
         List<ProfesionalDAO> listaProfesionalesDAO = profesionalRepo.findAll();

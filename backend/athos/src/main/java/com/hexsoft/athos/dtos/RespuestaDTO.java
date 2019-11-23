@@ -11,8 +11,9 @@ public class RespuestaDTO {
     public RespuestaDTO() {
     }
     public RespuestaDTO(RespuestaDAO respuestaDAO) {
-        this.pregunta  = respuestaDAO.getPregunta();
-        this.respuesta = respuestaDAO.getRespuesta();
+        this.respuestaId = respuestaDAO.getRespuestaId();
+        this.pregunta    = respuestaDAO.getPregunta();
+        this.respuesta   = respuestaDAO.getRespuesta();
     }
     public RespuestaDTO(Long respuestaId, Integer pregunta, Integer respuesta) {
         this.respuestaId = respuestaId;
