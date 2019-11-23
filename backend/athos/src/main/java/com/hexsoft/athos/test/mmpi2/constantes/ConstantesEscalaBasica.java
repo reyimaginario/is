@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class ConstantesEscalaBasica {
 	
-	public static final String BASICAS = "BASICAS";
+	public static final String BASICAS = "Basicas";
 	public static final String PB = "PB";
 	public static final String PTM = "PTM";
 	public static final String PTF = "PTF";

@@ -93,7 +93,7 @@ public class CalculadorSubescalaVRIN extends CalculadorSubescalas {
 			String valor1 = parAChequear[1];
 			String respuesta2 = parAChequear[2];
 			String valor2 = parAChequear[3];
-			if (respuestas.get(respuesta1).equals(valor1) && respuestas.get(respuesta2).equals(valor2)) {
+			if (respuestas.get(respuesta1) != null && respuestas.get(respuesta1).equals(valor1) && respuestas.get(respuesta2) != null && respuestas.get(respuesta2).equals(valor2)) {
 				pb = (pb + 1);
 			}
 		}
