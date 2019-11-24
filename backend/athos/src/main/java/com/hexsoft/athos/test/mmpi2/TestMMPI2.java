@@ -17,7 +17,7 @@ public class TestMMPI2 extends ATest {
 	public static final String CODIGO = "MMPI2";
 	private static final String PATH_PREGUNTAS = "src\\main\\java\\com\\hexsoft\\athos\\test\\mmpi2\\preguntas_mmpi2.json";
 	private static final CalculadorMMPI2 calculador = new CalculadorMMPI2();
-	
+
 	@Override
 	public JSONObject procesarRespuestas(List<RespuestaDAO> respuestas) {
 		return calculador.procesarRespuestas(respuestas);

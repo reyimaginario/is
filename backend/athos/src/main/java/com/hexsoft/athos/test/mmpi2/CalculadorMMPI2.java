@@ -21,8 +21,8 @@ public class CalculadorMMPI2 implements ICalculador {
 	public JSONObject procesarRespuestas(List<RespuestaDAO> respuestas) {
 		JSONObject respuestasJSON = pasarRespuestasAJSON(respuestas);
 		return construirEscalas(respuestasJSON);
-	}	
-	
+	}
+
 	private JSONObject pasarRespuestasAJSON(List<RespuestaDAO> respuestas) {
 		JSONObject resultado =  new JSONObject();
 		for (RespuestaDAO respuestaDAO : respuestas) {

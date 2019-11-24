@@ -1,0 +1,51 @@
+{
+    "evaluacionId": 123,
+    "fechaInicio": "",
+    "fechaFin": "",
+    "motivo": "psicotecnico",
+    "profesionalDTO": {
+        "dni": "11222333",
+        "matricula": "",
+        "nombre": "",
+        "apellido": "",
+        "listaSujetosDTO": []
+    },
+    "sujetoDTO": {
+        "dni": "36259513",
+        "nombre": "si",
+        "apellido": "si",
+        "localidad": "si",
+        "edad": 21,
+        "genero": "si",
+        "nivelDeEstudio": "si",
+        "ocupacion": "si",
+        "profesionalDTO": {
+            "dni": "11222333",
+            "nombre": "",
+            "matricula": "",
+            "apellido": "",
+            "listaSujetosDTO": []
+        }
+    },
+    "listaTestsAplicadosDTO": [{
+        "testCode":"mmpi2",
+        "listaPreguntas":[{
+            "id": "001",
+            "texto": "mayor a 18?"
+        },
+        {
+            "id": "002",
+            "texto": "mayor a 21?"
+        },
+        {
+            "id": "003",
+            "texto": "mayor a 40?"
+        },
+        {
+            "id": "004",
+            "texto": "mayor a 70?"
+        }],
+        "listaRespuestasDTO":[]
+    }],
+    "informe": ""
+}

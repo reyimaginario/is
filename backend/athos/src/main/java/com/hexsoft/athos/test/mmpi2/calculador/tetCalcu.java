@@ -28,7 +28,7 @@ public class tetCalcu {
 		System.out.println(calcu.construirEscalas(respuestasJSON));*/
 
     }
-	
+
 	public static JSONArray obtenerRtasTemporalesDAO() throws Exception{
 		JSONObject respuestasJSON = (JSONObject) readJsonSimpleDemo("src\\main\\java\\com\\hexsoft\\athos\\test\\mmpi2\\calculador\\respuestas.json");
 		Boolean exit = Boolean.FALSE;
@@ -48,7 +48,7 @@ public class tetCalcu {
 		}
 		return rtas;
 	}
-	
+
 	private static Integer decode(String value) {
 		Integer result = null;
 		switch (value) {
