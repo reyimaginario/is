@@ -1108,8 +1108,8 @@ public class ConstantesEscalaSuplementaria{
 	}
 	
 	public static final String SUBESCALA_AAS = "SUBESCALA_AAS";
-	public static final Integer[] AAS_RESPUESTAS_T =     new Integer[] {};
-	public static final Integer[] AAS_RESPUESTAS_F =     new Integer[] {};
+	public static final Integer[] AAS_RESPUESTAS_T =     new Integer[] {172, 264, 288, 362, 387, 487, 489, 511, 527, 544};
+	public static final Integer[] AAS_RESPUESTAS_F =     new Integer[] {266, 429, 501};
 	public static final HashMap<Integer, Integer> AAS_MASCULINA = new HashMap<>();
 	static {
 		AAS_MASCULINA.put(13, 100);

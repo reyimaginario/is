@@ -7,7 +7,7 @@ formulario.addEventListener("submit", function(e){
     e.preventDefault()
 
     //var url = "http://localhost:8080/evaluacion";
-    var url = "http://192.168.0.127:8080/evaluacion";
+    var url = "http://localhost:8080/evaluacion";
     var evaluacion = createJson()
     
     fetch(url, {
@@ -38,7 +38,7 @@ formulario.addEventListener("submit", function(e){
 });
 
 function getPreguntas(){
-    var url = "http://192.168.0.127:8080/test/mmpi2/preguntas"
+    var url = "http://localhost:8080/test/mmpi2/preguntas"
     //var url = "http://localhost:8080/test/mmpi2/preguntas"
     fetch(url, {
         method: 'GET',

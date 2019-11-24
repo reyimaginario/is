@@ -16,7 +16,7 @@ import com.hexsoft.athos.services.TestService;
 import com.hexsoft.athos.test.ConstantestServicioTest;
 import com.hexsoft.athos.test.mmpi2.CalculadorMMPI2;
 import com.hexsoft.athos.test.mmpi2.TestMMPI2;
-import com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorEscalasAdicionalesDeValidez;
+import com.hexsoft.athos.test.mmpi2.calculador.escalas.CalculadorEscalasAdicionalesDeValidez;
 
 public class tetCalcu {
 

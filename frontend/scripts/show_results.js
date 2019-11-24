@@ -346,7 +346,7 @@ var jason ={
   }
     
 function showResults(){
-    var url = "http://192.168.0.127:8080/evaluacion/" + sessionStorage.getItem("evaluacion_id") + "/calcular"
+    var url = "http://localhost:8080/evaluacion/" + sessionStorage.getItem("evaluacion_id") + "/calcular"
     fetch(url, {
         method: 'GET',
         headers: {'Content-Type': 'application/json'},

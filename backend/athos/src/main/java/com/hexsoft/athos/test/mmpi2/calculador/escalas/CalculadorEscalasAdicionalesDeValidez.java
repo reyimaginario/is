@@ -1,4 +1,4 @@
-package com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas;
+package com.hexsoft.athos.test.mmpi2.calculador.escalas;
 
 import java.util.ArrayList;
 

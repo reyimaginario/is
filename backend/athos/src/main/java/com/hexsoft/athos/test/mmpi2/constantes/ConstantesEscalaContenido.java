@@ -856,8 +856,8 @@ public class ConstantesEscalaContenido{
 	}
 	
 	public static final String SUBESCALA_TRT = "SUBESCALA_TRT";
-	public static final Integer[] TRT_RESPUESTAS_T =     new Integer[] {};
-	public static final Integer[] TRT_RESPUESTAS_F =     new Integer[] {};
+	public static final Integer[] TRT_RESPUESTAS_T =     new Integer[] {22, 92, 274, 306, 364, 368, 373, 375, 376, 377, 391, 399, 482, 488, 491, 495, 497, 499, 500, 504, 528, 539, 554};
+	public static final Integer[] TRT_RESPUESTAS_F =     new Integer[] {493, 494, 501};
 	public static final HashMap<Integer, Integer> TRT_MASCULINA = new HashMap<>();
 	static {
 		TRT_MASCULINA.put(26,104);

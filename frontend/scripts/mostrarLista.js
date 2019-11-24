@@ -51,7 +51,7 @@
         event.preventDefault()
         var evId = sessionStorage.getItem("evaluacion_id")
         //var end_url= "http://localhost:8080/evaluacion/" + sessionStorage.getItem("evaluacion_id") + "/finalizar"
-        var end_url= "http://192.168.0.127:8080/evaluacion/" + String(evId) + "/finalizar"
+        var end_url= "http://localhost:8080/evaluacion/" + String(evId) + "/finalizar"
         
         console.log(end_url)
 

@@ -6,10 +6,10 @@ import org.json.simple.JSONObject;
 
 import com.hexsoft.athos.entities.RespuestaDAO;
 import com.hexsoft.athos.test.ICalculador;
-import com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorEscalasAdicionalesDeValidez;
-import com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorEscalasBasicas;
-import com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorEscalasContenido;
-import com.hexsoft.athos.test.mmpi2.calculador.escalas.basicas.CalculadorEscalasSuplementarias;
+import com.hexsoft.athos.test.mmpi2.calculador.escalas.CalculadorEscalasAdicionalesDeValidez;
+import com.hexsoft.athos.test.mmpi2.calculador.escalas.CalculadorEscalasBasicas;
+import com.hexsoft.athos.test.mmpi2.calculador.escalas.CalculadorEscalasContenido;
+import com.hexsoft.athos.test.mmpi2.calculador.escalas.CalculadorEscalasSuplementarias;
 import com.hexsoft.athos.test.mmpi2.constantes.ConstantesEscalaAdicionalesDeValidez;
 import com.hexsoft.athos.test.mmpi2.constantes.ConstantesEscalaBasica;
 import com.hexsoft.athos.test.mmpi2.constantes.ConstantesEscalaContenido;
