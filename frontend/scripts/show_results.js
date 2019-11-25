@@ -362,7 +362,7 @@ function showResults(){
     });
 }
 
-var titulos = ["Contenido","Suplementarias", "Basicas","Adicionales de Validez"]
+var titulos = ["Basicas", "Contenido", "Suplementarias", "Adicionales de Validez"]
 
 function crearLista(){
     showResults()
@@ -398,7 +398,7 @@ function crearTabla(titulo) {
     body.appendChild(topRow);
     topRow.innerHTML = "<td><a>Escala</a></td>" + 
                         "<td><a>PB</a></td>" +
-                        "<td><a>PTM</a></td>" +
+                        "<td><a>PTF</a></td>" +
                         "<td><a>PTM</a></td>";
 
     for (i = 0; i < lista.length; i++) {
