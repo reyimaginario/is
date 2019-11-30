@@ -10,7 +10,6 @@ formulario.addEventListener("submit", function(e){
     
     fetch(url, {
         method: 'POST',
-        //mode: 'no-cors',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(evaluacion) 
     })
@@ -67,9 +66,33 @@ function loadSelect(opciones) {
         
         var container = document.createElement("option");
         container.id = "genero" + opciones[i].generoId;
-        //container.className = "form-group";
+        container.value = opciones[i].generoId;
         lista.appendChild(container);
         container.innerHTML = opciones[i].genero;
+    }
+}
+
+function cargarGeneros(opciones) {
+    var lista = document.getElementById("generos")
+    for (i = 0; i < Object.keys(opciones).length; i++){
+        
+        var container = document.createElement("option");
+        container.id = "estudio" + opciones[i].generoId;
+        container.value = opciones[i].generoId;
+        lista.appendChild(container);
+        container.innerHTML = opciones[i].genero;
+    }
+}
+
+function cargarEstudios(opciones) {
+    var lista = document.getElementById("estudios")
+    for (i = 0; i < Object.keys(opciones).length; i++){
+        
+        var container = document.createElement("option");
+        container.id = "estudio" + opciones[i].estudioId;
+        container.value = opciones[i].estudioId;
+        lista.appendChild(container);
+        container.innerHTML = opciones[i].estudio;
     }
 }
 
@@ -87,6 +110,21 @@ function cargarPantalla(){
     .catch(err => {
         console.error('Caught error: ', err)
         alert("Ocurrio un error en GET genero! :c")
+    });
+    
+    url = base_url + "/estudios"
+    
+    fetch(url, {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'},
+    })
+    .then( res => res.json())
+    .then( data => {
+        cargarEstudios(data)
+    })
+    .catch(err => {
+        console.error('Caught error: ', err)
+        alert("Ocurrio un error en GET estudios! :c")
     });
 }
 

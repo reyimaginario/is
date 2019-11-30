@@ -3,9 +3,8 @@
 <head>
     <title>Athos</title>
     <link href="../styles/basic_style.css" rel="stylesheet" type="text/css">
-    
-
 </head>
+
 <body onload="cargarPantalla()">
     <div class="wrap">
         <form id="formulario" enctype="application/json" class="login-form">
@@ -14,21 +13,26 @@
                 <p>Complete sus datos para comenzar el test</p>
             </div>
 
-            <div class="form-group"><input required type="number" name="dni" placeholder="Ingrese dni" class="form-input"></div>
-            <div class="form-group"><input required type="text" name="nombre" placeholder="Ingrese nombre" class="form-input"></div>
-            <div class="form-group"><input required type="text" name="apellido" placeholder="Ingrese apellido" class="form-input"></div>
-            <div class="form-group"><input required type="text" name="localidad" placeholder="Ingrese localidad" class="form-input"></div>
-            <div class="form-group"><input required type="number" name="edad" placeholder="Ingrese edad" class="form-input"></div>
+            <div class="form-group"><input required min="0" type="number" name="dni" placeholder="Ingrese dni" class="form-input"></div>
+            <div class="form-group"><input required type="text" pattern="[A-Za-z]" name="nombre" placeholder="Ingrese nombre" class="form-input"></div>
+            <div class="form-group"><input required type="text" pattern="[A-Za-z]" name="apellido" placeholder="Ingrese apellido" class="form-input"></div>
+            <div class="form-group"><input required type="text" pattern="[A-Za-z]" name="localidad" placeholder="Ingrese localidad" class="form-input"></div>
+            <div class="form-group"><input required min="18" max="84" type="number" name="edad" placeholder="Ingrese edad" class="form-input"></div>
             
             <div class="form-group">
-                <select id="generos" class="form-input" required placeholder="Ingrese genero" name="genero">
-                        <option disabled selected value="default">Ingrese género</option>
+                <select id="generos" class="form-input" required>
+                        <option value="" hidden>Ingrese género</option>
                 </select>
             </div>
             
-            <div class="form-group"><input required type="text" name="nivelDeEstudio" placeholder="Ingrese nivel de estudio" class="form-input"></div>
+            <div class="form-group">
+                <select id="estudios" class="form-input" required>
+                        <option value="" hidden>Ingrese mayor nivel de estudios alcanzado</option>
+                </select>
+            </div>
+            
             <div class="form-group"><input required type="text" name="ocupacion" placeholder="Ingrese ocupacion" class="form-input"></div>
-
+            
             <div class="form-group">
                 <button id="btn_login" type = "submit" class="form-button">Start Test</button>
             </div>
