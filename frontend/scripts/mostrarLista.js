@@ -12,7 +12,7 @@
         //console.log(preguntas)
         var lista = document.getElementById("lista_preguntas");
         var textoResp = "";
-        for (i = 1; i < 6/*Object.keys(preguntas).length*/; i++) {
+        for (i = 1; i < Object.keys(preguntas).length; i++) {
             if(respuestas[i-1].respuesta === 1){
                 textoResp = "True"
             }else if(respuestas[i-1].respuesta === 0){
@@ -24,7 +24,7 @@
             container.id = "pregunta" + i;
             container.className = "form-group";
             lista.appendChild(container);
-            container.innerHTML = "<td><a href='' onclick='volverA(" + i + ")' id='pregId" + i + "'>" + respuestas[i-1].pregunta + "</a></td>" + 
+            container.innerHTML = "<td><a href='../screens/pregunta.html' onclick='volverA(" + i + ")' id='pregId" + i + "'>" + respuestas[i-1].pregunta + "</a></td>" + 
                                     "<td><a class='tab' id='pregText" + i + "'> - " + preguntas[i] + " - </a></td>" +
                                     "<td><a class='tab' id='pregText" + i + "'>" + textoResp + "</a></td>";
         }
@@ -32,7 +32,7 @@
 
     function volverA(index){
         sessionStorage.setItem("actual", index-1)
-        window.location.href = "pregunta.html";
+        window.location.href = "../screens/pregunta.html";
     }
     
     function startTest(){

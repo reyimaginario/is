@@ -364,8 +364,10 @@ function showResults(){
 
 var titulos = ["Basicas", "Contenido", "Suplementarias", "Adicionales de Validez"]
 
-function crearLista(){
-    showResults()
+async function crearLista(){
+    await showResults()
+
+
 
     jason = JSON.parse(sessionStorage.getItem("resultados"))
     console.log(jason)

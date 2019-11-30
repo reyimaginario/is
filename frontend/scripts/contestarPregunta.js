@@ -117,7 +117,7 @@ var preguntas = JSON.parse(sessionStorage.getItem("preguntas"))
         //var url = "http://localhost:8080/evaluacion/respuestaTemporal";
         var url = "http://localhost:8080/evaluacion/respuestaTemporal";
         var respuesta = respuestas[actual]
-        
+        console.log(respuesta)
         fetch(url, {
             method: 'POST',
             //mode: 'no-cors',
@@ -131,7 +131,7 @@ var preguntas = JSON.parse(sessionStorage.getItem("preguntas"))
         })
         .catch(err => {
             console.error('Caught error: ', err)
-            alert("Ocurrio un error! :c")
+            //alert("Ocurrio un error! :c")
         });
     }
 
