@@ -1,13 +1,11 @@
 const noRes = -1;
-
+const base_url = "http://192.168.0.127:8080"
 var formulario = document.getElementById("formulario");
-//var url = "http://localhost:8080/evaluacion";
 
 formulario.addEventListener("submit", function(e){
     e.preventDefault()
-
-    //var url = "http://localhost:8080/evaluacion";
-    var url = "http://localhost:8080/evaluacion";
+    
+    var url = base_url + "/evaluacion";
     var evaluacion = createJson()
     
     fetch(url, {
@@ -25,27 +23,19 @@ formulario.addEventListener("submit", function(e){
         saveResponse("actual", 0)
         
         getPreguntas()
-
-        //
-        
     })
     .catch(err => {
         console.error('Caught error: ', err)
         alert("Ocurrio un error en POST! :c")
-    });
-
-    
+    });    
 });
 
 function getPreguntas(){
-    var url = "http://localhost:8080/test/mmpi2/preguntas"
-    //var url = "http://localhost:8080/test/mmpi2/preguntas"
+    var url = base_url + "/test/mmpi2/preguntas"
+    
     fetch(url, {
         method: 'GET',
-        //credentials: 'include',
-        //mode: 'no-cors',
-        headers: {'Content-Type': 'application/json'},
-        //body: JSON.stringify(booty) //{"username": "mediavla", "password": "123"}//datos
+        headers: {'Content-Type': 'application/json'}
     })
     .then( res => res.json())
     .then( data => {
@@ -61,9 +51,7 @@ function getPreguntas(){
         console.error('Caught error: ', err)
         alert("Ocurrio un error en GET! :c")
     });
-
 }
-
 
 function saveResponse(name, data){
     if (typeof(Storage) !== 'undefined') {
@@ -73,15 +61,39 @@ function saveResponse(name, data){
     }
 }
 
+function loadSelect(opciones) {
+    var lista = document.getElementById("generos")
+    for (i = 0; i < Object.keys(opciones).length; i++){
+        
+        var container = document.createElement("option");
+        container.id = "genero" + opciones[i].generoId;
+        //container.className = "form-group";
+        lista.appendChild(container);
+        container.innerHTML = opciones[i].genero;
+    }
+}
 
+function cargarPantalla(){
+    var url = base_url + "/genero"
+    
+    fetch(url, {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'},
+    })
+    .then( res => res.json())
+    .then( data => {
+        loadSelect(data)
+    })
+    .catch(err => {
+        console.error('Caught error: ', err)
+        alert("Ocurrio un error en GET genero! :c")
+    });
+}
 
 function createAnswers(preguntas){
     var lista = [];
     var evId = parseInt(sessionStorage.getItem("evaluacion_id"));
-    //var preguntas = JSON.parse(sessionStorage.getItem("preguntas"));
     
-    //if(JSON.parse(sessionStorage.getItem("respuestas")) === null){
-        
     for (i = 1; i <= Object.keys(preguntas).length; i++){
         var respuesta = {
             "evaluacionId": evId,
@@ -92,9 +104,6 @@ function createAnswers(preguntas){
         lista.push(respuesta);
     }
     return lista
-    /*}else{
-        return JSON.parse(sessionStorage.getItem("respuestas"))
-    }*/
 }
 
 function createJson(){

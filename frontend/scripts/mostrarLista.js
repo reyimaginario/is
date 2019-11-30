@@ -71,20 +71,6 @@
             console.error('Caught error: ', err)
             alert("Ocurrio un error en GET! :c")
         });
-
-        /*testFetch(end_url, {
-            method: 'GET',
-            headers: {'Content-Type': 'application/json'},
-         }, 5000) // throw after max 5 seconds timeout error
-        .then((result) => {
-            console.log(result.json())
-        })
-        .catch((e) => {
-            // handle errors and timeout error
-            console.log(e)
-        })*/
-        
-        //
     }
 
     function showResults(){
