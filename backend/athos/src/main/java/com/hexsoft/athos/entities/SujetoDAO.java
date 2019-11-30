@@ -57,6 +57,18 @@ public class SujetoDAO {
         this.listaEvaluacionesPsicologicasDAO = listaEvaluacionesPsicologicasDAO;
     }
 
+    public SujetoDAO(String dni, @NotEmpty String nombre, @NotEmpty String apellido, String localidad, String edad, String genero, String nivelDeEstudio, String ocupacion, ProfesionalDAO profesionalDAO, List<EvaluacionPsicologicaDAO> listaEvaluacionesPsicologicasDAO) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.localidad = localidad;
+        this.edad = edad;
+        this.genero = genero;
+        this.nivelDeEstudio = nivelDeEstudio;
+        this.ocupacion = ocupacion;
+        this.profesionalDAO = profesionalDAO;
+        this.listaEvaluacionesPsicologicasDAO = listaEvaluacionesPsicologicasDAO;
+    }
 
     public String getDni() {
         return dni;
@@ -89,4 +101,43 @@ public class SujetoDAO {
         this.listaEvaluacionesPsicologicasDAO = listaEvaluacionesPsicologicasDAO;
     }
 
+    public String getLocalidad() {
+        return localidad;
+    }
+
+    public void setLocalidad(String localidad) {
+        this.localidad = localidad;
+    }
+
+    public String getEdad() {
+        return edad;
+    }
+
+    public void setEdad(String edad) {
+        this.edad = edad;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getNivelDeEstudio() {
+        return nivelDeEstudio;
+    }
+
+    public void setNivelDeEstudio(String nivelDeEstudio) {
+        this.nivelDeEstudio = nivelDeEstudio;
+    }
+
+    public String getOcupacion() {
+        return ocupacion;
+    }
+
+    public void setOcupacion(String ocupacion) {
+        this.ocupacion = ocupacion;
+    }
 }

@@ -47,7 +47,6 @@ public class EvaluacionPsicologicaDAO {
 
     public EvaluacionPsicologicaDAO() {
     }
-
     public EvaluacionPsicologicaDAO(Long evaluacionId, Date fechaInicio, Date fechaFin, String motivo, ProfesionalDAO profesionalDAO, SujetoDAO sujetoDAO, List<TestAplicadoDAO> listaTestsAplicadosDAO, String informe, List<RespuestaTemporalDAO> respuestasTemporalesDAO, Integer finalizado) {
         this.evaluacionId = evaluacionId;
         this.fechaInicio = fechaInicio;
@@ -121,4 +120,5 @@ public class EvaluacionPsicologicaDAO {
     public void setFinalizado(Integer finalizado) {
         this.finalizado = finalizado;
     }
+
 }

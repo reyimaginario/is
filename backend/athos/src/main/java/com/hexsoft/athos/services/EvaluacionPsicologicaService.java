@@ -41,6 +41,9 @@ public class EvaluacionPsicologicaService {
     @Autowired
     private TestAplicadoService testAplicadoService;
 
+    @Autowired
+    private BaremoService baremoService;
+
     private TestService testService = TestService.getInstance();
 
 
@@ -158,7 +161,24 @@ public class EvaluacionPsicologicaService {
 
         }
 
+        agregarBaremo(evaluacionId);
+
         return new EvaluacionPsicologicaDTO(evaluacionPsicologicaDAO);
+    }
+
+    private void agregarBaremo(Long evaluacionId) {
+
+        List<JSONObject> listaResultados = calcularEvaluacion(evaluacionId);
+
+        EvaluacionPsicologicaDAO evaluacionPsicologicaDAO = obtenerEvaluacionDAO(evaluacionId);
+        SujetoDAO sujetoDAO = evaluacionPsicologicaDAO.getSujetoDAO();
+        SujetoAnonimo sujetoAnonimo = new SujetoAnonimo( sujetoDAO.getLocalidad()
+                                                        ,sujetoDAO.getEdad()
+                                                        ,sujetoDAO.getGenero()
+                                                        ,sujetoDAO.getNivelDeEstudio()
+                                                        ,sujetoDAO.getOcupacion());
+
+        baremoService.guardarBaremo(sujetoAnonimo, listaResultados);
     }
 
     public List<EvaluacionPsicologicaDTO> obtenerEvaluaciones() {
@@ -199,4 +219,5 @@ public class EvaluacionPsicologicaService {
         return listaCalculos;
 
     }
+
 }

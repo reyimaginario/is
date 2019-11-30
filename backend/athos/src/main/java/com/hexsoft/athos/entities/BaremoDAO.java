@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "baremo")
-public class BaremoDTO {
+public class BaremoDAO {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -77,9 +77,9 @@ public class BaremoDTO {
     private Integer trin;
 
 
-    public BaremoDTO() {
+    public BaremoDAO() {
     }
-    public BaremoDTO(Long baremoId, String localidad, String edad, String genero, String nivelDeEstudio, String ocupacion, Integer basica_l, Integer basica_f, Integer basica_k, Integer basica_hs, Integer basica_d, Integer basica_hy, Integer basica_pd, Integer basica_mf_m, Integer basica_mf_f, Integer basica_pa, Integer basica_pt, Integer basica_sc, Integer basica_ma, Integer basica_si, Integer contenido_anx, Integer contenido_frs, Integer contenido_obs, Integer contenido_dep, Integer contenido_hea, Integer contenido_biz, Integer contenido_ang, Integer contenido_cyn, Integer contenido_asp, Integer contenido_tpa, Integer contenido_lse, Integer contenido_sod, Integer contenido_fam, Integer contenido_wrk, Integer contenido_trt, Integer suplementarias_a, Integer suplementarias_r, Integer suplementarias_es, Integer suplementarias_mac_r, Integer suplementarias_o_h, Integer suplementarias_do, Integer suplementarias_re, Integer suplementarias_mt, Integer suplementarias_gm, Integer suplementarias_gf, Integer suplementarias_pk, Integer suplementarias_ps, Integer suplementarias_si1, Integer suplementarias_si2, Integer suplementarias_si3, Integer suplementarias_mds, Integer suplementarias_aps, Integer suplementarias_aas, Integer fb_back, Integer f_p, Integer ds, Integer ds_r, Integer s, Integer sd, Integer so, Integer vrin, Integer trin) {
+    public BaremoDAO(Long baremoId, String localidad, String edad, String genero, String nivelDeEstudio, String ocupacion, Integer basica_l, Integer basica_f, Integer basica_k, Integer basica_hs, Integer basica_d, Integer basica_hy, Integer basica_pd, Integer basica_mf_m, Integer basica_mf_f, Integer basica_pa, Integer basica_pt, Integer basica_sc, Integer basica_ma, Integer basica_si, Integer contenido_anx, Integer contenido_frs, Integer contenido_obs, Integer contenido_dep, Integer contenido_hea, Integer contenido_biz, Integer contenido_ang, Integer contenido_cyn, Integer contenido_asp, Integer contenido_tpa, Integer contenido_lse, Integer contenido_sod, Integer contenido_fam, Integer contenido_wrk, Integer contenido_trt, Integer suplementarias_a, Integer suplementarias_r, Integer suplementarias_es, Integer suplementarias_mac_r, Integer suplementarias_o_h, Integer suplementarias_do, Integer suplementarias_re, Integer suplementarias_mt, Integer suplementarias_gm, Integer suplementarias_gf, Integer suplementarias_pk, Integer suplementarias_ps, Integer suplementarias_si1, Integer suplementarias_si2, Integer suplementarias_si3, Integer suplementarias_mds, Integer suplementarias_aps, Integer suplementarias_aas, Integer fb_back, Integer f_p, Integer ds, Integer ds_r, Integer s, Integer sd, Integer so, Integer vrin, Integer trin) {
         this.baremoId = baremoId;
         this.localidad = localidad;
         this.edad = edad;
