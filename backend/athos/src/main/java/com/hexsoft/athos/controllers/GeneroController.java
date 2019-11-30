@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "genero")
+@RequestMapping(value = "/genero")
 public class GeneroController {
 
     @Autowired
