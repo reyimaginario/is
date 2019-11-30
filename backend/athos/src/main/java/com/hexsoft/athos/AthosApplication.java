@@ -1,5 +1,9 @@
 package com.hexsoft.athos;
 
+import com.hexsoft.athos.controllers.GeneroController;
+import com.hexsoft.athos.entities.GeneroDAO;
+import com.hexsoft.athos.services.GeneroService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -25,6 +29,8 @@ public class AthosApplication {
 			}
 		};
 	}
+
+
 
 
 }
