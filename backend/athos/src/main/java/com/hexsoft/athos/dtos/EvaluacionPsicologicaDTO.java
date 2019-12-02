@@ -1,6 +1,8 @@
 package com.hexsoft.athos.dtos;
 
 import com.hexsoft.athos.entities.EvaluacionPsicologicaDAO;
+import com.hexsoft.athos.entities.ProfesionalDAO;
+import com.hexsoft.athos.entities.SujetoDAO;
 import com.hexsoft.athos.entities.TestAplicadoDAO;
 import com.hexsoft.athos.utils.FechaUtils;
 
@@ -106,5 +108,41 @@ public class EvaluacionPsicologicaDTO {
     }
     public void setFinalizado(Integer finalizado) {
         this.finalizado = finalizado;
+    }
+
+
+    public EvaluacionPsicologicaDTO sinSujetoNiProfesional() {
+        EvaluacionPsicologicaDTO evaluacionTmp = new EvaluacionPsicologicaDTO(getEvaluacionId()
+                                                                            , getFechaInicio()
+                                                                            , getFechaFin()
+                                                                            , getMotivo()
+                                                                            , new ProfesionalDTO()
+                                                                            , new SujetoDTO()
+                                                                            , getListaTestsAplicadosDTO()
+                                                                            , getInforme()
+                                                                            , getFinalizado());
+        return evaluacionTmp;
+    }
+
+    public EvaluacionPsicologicaDAO toDAO() {
+        ProfesionalDAO profesionalDAO = new ProfesionalDAO(getProfesionalDTO().getDni());
+        SujetoDAO sujetoDAO = new SujetoDAO(getSujetoDTO().getDni());
+        List<TestAplicadoDAO> listaTestsAplicadosDAO = new ArrayList<>();
+        for (TestAplicadoDTO testAplicadoDTO : getListaTestsAplicadosDTO()) {
+            TestAplicadoDAO testAplicadoDAO = testAplicadoDTO.toDAO();
+            listaTestsAplicadosDAO.add(testAplicadoDAO);
+        }
+
+        EvaluacionPsicologicaDAO evaluacionPsicologicaDAO = new EvaluacionPsicologicaDAO( getEvaluacionId()
+                , FechaUtils.stringToDate(getFechaInicio())
+                , FechaUtils.stringToDate(getFechaFin())
+                , getMotivo()
+                , profesionalDAO
+                , sujetoDAO
+                , listaTestsAplicadosDAO
+                , getInforme()
+                , getFinalizado());
+
+        return evaluacionPsicologicaDAO;
     }
 }

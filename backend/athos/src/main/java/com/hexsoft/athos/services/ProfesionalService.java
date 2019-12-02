@@ -4,6 +4,7 @@ import com.hexsoft.athos.dtos.ProfesionalDTO;
 import com.hexsoft.athos.dtos.SujetoDTO;
 import com.hexsoft.athos.entities.ProfesionalDAO;
 import com.hexsoft.athos.entities.SujetoDAO;
+import com.hexsoft.athos.exceptions.NoExisteElProfesionalException;
 import com.hexsoft.athos.repositories.IProfesionalRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,15 +28,18 @@ public class ProfesionalService {
         return new ProfesionalDTO(profesionalRepo.save(profesionalDAO));
     }
 
-    public ProfesionalDTO obtenerProfesional(String dni) {
+    public ProfesionalDTO obtenerProfesional(String dni) throws NoExisteElProfesionalException {
         return new ProfesionalDTO(obtenerProfesionalDAO(dni));
     }
 
-    public ProfesionalDAO obtenerProfesionalDAO(String dni) {
+    public ProfesionalDAO obtenerProfesionalDAO(String dni) throws NoExisteElProfesionalException {
         ProfesionalDAO profesionalDAO = null;
         Optional<ProfesionalDAO> profesionalOptional = profesionalRepo.findById(dni);
         if (profesionalOptional.isPresent()){
             profesionalDAO = profesionalOptional.get();
+        }
+        else {
+            throw new NoExisteElProfesionalException("El profesional no existe en la base de datos");
         }
         return profesionalDAO;
     }
@@ -51,7 +55,7 @@ public class ProfesionalService {
         return listaProfesionalesDTO;
     }
 
-    public List<SujetoDTO> listarSujetosPorProfesional(String dni) {
+    public List<SujetoDTO> listarSujetosPorProfesional(String dni) throws NoExisteElProfesionalException {
         ProfesionalDTO profesionalDTO = obtenerProfesional(dni);
         return profesionalDTO.getListaSujetosDTO();
     }

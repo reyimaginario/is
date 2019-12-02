@@ -47,6 +47,17 @@ public class EvaluacionPsicologicaDAO {
 
     public EvaluacionPsicologicaDAO() {
     }
+    public EvaluacionPsicologicaDAO(Long evaluacionId, Date fechaInicio, Date fechaFin, String motivo, ProfesionalDAO profesionalDAO, SujetoDAO sujetoDAO, List<TestAplicadoDAO> listaTestsAplicadosDAO, String informe, Integer finalizado) {
+        this.evaluacionId = evaluacionId;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.motivo = motivo;
+        this.profesionalDAO = profesionalDAO;
+        this.sujetoDAO = sujetoDAO;
+        this.listaTestsAplicadosDAO = listaTestsAplicadosDAO;
+        this.informe = informe;
+        this.finalizado = finalizado;
+    }
     public EvaluacionPsicologicaDAO(Long evaluacionId, Date fechaInicio, Date fechaFin, String motivo, ProfesionalDAO profesionalDAO, SujetoDAO sujetoDAO, List<TestAplicadoDAO> listaTestsAplicadosDAO, String informe, List<RespuestaTemporalDAO> respuestasTemporalesDAO, Integer finalizado) {
         this.evaluacionId = evaluacionId;
         this.fechaInicio = fechaInicio;

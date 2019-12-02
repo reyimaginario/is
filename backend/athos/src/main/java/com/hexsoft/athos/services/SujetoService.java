@@ -3,6 +3,7 @@ package com.hexsoft.athos.services;
 import com.hexsoft.athos.dtos.SujetoDTO;
 import com.hexsoft.athos.entities.EvaluacionPsicologicaDAO;
 import com.hexsoft.athos.entities.SujetoDAO;
+import com.hexsoft.athos.exceptions.NoExisteElSujetoException;
 import com.hexsoft.athos.repositories.ISujetoRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,15 +34,22 @@ public class SujetoService {
         return new SujetoDTO(sujetoRepo.save(sujetoDAO));
     }
 
-    public SujetoDTO obtenerSujeto(String dni) {
+    public SujetoDAO guardarSujeto(SujetoDAO sujetoDAO) {
+        return sujetoRepo.save(sujetoDAO);
+    }
+
+    public SujetoDTO obtenerSujeto(String dni) throws NoExisteElSujetoException {
         return new SujetoDTO(obtenerSujetoDAO(dni));
     }
 
-    public SujetoDAO obtenerSujetoDAO(String dni) {
+    public SujetoDAO obtenerSujetoDAO(String dni) throws NoExisteElSujetoException {
         SujetoDAO sujetoDAO = null;
         Optional<SujetoDAO> sujetoOtional = sujetoRepo.findById(dni);
         if (sujetoOtional.isPresent()) {
             sujetoDAO = sujetoOtional.get();
+        }
+        else {
+            throw new NoExisteElSujetoException("El sujeto no existe en la base de datos");
         }
         return sujetoDAO;
     }

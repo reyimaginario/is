@@ -18,7 +18,6 @@ import java.util.List;
 
     public ProfesionalDTO() {
     }
-
     public ProfesionalDTO(String dni, String nombre, String apellido, String matricula, List<SujetoDTO> listaSujetosDTO) {
         this.dni = dni;
         this.nombre = nombre;
@@ -26,7 +25,6 @@ import java.util.List;
         this.matricula = matricula;
         this.listaSujetosDTO = listaSujetosDTO;
     }
-
     public ProfesionalDTO(ProfesionalDAO profesionalDAO) {
 
         List<SujetoDTO> listaSujetosDTO = new ArrayList<>();

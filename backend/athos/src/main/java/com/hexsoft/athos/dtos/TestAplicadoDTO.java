@@ -17,7 +17,6 @@ public class TestAplicadoDTO {
 
     public TestAplicadoDTO() {
     }
-
     public TestAplicadoDTO(TestAplicadoDAO testAplicadoDAO) {
         this.testAplicadoId = testAplicadoDAO.getTestAplicadoId();
         this.testCode = testAplicadoDAO.getTestCode();

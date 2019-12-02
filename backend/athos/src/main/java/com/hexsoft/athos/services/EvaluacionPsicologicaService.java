@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hexsoft.athos.dtos.*;
 import com.hexsoft.athos.dtos.wrapper.ListaRespuestasTemporalesDTO;
 import com.hexsoft.athos.entities.*;
+import com.hexsoft.athos.exceptions.NoExisteElProfesionalException;
+import com.hexsoft.athos.exceptions.NoExisteElSujetoException;
 import com.hexsoft.athos.repositories.IEvaluacionPsicologicaRepo;
 import com.hexsoft.athos.test.ATest;
 import com.hexsoft.athos.utils.FechaUtils;
@@ -100,14 +102,33 @@ public class EvaluacionPsicologicaService {
         return true;
     }
 
-    public EvaluacionPsicologicaDTO crearEvaluacion(EvaluacionPsicologicaDTO evaluacionPsicologicaDTO) {
+    public EvaluacionPsicologicaDTO crearEvaluacion(EvaluacionPsicologicaDTO evaluacionPsicologicaDTO) throws NoExisteElProfesionalException {
 
         EvaluacionPsicologicaDAO evaluacionPsicologicaDAO = new EvaluacionPsicologicaDAO();
+        evaluacionPsicologicaDAO = evaluacionPsicologicaRepo.save(evaluacionPsicologicaDAO);
+
         String profesionalDni = evaluacionPsicologicaDTO.getProfesionalDTO().getDni();
-        SujetoDTO sujetoDTOTmp = evaluacionPsicologicaDTO.getSujetoDTO();
-        SujetoDTO sujetoDTO = sujetoService.guardarSujeto(sujetoDTOTmp);
-        SujetoDAO sujetoDAO = sujetoDTO.toDAO();
+        String sujetoDni      = evaluacionPsicologicaDTO.getSujetoDTO().getDni();
+
+        //SujetoDTO sujetoDTOTmp = evaluacionPsicologicaDTO.getSujetoDTO();
+        //SujetoDTO sujetoDTO = sujetoService.guardarSujeto(sujetoDTOTmp);
+        //SujetoDAO sujetoDAO = sujetoDTO.toDAO();
         ProfesionalDAO profesionalDAO = profesionalService.obtenerProfesionalDAO(profesionalDni);
+
+        SujetoDAO sujetoDAO = null;
+        try {
+            sujetoDAO = sujetoService.obtenerSujetoDAO(sujetoDni);
+        }
+        catch (NoExisteElSujetoException e) {
+            SujetoDTO sujetoDTO = evaluacionPsicologicaDTO.getSujetoDTO();
+            sujetoDAO = sujetoDTO.toDAO();
+        }
+
+        List<EvaluacionPsicologicaDAO> listaEvaluacionesPsicologicasDAO = sujetoDAO.getListaEvaluacionesPsicologicasDAO();
+        listaEvaluacionesPsicologicasDAO.add(evaluacionPsicologicaDAO);
+        sujetoDAO.setListaEvaluacionesPsicologicasDAO(listaEvaluacionesPsicologicasDAO);
+        sujetoDAO = sujetoService.guardarSujeto(sujetoDAO);
+
 
         Date fechaInicio = FechaUtils.obtenerFechaActual();
         String motivo = evaluacionPsicologicaDTO.getMotivo();
