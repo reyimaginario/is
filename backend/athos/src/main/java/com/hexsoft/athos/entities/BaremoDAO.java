@@ -66,20 +66,20 @@ public class BaremoDAO {
     private Integer suplementarias_aps;
     private Integer suplementarias_aas;
 
-    private Integer fb_back;
-    private Integer f_p;
-    private Integer ds;
-    private Integer ds_r;
-    private Integer s;
-    private Integer sd;
-    private Integer so;
-    private Integer vrin;
-    private Integer trin;
+    private Integer adicionales_fb_back;
+    private Integer adicionales_f_p;
+    private Integer adicionales_ds;
+    private Integer adicionales_ds_r;
+    private Integer adicionales_s;
+    private Integer adicionales_sd;
+    private Integer adicionales_so;
+    private Integer adicionales_vrin;
+    private Integer adicionales_trin;
 
 
     public BaremoDAO() {
     }
-    public BaremoDAO(Long baremoId, String localidad, String edad, String genero, String nivelDeEstudio, String ocupacion, Integer basica_l, Integer basica_f, Integer basica_k, Integer basica_hs, Integer basica_d, Integer basica_hy, Integer basica_pd, Integer basica_mf_m, Integer basica_mf_f, Integer basica_pa, Integer basica_pt, Integer basica_sc, Integer basica_ma, Integer basica_si, Integer contenido_anx, Integer contenido_frs, Integer contenido_obs, Integer contenido_dep, Integer contenido_hea, Integer contenido_biz, Integer contenido_ang, Integer contenido_cyn, Integer contenido_asp, Integer contenido_tpa, Integer contenido_lse, Integer contenido_sod, Integer contenido_fam, Integer contenido_wrk, Integer contenido_trt, Integer suplementarias_a, Integer suplementarias_r, Integer suplementarias_es, Integer suplementarias_mac_r, Integer suplementarias_o_h, Integer suplementarias_do, Integer suplementarias_re, Integer suplementarias_mt, Integer suplementarias_gm, Integer suplementarias_gf, Integer suplementarias_pk, Integer suplementarias_ps, Integer suplementarias_si1, Integer suplementarias_si2, Integer suplementarias_si3, Integer suplementarias_mds, Integer suplementarias_aps, Integer suplementarias_aas, Integer fb_back, Integer f_p, Integer ds, Integer ds_r, Integer s, Integer sd, Integer so, Integer vrin, Integer trin) {
+    public BaremoDAO(Long baremoId, String localidad, String edad, String genero, String nivelDeEstudio, String ocupacion, Integer basica_l, Integer basica_f, Integer basica_k, Integer basica_hs, Integer basica_d, Integer basica_hy, Integer basica_pd, Integer basica_mf_m, Integer basica_mf_f, Integer basica_pa, Integer basica_pt, Integer basica_sc, Integer basica_ma, Integer basica_si, Integer contenido_anx, Integer contenido_frs, Integer contenido_obs, Integer contenido_dep, Integer contenido_hea, Integer contenido_biz, Integer contenido_ang, Integer contenido_cyn, Integer contenido_asp, Integer contenido_tpa, Integer contenido_lse, Integer contenido_sod, Integer contenido_fam, Integer contenido_wrk, Integer contenido_trt, Integer suplementarias_a, Integer suplementarias_r, Integer suplementarias_es, Integer suplementarias_mac_r, Integer suplementarias_o_h, Integer suplementarias_do, Integer suplementarias_re, Integer suplementarias_mt, Integer suplementarias_gm, Integer suplementarias_gf, Integer suplementarias_pk, Integer suplementarias_ps, Integer suplementarias_si1, Integer suplementarias_si2, Integer suplementarias_si3, Integer suplementarias_mds, Integer suplementarias_aps, Integer suplementarias_aas, Integer adicionales_fb_back, Integer adicionales_f_p, Integer adicionales_ds, Integer adicionales_ds_r, Integer adicionales_s, Integer adicionales_sd, Integer adicionales_so, Integer adicionales_vrin, Integer adicionales_trin) {
         this.baremoId = baremoId;
         this.localidad = localidad;
         this.edad = edad;
@@ -133,15 +133,15 @@ public class BaremoDAO {
         this.suplementarias_mds = suplementarias_mds;
         this.suplementarias_aps = suplementarias_aps;
         this.suplementarias_aas = suplementarias_aas;
-        this.fb_back = fb_back;
-        this.f_p = f_p;
-        this.ds = ds;
-        this.ds_r = ds_r;
-        this.s = s;
-        this.sd = sd;
-        this.so = so;
-        this.vrin = vrin;
-        this.trin = trin;
+        this.adicionales_fb_back = adicionales_fb_back;
+        this.adicionales_f_p = adicionales_f_p;
+        this.adicionales_ds = adicionales_ds;
+        this.adicionales_ds_r = adicionales_ds_r;
+        this.adicionales_s = adicionales_s;
+        this.adicionales_sd = adicionales_sd;
+        this.adicionales_so = adicionales_so;
+        this.adicionales_vrin = adicionales_vrin;
+        this.adicionales_trin = adicionales_trin;
     }
 
 
@@ -463,59 +463,59 @@ public class BaremoDAO {
     public void setSuplementarias_aas(Integer suplementarias_aas) {
         this.suplementarias_aas = suplementarias_aas;
     }
-    public Integer getFb_back() {
-        return fb_back;
+    public Integer getAdicionales_fb_back() {
+        return adicionales_fb_back;
     }
-    public void setFb_back(Integer fb_back) {
-        this.fb_back = fb_back;
+    public void setAdicionales_fb_back(Integer adicionales_fb_back) {
+        this.adicionales_fb_back = adicionales_fb_back;
     }
-    public Integer getF_p() {
-        return f_p;
+    public Integer getAdicionales_f_p() {
+        return adicionales_f_p;
     }
-    public void setF_p(Integer f_p) {
-        this.f_p = f_p;
+    public void setAdicionales_f_p(Integer adicionales_f_p) {
+        this.adicionales_f_p = adicionales_f_p;
     }
-    public Integer getDs() {
-        return ds;
+    public Integer getAdicionales_ds() {
+        return adicionales_ds;
     }
-    public void setDs(Integer ds) {
-        this.ds = ds;
+    public void setAdicionales_ds(Integer adicionales_ds) {
+        this.adicionales_ds = adicionales_ds;
     }
-    public Integer getDs_r() {
-        return ds_r;
+    public Integer getAdicionales_ds_r() {
+        return adicionales_ds_r;
     }
-    public void setDs_r(Integer ds_r) {
-        this.ds_r = ds_r;
+    public void setAdicionales_ds_r(Integer adicionales_ds_r) {
+        this.adicionales_ds_r = adicionales_ds_r;
     }
-    public Integer getS() {
-        return s;
+    public Integer getAdicionales_s() {
+        return adicionales_s;
     }
-    public void setS(Integer s) {
-        this.s = s;
+    public void setAdicionales_s(Integer adicionales_s) {
+        this.adicionales_s = adicionales_s;
     }
-    public Integer getSd() {
-        return sd;
+    public Integer getAdicionales_sd() {
+        return adicionales_sd;
     }
-    public void setSd(Integer sd) {
-        this.sd = sd;
+    public void setAdicionales_sd(Integer adicionales_sd) {
+        this.adicionales_sd = adicionales_sd;
     }
-    public Integer getSo() {
-        return so;
+    public Integer getAdicionales_so() {
+        return adicionales_so;
     }
-    public void setSo(Integer so) {
-        this.so = so;
+    public void setAdicionales_so(Integer adicionales_so) {
+        this.adicionales_so = adicionales_so;
     }
-    public Integer getVrin() {
-        return vrin;
+    public Integer getAdicionales_vrin() {
+        return adicionales_vrin;
     }
-    public void setVrin(Integer vrin) {
-        this.vrin = vrin;
+    public void setAdicionales_vrin(Integer adicionales_vrin) {
+        this.adicionales_vrin = adicionales_vrin;
     }
-    public Integer getTrin() {
-        return trin;
+    public Integer getAdicionales_trin() {
+        return adicionales_trin;
     }
-    public void setTrin(Integer trin) {
-        this.trin = trin;
+    public void setAdicionales_trin(Integer adicionales_trin) {
+        this.adicionales_trin = adicionales_trin;
     }
 
 }

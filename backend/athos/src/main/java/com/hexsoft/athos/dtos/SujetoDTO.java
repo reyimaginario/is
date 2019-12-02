@@ -20,6 +20,7 @@ public class SujetoDTO {
     private String ocupacion;
     private ProfesionalDTO profesionalDTO;
 
+
     public SujetoDTO() {
     }
     public SujetoDTO(String dni, String nombre, String apellido) {
@@ -31,6 +32,17 @@ public class SujetoDTO {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.profesionalDTO = profesionalDTO;
+    }
+    public SujetoDTO(String dni, String nombre, String apellido, String localidad, String edad, String genero, String nivelDeEstudio, String ocupacion, ProfesionalDTO profesionalDTO) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.localidad = localidad;
+        this.edad = edad;
+        this.genero = genero;
+        this.nivelDeEstudio = nivelDeEstudio;
+        this.ocupacion = ocupacion;
         this.profesionalDTO = profesionalDTO;
     }
     public SujetoDTO(SujetoDAO sujetoDAO) {
@@ -67,15 +79,44 @@ public class SujetoDTO {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-
+    public String getLocalidad() {
+        return localidad;
+    }
+    public void setLocalidad(String localidad) {
+        this.localidad = localidad;
+    }
+    public String getEdad() {
+        return edad;
+    }
+    public void setEdad(String edad) {
+        this.edad = edad;
+    }
+    public String getGenero() {
+        return genero;
+    }
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+    public String getNivelDeEstudio() {
+        return nivelDeEstudio;
+    }
+    public void setNivelDeEstudio(String nivelDeEstudio) {
+        this.nivelDeEstudio = nivelDeEstudio;
+    }
+    public String getOcupacion() {
+        return ocupacion;
+    }
+    public void setOcupacion(String ocupacion) {
+        this.ocupacion = ocupacion;
+    }
     public ProfesionalDTO getProfesionalDTO() {
         ProfesionalDTO profesionalTmp = this.profesionalDTO.sinSujetos();
         return profesionalTmp;
     }
-
     public void setProfesionalDTO(ProfesionalDTO profesionalDTO) {
         this.profesionalDTO = profesionalDTO;
     }
+
 
     public SujetoDTO sinProfesional() {
         SujetoDTO sujetoTmp = new SujetoDTO(this.getDni()
