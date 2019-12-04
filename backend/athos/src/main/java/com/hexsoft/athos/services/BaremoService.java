@@ -49,7 +49,7 @@ public class BaremoService {
     private void agregarSujetoAnonimo(BaremoDAO baremoDAO, SujetoAnonimo sujetoAnonimo) {
         baremoDAO.setLocalidad(sujetoAnonimo.getLocalidad());
         baremoDAO.setEdad(sujetoAnonimo.getEdad());
-        baremoDAO.setEdad(sujetoAnonimo.getGenero());
+        baremoDAO.setGenero(sujetoAnonimo.getGenero());
         baremoDAO.setNivelDeEstudio(sujetoAnonimo.getNivelDeEstudio());
         baremoDAO.setOcupacion(sujetoAnonimo.getOcupacion());
     }

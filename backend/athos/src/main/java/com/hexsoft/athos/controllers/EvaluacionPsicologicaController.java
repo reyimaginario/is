@@ -3,9 +3,12 @@ package com.hexsoft.athos.controllers;
 import com.hexsoft.athos.dtos.EvaluacionPsicologicaDTO;
 import com.hexsoft.athos.dtos.RespuestaTemporalDTO;
 import com.hexsoft.athos.dtos.wrapper.ListaRespuestasTemporalesDTO;
+import com.hexsoft.athos.exceptions.NoExisteElProfesionalException;
 import com.hexsoft.athos.services.EvaluacionPsicologicaService;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,8 +22,18 @@ public class EvaluacionPsicologicaController {
 
 
     @PostMapping
-    public EvaluacionPsicologicaDTO crearEvaluacion(@RequestBody EvaluacionPsicologicaDTO evaluacionPsicologicaDTO) {
-        return evaluacionPsicologicaService.crearEvaluacion(evaluacionPsicologicaDTO);
+    public ResponseEntity<EvaluacionPsicologicaDTO> crearEvaluacion(@RequestBody EvaluacionPsicologicaDTO evaluacionPsicologicaDTO) {
+        EvaluacionPsicologicaDTO evaluacionPsicologicaDTOTmp = null;
+        try {
+            evaluacionPsicologicaDTOTmp =  evaluacionPsicologicaService.crearEvaluacion(evaluacionPsicologicaDTO);
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(evaluacionPsicologicaDTOTmp);
+        }
+        catch (NoExisteElProfesionalException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(null);
+        }
+
     }
 
 

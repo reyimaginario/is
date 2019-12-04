@@ -122,6 +122,8 @@ public class EvaluacionPsicologicaService {
         catch (NoExisteElSujetoException e) {
             SujetoDTO sujetoDTO = evaluacionPsicologicaDTO.getSujetoDTO();
             sujetoDAO = sujetoDTO.toDAO();
+            sujetoDAO.setProfesionalDAO(profesionalDAO);
+            sujetoDAO = sujetoService.guardarSujeto(sujetoDAO);
         }
 
         List<EvaluacionPsicologicaDAO> listaEvaluacionesPsicologicasDAO = sujetoDAO.getListaEvaluacionesPsicologicasDAO();
@@ -136,7 +138,7 @@ public class EvaluacionPsicologicaService {
         evaluacionPsicologicaDAO.setSujetoDAO(sujetoDAO);
         evaluacionPsicologicaDAO.setFechaInicio(fechaInicio);
         evaluacionPsicologicaDAO.setMotivo(motivo);
-        EvaluacionPsicologicaDAO evaluacionTmp = evaluacionPsicologicaRepo.save(evaluacionPsicologicaDAO);
+        EvaluacionPsicologicaDAO evaluacionDAOTmp = evaluacionPsicologicaRepo.save(evaluacionPsicologicaDAO);
 
         List<TestAplicadoDTO> listaTestsAplicadosDTO = evaluacionPsicologicaDTO.getListaTestsAplicadosDTO();
         List<TestAplicadoDAO> listaTestsAplicadosDAOTmp = new ArrayList<>();
@@ -145,18 +147,25 @@ public class EvaluacionPsicologicaService {
             TestAplicadoDAO testAplicadoDAO = new TestAplicadoDAO();
             testAplicadoDAO.setTestCode(testCode);
             testAplicadoDAO = testAplicadoService.guardarTestAplicado(testAplicadoDAO);
-            testAplicadoDAO.setEvaluacionPsicologicaDAO(evaluacionTmp);
+            testAplicadoDAO.setEvaluacionPsicologicaDAO(evaluacionDAOTmp);
             listaTestsAplicadosDAOTmp.add(testAplicadoDAO);
         }
 
-        evaluacionTmp.setProfesionalDAO(profesionalDAO);
-        evaluacionTmp.setSujetoDAO(sujetoDAO);
-        evaluacionTmp.setFechaInicio(fechaInicio);
-        evaluacionTmp.setMotivo(motivo);
-        evaluacionTmp.setListaTestsAplicadosDAO(listaTestsAplicadosDAOTmp);
-        evaluacionTmp.setFinalizado(NO_FINALIZADO);
 
-        EvaluacionPsicologicaDTO evaluacionDTO = new EvaluacionPsicologicaDTO(evaluacionPsicologicaRepo.save(evaluacionTmp));
+
+
+        evaluacionDAOTmp.setProfesionalDAO(profesionalDAO);
+        evaluacionDAOTmp.setSujetoDAO(sujetoDAO);
+        evaluacionDAOTmp.setFechaInicio(fechaInicio);
+        evaluacionDAOTmp.setMotivo(motivo);
+        evaluacionDAOTmp.setListaTestsAplicadosDAO(listaTestsAplicadosDAOTmp);
+        evaluacionDAOTmp.setFinalizado(NO_FINALIZADO);
+
+        evaluacionPsicologicaDAO = evaluacionPsicologicaRepo.save(evaluacionDAOTmp);
+
+        EvaluacionPsicologicaDTO evaluacionDTO = new EvaluacionPsicologicaDTO(evaluacionPsicologicaDAO);
+
+        //EvaluacionPsicologicaDTO evaluacionDTO = new EvaluacionPsicologicaDTO(evaluacionPsicologicaRepo.save(evaluacionDAOTmp));
 
         return evaluacionDTO;
 

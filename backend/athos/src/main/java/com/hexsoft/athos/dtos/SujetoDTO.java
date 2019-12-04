@@ -25,6 +25,11 @@ public class SujetoDTO {
 
     public SujetoDTO() {
     }
+    public SujetoDTO(String dni) {
+        this.dni = dni;
+        this.profesionalDTO = new ProfesionalDTO();
+        this.listaEvaluacionesPsicologicasDTO = new ArrayList<>();
+    }
     public SujetoDTO(String dni, String nombre, String apellido) {
         this.dni = dni;
         this.nombre = nombre;
@@ -62,7 +67,7 @@ public class SujetoDTO {
         List<EvaluacionPsicologicaDTO> listaEvaluacionesDTO = new ArrayList<>();
         if (sujetoDAO.getListaEvaluacionesPsicologicasDAO() != null) {
             for (EvaluacionPsicologicaDAO evaluacionDAO : sujetoDAO.getListaEvaluacionesPsicologicasDAO()) {
-                EvaluacionPsicologicaDTO evaluacionDTO = new EvaluacionPsicologicaDTO(evaluacionDAO).sinSujetoNiProfesional();
+                EvaluacionPsicologicaDTO evaluacionDTO = (new EvaluacionPsicologicaDTO(evaluacionDAO)).sinSujetoNiProfesional();
                 listaEvaluacionesDTO.add(evaluacionDTO);
             }
         }
@@ -136,7 +141,14 @@ public class SujetoDTO {
         this.profesionalDTO = profesionalDTO;
     }
     public List<EvaluacionPsicologicaDTO> getListaEvaluacionesPsicologicasDTO() {
-        return listaEvaluacionesPsicologicasDTO;
+        List<EvaluacionPsicologicaDTO> listaEvaluacionesDTOTmp = new ArrayList<>();
+        if (this.listaEvaluacionesPsicologicasDTO != null) {
+            for (EvaluacionPsicologicaDTO evaluacionPsicologicaDTO : this.listaEvaluacionesPsicologicasDTO) {
+                EvaluacionPsicologicaDTO evaluacionTmp = evaluacionPsicologicaDTO.sinSujetoNiProfesional();
+                listaEvaluacionesDTOTmp.add(evaluacionTmp);
+            }
+        }
+        return listaEvaluacionesDTOTmp;
     }
     public void setListaEvaluacionesPsicologicasDTO(List<EvaluacionPsicologicaDTO> listaEvaluacionesPsicologicasDTO) {
         this.listaEvaluacionesPsicologicasDTO = listaEvaluacionesPsicologicasDTO;
@@ -144,7 +156,7 @@ public class SujetoDTO {
 
 
 
-    public SujetoDTO sinProfesional() {
+    public SujetoDTO sinProfesionalNiEvaluaciones() {
         SujetoDTO sujetoTmp = new SujetoDTO(this.getDni()
                                             ,this.getNombre()
                                             ,this.getApellido()
@@ -161,9 +173,11 @@ public class SujetoDTO {
     public SujetoDAO toDAO() {
         ProfesionalDAO profesionalDAO = new ProfesionalDAO(getProfesionalDTO().getDni());
         List<EvaluacionPsicologicaDAO> listaEvaluacionesPsicologicasDAO = new ArrayList<>();
-        for (EvaluacionPsicologicaDTO evaluacionPsicologicaDTO : getListaEvaluacionesPsicologicasDTO()) {
-            EvaluacionPsicologicaDAO evaluacionPsicologicaDAO = evaluacionPsicologicaDTO.toDAO();
-            listaEvaluacionesPsicologicasDAO.add(evaluacionPsicologicaDAO);
+        if (getListaEvaluacionesPsicologicasDTO() != null) {
+            for (EvaluacionPsicologicaDTO evaluacionPsicologicaDTO : getListaEvaluacionesPsicologicasDTO()) {
+                EvaluacionPsicologicaDAO evaluacionPsicologicaDAO = evaluacionPsicologicaDTO.toDAO();
+                listaEvaluacionesPsicologicasDAO.add(evaluacionPsicologicaDAO);
+            }
         }
         SujetoDAO sujetoDAO = new SujetoDAO(getDni()
                 , getNombre()

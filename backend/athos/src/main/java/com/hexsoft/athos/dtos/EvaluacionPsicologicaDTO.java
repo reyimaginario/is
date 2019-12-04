@@ -27,8 +27,12 @@ public class EvaluacionPsicologicaDTO {
     public EvaluacionPsicologicaDTO(EvaluacionPsicologicaDAO evaluacionPsicologicaDAO) {
         this.evaluacionId           = evaluacionPsicologicaDAO.getEvaluacionId();
         this.motivo                 = evaluacionPsicologicaDAO.getMotivo();
-        this.profesionalDTO         = new ProfesionalDTO(evaluacionPsicologicaDAO.getProfesionalDAO());
-        this.sujetoDTO              = new SujetoDTO(evaluacionPsicologicaDAO.getSujetoDAO());
+        //this.profesionalDTO         = new ProfesionalDTO(evaluacionPsicologicaDAO.getProfesionalDAO());  // TODO borrar si funciona
+        //this.profesionalDTO         = (new ProfesionalDTO(evaluacionPsicologicaDAO.getProfesionalDAO())).sinSujetos();
+        this.profesionalDTO         = new ProfesionalDTO(evaluacionPsicologicaDAO.getProfesionalDAO().getDni());
+        //this.sujetoDTO              = new SujetoDTO(evaluacionPsicologicaDAO.getSujetoDAO());  // TODO borar si funciona
+        //this.sujetoDTO              = (new SujetoDTO(evaluacionPsicologicaDAO.getSujetoDAO())).sinProfesionalNiEvaluaciones();
+        this.sujetoDTO              = new SujetoDTO(evaluacionPsicologicaDAO.getSujetoDAO().getDni());
         this.informe                = evaluacionPsicologicaDAO.getInforme();
         this.listaTestsAplicadosDTO = new ArrayList<>();
         this.finalizado             = evaluacionPsicologicaDAO.getFinalizado();
@@ -86,7 +90,8 @@ public class EvaluacionPsicologicaDTO {
         this.profesionalDTO = profesionalDTO;
     }
     public SujetoDTO getSujetoDTO() {
-        return sujetoDTO;
+        SujetoDTO sujetoDTOTmp = this.sujetoDTO.sinProfesionalNiEvaluaciones();
+        return sujetoDTOTmp;
     }
     public void setSujetoDTO(SujetoDTO sujetoDTO) {
         this.sujetoDTO = sujetoDTO;
