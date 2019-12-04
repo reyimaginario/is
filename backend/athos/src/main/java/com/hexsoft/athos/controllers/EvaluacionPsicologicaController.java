@@ -31,6 +31,7 @@ public class EvaluacionPsicologicaController {
         }
         catch (NoExisteElProfesionalException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .header("Mensaje", e.getMessage())
                     .body(null);
         }
 

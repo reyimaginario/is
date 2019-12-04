@@ -1,5 +1,6 @@
 package com.hexsoft.athos.services;
 
+import com.hexsoft.athos.dtos.EvaluacionPsicologicaDTO;
 import com.hexsoft.athos.dtos.SujetoDTO;
 import com.hexsoft.athos.entities.EvaluacionPsicologicaDAO;
 import com.hexsoft.athos.entities.SujetoDAO;
@@ -55,5 +56,8 @@ public class SujetoService {
     }
 
 
-
+    public List<EvaluacionPsicologicaDTO> listarEvaluacionesPorSujeto(String dni) throws NoExisteElSujetoException {
+        SujetoDTO sujetoDTO = obtenerSujeto(dni);
+        return sujetoDTO.getListaEvaluacionesPsicologicasDTO();
+    }
 }
