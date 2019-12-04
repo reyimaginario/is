@@ -15,6 +15,12 @@ public class GeneroDAO {
 
     public GeneroDAO() {
     }
+    public GeneroDAO(Long generoId) {
+        this.generoId = generoId;
+    }
+    public GeneroDAO(String genero) {
+        this.genero = genero;
+    }
     public GeneroDAO(Long generoId, String genero) {
         this.generoId = generoId;
         this.genero = genero;
