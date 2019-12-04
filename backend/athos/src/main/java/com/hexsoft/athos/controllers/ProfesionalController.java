@@ -25,10 +25,6 @@ public class ProfesionalController {
         return profesionalService.obtenerTodosLosProfesionales();
     }
 
-/*    @GetMapping(value = "/{dni}")
-    public ProfesionalDTO obtenerProfesional(@PathVariable(value = "dni") String dni) {
-        return profesionalService.obtenerProfesional(dni);
-    }*/
 
     @GetMapping(value = "/{dni}")
     public ResponseEntity<ProfesionalDTO> obtenerProfesional(@PathVariable(value = "dni") String dni) {
@@ -41,19 +37,17 @@ public class ProfesionalController {
         }
         catch (NoExisteElProfesionalException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .header("Mensaje", e.getMessage())
                     .body(null);
         }
     }
+
 
     @PostMapping
     public ProfesionalDTO guardarProfesional(@RequestBody ProfesionalDTO profesionalDTO) {
         return profesionalService.guardarProfesional(profesionalDTO);
     }
 
-/*    @GetMapping(value = "/{dni}/obtenerSujetos")
-    public List<SujetoDTO> listarSujetosPorProfesional(@PathVariable(value = "dni") String dni) {
-        return profesionalService.listarSujetosPorProfesional(dni);
-    }*/
 
     @GetMapping(value = "/{dni}/obtenerSujetos")
     public ResponseEntity<List<SujetoDTO>> listarSujetosPorProfesional(@PathVariable(value = "dni") String dni) {
@@ -66,10 +60,10 @@ public class ProfesionalController {
         }
         catch (NoExisteElProfesionalException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .header("Mensaje", e.getMessage())
                     .body(null);
         }
     }
-
 
 
 }

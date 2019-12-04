@@ -24,10 +24,6 @@ public class SujetoController {
         return sujetoService.obenerTodosLosSujetos();
     }
 
-/*    @GetMapping(value = "/{dni}")
-    public SujetoDTO obtenerSujeto(@PathVariable(value = "dni") String dni) {
-        return sujetoService.obtenerSujeto(dni);
-    }*/  // TODO Borrar una vez confirmado con el front
 
     @GetMapping(value = "/{dni}")
     public ResponseEntity<SujetoDTO> obtenerSujeto(@PathVariable(value = "dni") String dni) {
