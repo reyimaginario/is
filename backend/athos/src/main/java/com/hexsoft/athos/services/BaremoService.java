@@ -16,6 +16,9 @@ public class BaremoService {
     @Autowired
     private IBaremoRepo baremoRepo;
 
+    public void guardarBaremo(BaremoDAO baremoDAO) {
+        baremoRepo.save(baremoDAO);
+    }
 
     public void guardarBaremo(SujetoAnonimo sujetoAnonimo, List<JSONObject> listaResultados) {
 
