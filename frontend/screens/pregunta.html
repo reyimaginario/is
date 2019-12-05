@@ -1,36 +1,79 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Athos</title>
-    <link href="../styles/basic_style.css" rel="stylesheet" type="text/css">
-    
-
-</head>
-<body onload="showPregunta(0)">
+    <link href="../styles/basic_style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body onload="showPregunta(0)">
     <div class="wrap">
-        <form enctype="application/json" class="login-form" action="http://localhost:3000/chat/user/login/"  method="POST">
-            <div class="form-header">
-                <h3><span  id="pregTexto"></span></h3>
-            </div>
+      <form
+        enctype="application/json"
+        class="login-form"
+        action="http://localhost:3000/chat/user/login/"
+        method="POST"
+      >
+        <div class="form-header">
+          <h3><span id="pregTexto"></span></h3>
+        </div>
 
-            <div class="form-group">
-                <button id="btn_true" type="button" class="form-button" onclick="selectTrue()">Verdadero</button>
-                <button id="btn_false" type="button" class="form-button" onclick="selectFalse()">Falso</button>
-            </div>
+        <div class="form-group">
+          <table class="question-table">
+            <tr>
+              <td>
+                <button
+                  id="btn_true"
+                  type="button"
+                  class="form-button"
+                  onclick="selectTrue()"
+                >
+                  Verdadero
+                </button>
+              </td>
+              <td>
+                <button
+                  id="btn_false"
+                  type="button"
+                  class="form-button"
+                  onclick="selectFalse()"
+                >
+                  Falso
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <button
+                  id="btn_next"
+                  type="submit"
+                  class="form-button"
+                  onclick="sendForm()"
+                >
+                  Siguiente
+                </button>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <!--
+        <div class="form-group"></div>
 
-            <div class="form-group">
-            </div>
-
-            <div class="form-group">
-                <button id="btn_next" type = "submit" class="form-button" onclick="sendForm()">Siguiente</button>
-            </div>
-
-            <div class= "form-footer">
-                <a href="../screens/listar_preguntas.html">Ver todas las preguntas</a>
-            </div>
-        </form>
+        <div class="form-group">
+          <button
+            id="btn_next"
+            type="submit"
+            class="form-button"
+            onclick="sendForm()"
+          >
+            Siguiente
+          </button>
+        </div>
+        -->
+        <div class="form-footer">
+          <a href="../screens/listar_preguntas.html">Ver todas las preguntas</a>
+        </div>
+      </form>
     </div>
 
     <script src="../scripts/contestarPregunta.js"></script>
-</body>
-</html> 
+  </body>
+</html>

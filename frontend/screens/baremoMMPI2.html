@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Athos - Baremo MMPI2</title>
+    <meta charset="UTF-8" />
+    <link href="../styles/basic_style.css" rel="stylesheet" type="text/css" />
+    <script src="../scripts/canvasjs.min.js"></script>
+    <script src="../scripts/dibujarBaremoMMPI2.js"></script>
+  </head>
+
+  <body onload="dibujar()">
+    <div class="wrap-baremo">
+      <form id="formulario" enctype="application/json" class="baremo-form">
+        <div class="form-header">
+          <h2>Baremo MMPI-2</h2>
+        </div>
+
+        <div class="form-group">
+          <input
+            required
+            type="text"
+            name="localidad"
+            placeholder="Ingrese localidad"
+            class="form-input"
+          />
+        </div>
+        <div class="form-group">
+          <table class="question-table">
+            <tr>
+              <td style="padding-right: 5px">
+                <input
+                  required
+                  type="number"
+                  name="edad"
+                  placeholder="Ingrese edad desde"
+                  class="form-input"
+                />
+              </td>
+              <td style="padding-left: 5px">
+                <input
+                  required
+                  type="number"
+                  name="edad"
+                  placeholder="Ingrese edad hasta"
+                  class="form-input"
+                />
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="form-group">
+          <input
+            required
+            type="text"
+            name="genero"
+            placeholder="Ingrese genero"
+            class="form-input"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            required
+            type="text"
+            name="nivelDeEstudio"
+            placeholder="Ingrese nivel de estudio"
+            class="form-input"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            required
+            type="text"
+            name="ocupacion"
+            placeholder="Ingrese ocupacion"
+            class="form-input"
+          />
+        </div>
+        <button
+          id="btn_next"
+          type="submit"
+          class="form-button"
+          onclick="sendForm()"
+        >
+          Filtrar
+        </button>
+      </form>
+      <div class="baremo-chart" id="chartContainer" />
+    </div>
+    <div class="wrap-chart"></div>
+  </body>
+</html>
