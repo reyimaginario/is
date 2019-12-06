@@ -2,13 +2,17 @@ package com.hexsoft.athos.controllers;
 
 import com.hexsoft.athos.dtos.ProfesionalDTO;
 import com.hexsoft.athos.entities.*;
+import com.hexsoft.athos.exceptions.NoExisteElProfesionalException;
 import com.hexsoft.athos.services.*;
+import com.hexsoft.athos.utils.FechaUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/iniciar")
@@ -24,8 +28,12 @@ public class InicializadorController {
     private LocalodadService localodadService;
     @Autowired
     private OcupacionService ocupacionService;
-
-
+    @Autowired
+    private SujetoService sujetoService;
+    @Autowired
+    private EvaluacionPsicologicaService evaluacionService;
+    @Autowired
+    private RespuestaTemporalService respuestaTemporalService;
     @Autowired
     private BaremoService baremoService;
 
@@ -37,7 +45,7 @@ public class InicializadorController {
         cargarLocalidades();
         cargarOcupaciones();
         cargarProfesionales();
-
+        cargarEvaluaciones();
         cargarBaremos();
 
     }
@@ -115,8 +123,87 @@ public class InicializadorController {
 
     }
 
+    private void cargarEvaluaciones() {
+        EvaluacionPsicologicaDAO evaluacionDAO = null;
+        SujetoDAO sujetoDAO = null;
+        ProfesionalDAO profesionalDAO = null;
+        TestAplicadoDAO testAplicadoDAO = null;
+        List<TestAplicadoDAO> listaTestAplicadosDAO = null;
+        List<RespuestaTemporalDAO> listaRespuestasTemporalesDAO = null;
+        RespuestaTemporalDAO respuestaTemporalDAO = null;
 
 
+        evaluacionDAO = new EvaluacionPsicologicaDAO();
+        evaluacionDAO = evaluacionService.guardarEvaluacion(evaluacionDAO);
+
+        try {
+            profesionalDAO = profesionalService.obtenerProfesionalDAO("11222333");
+        } catch (NoExisteElProfesionalException e) {
+            e.printStackTrace();
+        }
+
+        sujetoDAO = new SujetoDAO("30303303", "Gonzalo", "Caba", "CABA", "34", "Masculino", "Terciario", "Programador", profesionalDAO, new ArrayList<>());
+        sujetoDAO = sujetoService.guardarSujeto(sujetoDAO);
+
+        List<EvaluacionPsicologicaDAO> listaEvaluacionesPsicologicasDAO = sujetoDAO.getListaEvaluacionesPsicologicasDAO();
+        listaEvaluacionesPsicologicasDAO.add(evaluacionDAO);
+        sujetoDAO.setListaEvaluacionesPsicologicasDAO(listaEvaluacionesPsicologicasDAO);
+        sujetoDAO = sujetoService.guardarSujeto(sujetoDAO);
+
+        //  List<EvaluacionPsicologicaDAO> listaEvaluacionesDAO = new ArrayList<>();
+        //  listaEvaluacionesDAO.add(evaluacionDAO);
+        //  sujetoDAO.setListaEvaluacionesPsicologicasDAO(listaEvaluacionesDAO);
+        //  sujetoDAO = sujetoService.guardarSujeto(sujetoDAO);
+
+        List<SujetoDAO> listaSujetosDAO = profesionalDAO.getListaSujetosDAO();
+        listaSujetosDAO.add(sujetoDAO);
+        profesionalDAO.setListaSujetosDAO(listaSujetosDAO);
+        profesionalDAO = profesionalService.guardarProfesional(profesionalDAO);
+
+        testAplicadoDAO = new TestAplicadoDAO();
+        testAplicadoDAO.setTestCode("MMPI2");
+        listaTestAplicadosDAO = new ArrayList<>();
+        listaTestAplicadosDAO.add(testAplicadoDAO);
+
+        evaluacionDAO.setFechaInicio(FechaUtils.stringToDate("2019-12-01"));
+        //evaluacionDAO.setFechaFin(FechaUtils.stringToDate("2019-12-01"));
+        //evaluacionDAO.setFinalizado(1);
+        evaluacionDAO.setMotivo("Psicotecnico");
+        evaluacionDAO.setProfesionalDAO(profesionalDAO);
+        evaluacionDAO.setSujetoDAO(sujetoDAO);
+        evaluacionDAO.setListaTestsAplicadosDAO(listaTestAplicadosDAO);
+
+        evaluacionDAO = evaluacionService.guardarEvaluacion(evaluacionDAO);
+
+
+        listaRespuestasTemporalesDAO = new ArrayList<>();
+        for (int i=1; i<=567; i++) {
+            respuestaTemporalDAO = new RespuestaTemporalDAO();
+            respuestaTemporalDAO.setEvaluacionPsicologicaDAO(evaluacionDAO);
+            respuestaTemporalDAO.setTestCode("MMPI2");
+            respuestaTemporalDAO.setPregunta(i);
+            respuestaTemporalDAO.setRespuesta((int)(Math.random() * 2) - 1);  // TODO revisar
+            respuestaTemporalDAO = respuestaTemporalService.guardarRespuestaTemporal(respuestaTemporalDAO);
+            listaRespuestasTemporalesDAO.add(respuestaTemporalDAO);
+        }
+
+        evaluacionDAO.setRespuestasTemporalesDAO(listaRespuestasTemporalesDAO);
+        evaluacionService.guardarEvaluacion(evaluacionDAO);
+
+/*
+        evaluacionDAO.setFechaInicio();
+        evaluacionDAO.setFechaFin();
+        evaluacionDAO.setMotivo();
+        evaluacionDAO.setProfesionalDAO();
+        evaluacionDAO.setSujetoDAO();
+        evaluacionDAO.setListaTestsAplicadosDAO();
+        evaluacionDAO.setInforme();
+        evaluacionDAO.setRespuestasTemporalesDAO();
+        evaluacionDAO.setFinalizado();
+
+*/
+
+    }
 
     private void cargarBaremos() {
         BaremoDAO baremoDAO;
@@ -416,9 +503,4 @@ public class InicializadorController {
     }
 
 
-/*
-insert into sujeto (dni, nombre, apellido, profesional_dni) values ('1', 'Teddy',  'Daniels',    22333444);
-insert into sujeto (dni, nombre, apellido, profesional_dni) values ('2', 'Sabina', 'Spielrein',  33444555);
-insert into sujeto (dni, nombre, apellido, profesional_dni) values ('3', 'Eliza',  'Beckinsale', 22333444);
-    * */
 }

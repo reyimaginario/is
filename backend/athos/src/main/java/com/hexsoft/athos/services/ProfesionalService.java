@@ -28,6 +28,10 @@ public class ProfesionalService {
         return new ProfesionalDTO(profesionalRepo.save(profesionalDAO));
     }
 
+    public ProfesionalDAO guardarProfesional(ProfesionalDAO profesionalDAO) {
+        return profesionalRepo.save(profesionalDAO);
+    }
+
     public ProfesionalDTO obtenerProfesional(String dni) throws NoExisteElProfesionalException {
         return new ProfesionalDTO(obtenerProfesionalDAO(dni));
     }

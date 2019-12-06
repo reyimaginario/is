@@ -66,7 +66,7 @@ public class EvaluacionPsicologicaService {
         return evaluacionDAO;
     }
 
-    private EvaluacionPsicologicaDAO guardarEvaluacion(EvaluacionPsicologicaDAO evaluacion) {
+    public EvaluacionPsicologicaDAO guardarEvaluacion(EvaluacionPsicologicaDAO evaluacion) {
         return evaluacionPsicologicaRepo.save(evaluacion);
     }
 
@@ -249,5 +249,10 @@ public class EvaluacionPsicologicaService {
         return listaCalculos;
 
     }
+
+
+/*    public EvaluacionPsicologicaDAO guardarEvaluacion(EvaluacionPsicologicaDAO evaluacion) {
+        return evaluacionPsicologicaRepo.save(evaluacion);
+    }*/
 
 }

@@ -1,5 +1,6 @@
 package com.hexsoft.athos.services;
 
+import com.hexsoft.athos.dtos.FiltroBaremoDTO;
 import com.hexsoft.athos.entities.BaremoDAO;
 import com.hexsoft.athos.entities.SujetoAnonimo;
 import com.hexsoft.athos.repositories.IBaremoRepo;
@@ -248,5 +249,9 @@ public class BaremoService {
 
     public List<BaremoDAO> obtenerTodosLosBaremo() {
         return baremoRepo.findAll();
+    }
+
+    public List<BaremoDAO> obtenerBaremosFiltrados(FiltroBaremoDTO filtro) {
+        return baremoRepo.findByLocalidadAndEdadAndGeneroAndNivelDeEstudioAndOcupacion(filtro.getLocalidad(), filtro.getEdad(), filtro.getGenero(), filtro.getNivelDeEstudio(), filtro.getOcupacion());
     }
 }
