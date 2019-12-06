@@ -39,11 +39,9 @@ public class ProfesionalDAO {
 
     public ProfesionalDAO() {
     }
-
     public ProfesionalDAO(String dni) {
         this.dni = dni;
     }
-
     public ProfesionalDAO(String dni, @NotEmpty String nombre, @NotEmpty String apellido, String matricula, List<SujetoDAO> listaSujetosDAO, List<EvaluacionPsicologicaDAO> listaEvaluacionesPsicologicasDAO) {
         this.dni = dni;
         this.nombre = nombre;

@@ -18,7 +18,10 @@ import java.util.List;
 
     public ProfesionalDTO() {
     }
-
+    public ProfesionalDTO(String dni) {
+        this.dni = dni;
+        this.listaSujetosDTO = new ArrayList<>();
+    }
     public ProfesionalDTO(String dni, String nombre, String apellido, String matricula, List<SujetoDTO> listaSujetosDTO) {
         this.dni = dni;
         this.nombre = nombre;
@@ -26,24 +29,13 @@ import java.util.List;
         this.matricula = matricula;
         this.listaSujetosDTO = listaSujetosDTO;
     }
-
     public ProfesionalDTO(ProfesionalDAO profesionalDAO) {
 
         List<SujetoDTO> listaSujetosDTO = new ArrayList<>();
 
         if (profesionalDAO.getListaSujetosDAO() != null){
             for (SujetoDAO sujetoDAO : profesionalDAO.getListaSujetosDAO()) {
-
-                SujetoDTO sujetoDTO = (new SujetoDTO(sujetoDAO)).sinProfesional();
-                /*  TODO  borrar si funciona
-                String sujetoDni = sujetoDAO.getDni();
-                String sujetoNombre = sujetoDAO.getNombre();
-                String sujetoApellido = sujetoDAO.getApellido();
-                String sujetoMatricula = sujetoDAO.
-                ProfesionalDTO sujetoProfesionalDTO = null;
-                SujetoDTO sujetoDTO = new SujetoDTO(sujetoDni, sujetoNombre, sujetoApellido, sujetoProfesionalDTO);
-
-                 */
+                SujetoDTO sujetoDTO = (new SujetoDTO(sujetoDAO)).sinProfesionalNiEvaluaciones();
                 listaSujetosDTO.add(sujetoDTO);
             }
         }
@@ -83,9 +75,11 @@ import java.util.List;
 
         List<SujetoDTO> listaSujetosTmp = new ArrayList<>();
 
-        for (SujetoDTO sujetoDTO : this.listaSujetosDTO) {
-            SujetoDTO sujetoTmp = sujetoDTO.sinProfesional();
-            listaSujetosTmp.add(sujetoTmp);
+        if (this.listaSujetosDTO != null) {
+            for (SujetoDTO sujetoDTO : this.listaSujetosDTO) {
+                SujetoDTO sujetoTmp = sujetoDTO.sinProfesionalNiEvaluaciones();
+                listaSujetosTmp.add(sujetoTmp);
+            }
         }
         return listaSujetosTmp;
     }
@@ -114,7 +108,7 @@ import java.util.List;
                                                            ,getApellido()
                                                            ,getMatricula()
                                                            ,listaSujetosDAO
-                                                           ,null);
+                                                           ,new ArrayList<>());
         return profesionalDAO;
     }
 

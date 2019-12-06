@@ -14,19 +14,26 @@
         var textoResp = "";
         for (i = 1; i < Object.keys(preguntas).length; i++) {
             if(respuestas[i-1].respuesta === 1){
-                textoResp = "True"
+                textoResp = "Verdadero"
             }else if(respuestas[i-1].respuesta === 0){
-                textoResp = "False"
-            }else{
-                textoResp = "Null"
+                textoResp = "Falso"
+            }else if(respuestas[i-1].respuesta === -1){
+                textoResp = "No Responde"
+            } else {
+                textoResp = "-"
             }
             var container = document.createElement("tr");
             container.id = "pregunta" + i;
             container.className = "form-group";
+            container.onclick = function (num) {
+                return function () {
+                    volverA(num);
+                };
+            }(i);
             lista.appendChild(container);
-            container.innerHTML = "<td><a href='../screens/pregunta.html' onclick='volverA(" + i + ")' id='pregId" + i + "'>" + respuestas[i-1].pregunta + "</a></td>" + 
-                                    "<td><a class='tab' id='pregText" + i + "'> - " + preguntas[i] + " - </a></td>" +
-                                    "<td><a class='tab' id='pregText" + i + "'>" + textoResp + "</a></td>";
+            container.innerHTML =   "<td><a id='pregId" + i + "'>" + respuestas[i-1].pregunta + "</a></td>" + 
+                                    "<td><a class='tab' id='pregText" + i + "'> - " + preguntas[i] + "</a></td>" +
+                                    "<td width=97px align='center'><a class='tab' id='pregText" + i + "'>" + textoResp + "</a></td>"
         }
     }
 
