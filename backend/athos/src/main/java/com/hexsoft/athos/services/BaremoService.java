@@ -246,12 +246,11 @@ public class BaremoService {
         }
     }
 
-
     public List<BaremoDAO> obtenerTodosLosBaremo() {
         return baremoRepo.findAll();
     }
 
-    public List<BaremoDAO> obtenerBaremosFiltrados(FiltroBaremoDTO filtro) {
-        return baremoRepo.findByLocalidadAndEdadAndGeneroAndNivelDeEstudioAndOcupacion(filtro.getLocalidad(), filtro.getEdad(), filtro.getGenero(), filtro.getNivelDeEstudio(), filtro.getOcupacion());
+    public List<BaremoDAO> obtenerBaremosFiltradosSQL(FiltroBaremoDTO filtro) {
+        return baremoRepo.obtenerBaremosFiltradosSQL(filtro.getLocalidad(), filtro.getEdadDesde(), filtro.getEdadHasta(), filtro.getGenero(), filtro.getNivelDeEstudio(), filtro.getOcupacion());
     }
 }

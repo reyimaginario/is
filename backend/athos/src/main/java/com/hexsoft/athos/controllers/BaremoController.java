@@ -26,7 +26,7 @@ public class BaremoController {
 
     @GetMapping(value = "/filtrar")
     public List<BaremoDAO> obtenerBaremosFiltrados(@RequestBody FiltroBaremoDTO filtro) {
-        return baremoService.obtenerBaremosFiltrados(filtro);
+        return baremoService.obtenerBaremosFiltradosSQL(filtro);
     }
 
 }
