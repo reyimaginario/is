@@ -177,12 +177,17 @@ public class InicializadorController {
 
 
         listaRespuestasTemporalesDAO = new ArrayList<>();
+        int n;
         for (int i=1; i<=567; i++) {
             respuestaTemporalDAO = new RespuestaTemporalDAO();
             respuestaTemporalDAO.setEvaluacionPsicologicaDAO(evaluacionDAO);
             respuestaTemporalDAO.setTestCode("MMPI2");
             respuestaTemporalDAO.setPregunta(i);
-            respuestaTemporalDAO.setRespuesta((int)(Math.random() * 2) - 1);  // TODO revisar
+            n = (int)(Math.random() * 3 + 1);
+            if (n == 1) { respuestaTemporalDAO.setRespuesta(-1); }
+            else if (n == 2) { respuestaTemporalDAO.setRespuesta(0); }
+            else if (n == 3) { respuestaTemporalDAO.setRespuesta(1); }
+            //respuestaTemporalDAO.setRespuesta((int)(Math.random() * 2) - 1);  // TODO revisar
             respuestaTemporalDAO = respuestaTemporalService.guardarRespuestaTemporal(respuestaTemporalDAO);
             listaRespuestasTemporalesDAO.add(respuestaTemporalDAO);
         }
