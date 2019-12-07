@@ -6,6 +6,7 @@ import com.hexsoft.athos.dtos.wrapper.ListaRespuestasTemporalesDTO;
 import com.hexsoft.athos.entities.*;
 import com.hexsoft.athos.exceptions.NoExisteElProfesionalException;
 import com.hexsoft.athos.exceptions.NoExisteElSujetoException;
+import com.hexsoft.athos.exceptions.NoExisteLaRespuestaTemporal;
 import com.hexsoft.athos.repositories.IEvaluacionPsicologicaRepo;
 import com.hexsoft.athos.test.ATest;
 import com.hexsoft.athos.utils.FechaUtils;
@@ -70,32 +71,31 @@ public class EvaluacionPsicologicaService {
         return evaluacionPsicologicaRepo.save(evaluacion);
     }
 
-    public boolean guardarRespuestaTemporal(RespuestaTemporalDTO respuestaTemporal) {
+    public RespuestaTemporalDTO guardarRespuestaTemporal(RespuestaTemporalDTO respuestaTemporal) throws NoExisteLaRespuestaTemporal {
 
-        boolean respuesta = false;
-        EvaluacionPsicologicaDAO evaluacionDAO = obtenerEvaluacionDAO(respuestaTemporal.getEvaluacionId());
+        EvaluacionPsicologicaDAO evaluacionDAO = null;
+        RespuestaTemporalDAO respuestaTemporalDAO = null;
+
+        if (respuestaTemporal.getRespuestaTemporalId() != null) {
+            respuestaTemporalDAO = respuestaTemporalService.actualizarRespuestaTemporal(respuestaTemporal);
+        }
+        else {
+            respuestaTemporalDAO = respuestaTemporalService.guardarRespuestaTemporal(respuestaTemporal.toDAO());
+        }
+
         List<RespuestaTemporalDAO> listaRespuestasTemporalesDAO;
-
-        RespuestaTemporalDAO respuestaTemporalDAO = new RespuestaTemporalDAO();
-        respuestaTemporalDAO = respuestaTemporalService.guardarRespuestaTemporal(respuestaTemporalDAO);
-        respuestaTemporalDAO.setTestCode(respuestaTemporal.getTestCode());
-        respuestaTemporalDAO.setPregunta(respuestaTemporal.getPregunta());
-        respuestaTemporalDAO.setRespuesta(respuestaTemporal.getRespuesta());
-        respuestaTemporalDAO.setEvaluacionPsicologicaDAO(evaluacionDAO);
-        respuestaTemporalDAO = respuestaTemporalService.guardarRespuestaTemporal(respuestaTemporalDAO);
 
         if (evaluacionDAO != null) {
             listaRespuestasTemporalesDAO = evaluacionDAO.getRespuestasTemporalesDAO();
             listaRespuestasTemporalesDAO.add(respuestaTemporalDAO);
             evaluacionDAO.setRespuestasTemporalesDAO(listaRespuestasTemporalesDAO);
             evaluacionPsicologicaRepo.save(evaluacionDAO);
-            respuesta = true;
         }
 
-        return respuesta;
+        return new RespuestaTemporalDTO(respuestaTemporalDAO);
     }
 
-    public boolean guardarTodasLasRespuestasTemporales(ListaRespuestasTemporalesDTO listaRespuestasTemporalesDTO) {
+    public boolean guardarTodasLasRespuestasTemporales(ListaRespuestasTemporalesDTO listaRespuestasTemporalesDTO) throws NoExisteLaRespuestaTemporal {
         for (RespuestaTemporalDTO respuestaTemporalDTO : listaRespuestasTemporalesDTO.getListaRespuestasTemporalesDTO()) {
             guardarRespuestaTemporal(respuestaTemporalDTO);
         }
@@ -249,10 +249,5 @@ public class EvaluacionPsicologicaService {
         return listaCalculos;
 
     }
-
-
-/*    public EvaluacionPsicologicaDAO guardarEvaluacion(EvaluacionPsicologicaDAO evaluacion) {
-        return evaluacionPsicologicaRepo.save(evaluacion);
-    }*/
-
+    
 }

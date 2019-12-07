@@ -14,7 +14,7 @@ public class RespuestaTemporalDAO {
     @JoinColumn(name = "evaluacionId")
     private EvaluacionPsicologicaDAO evaluacionPsicologicaDAO;
 
-    private String testCode;;
+    private String testCode;
 
     private Integer pregunta;
 
