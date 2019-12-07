@@ -190,9 +190,10 @@ public class InicializadorController {
 
         evaluacionDAO.setRespuestasTemporalesDAO(listaRespuestasTemporalesDAO);
         evaluacionService.guardarEvaluacion(evaluacionDAO);
+        evaluacionService.finalizarEvaluacion(evaluacionDAO.getEvaluacionId());
 
 
-        //
+        //  ----
 
 
         evaluacionDAO = new EvaluacionPsicologicaDAO();
@@ -220,9 +221,10 @@ public class InicializadorController {
 
         evaluacionDAO.setRespuestasTemporalesDAO(listaRespuestasTemporalesDAO);
         evaluacionService.guardarEvaluacion(evaluacionDAO);
+        evaluacionService.finalizarEvaluacion(evaluacionDAO.getEvaluacionId());
 
 
-        //
+        //  ----
 
 
         sujetoDAO = new SujetoDAO("20202202", "Teddy", "Daniels", "CABA", "30", "Masculino", "Universitario", "Periodista", profesionalDAO, new ArrayList<>());
@@ -253,6 +255,7 @@ public class InicializadorController {
 
         evaluacionDAO.setRespuestasTemporalesDAO(listaRespuestasTemporalesDAO);
         evaluacionService.guardarEvaluacion(evaluacionDAO);
+        evaluacionService.finalizarEvaluacion(evaluacionDAO.getEvaluacionId());
 
 
 
