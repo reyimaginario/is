@@ -1,5 +1,6 @@
 const noRes = -1;
-const base_url = "http://192.168.0.127:8080"
+//const base_url = "http://192.168.0.127:8080"
+const base_url = "http://localhost:8080"
 var formulario = document.getElementById("formulario");
 
 formulario.addEventListener("submit", function(e){
@@ -60,18 +61,6 @@ function saveResponse(name, data){
     }
 }
 
-function loadSelect(opciones) {
-    var lista = document.getElementById("generos")
-    for (i = 0; i < Object.keys(opciones).length; i++){
-        
-        var container = document.createElement("option");
-        container.id = "genero" + opciones[i].generoId;
-        container.value = opciones[i].generoId;
-        lista.appendChild(container);
-        container.innerHTML = opciones[i].genero;
-    }
-}
-
 function cargarGeneros(opciones) {
     var lista = document.getElementById("generos")
     for (i = 0; i < Object.keys(opciones).length; i++){
@@ -97,6 +86,13 @@ function cargarEstudios(opciones) {
 }
 
 function cargarPantalla(){
+    fetchGeneros();
+    fetchEstudios();
+    fetchLocalidades();
+    fetchOcupaciones();
+}
+
+function fetchGeneros() {
     var url = base_url + "/genero"
     
     fetch(url, {
@@ -105,14 +101,17 @@ function cargarPantalla(){
     })
     .then( res => res.json())
     .then( data => {
-        loadSelect(data)
+        console.log(data)
+        cargarGeneros(data)
     })
     .catch(err => {
         console.error('Caught error: ', err)
         alert("Ocurrio un error en GET genero! :c")
     });
-    
-    url = base_url + "/estudios"
+}
+
+function fetchEstudios(){
+    url = base_url + "/estudio"
     
     fetch(url, {
         method: 'GET',
@@ -120,12 +119,73 @@ function cargarPantalla(){
     })
     .then( res => res.json())
     .then( data => {
+        console.log(data)
         cargarEstudios(data)
     })
     .catch(err => {
         console.error('Caught error: ', err)
         alert("Ocurrio un error en GET estudios! :c")
     });
+}
+
+function fetchOcupaciones(){
+    url = base_url + "/ocupacion"
+    
+    fetch(url, {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'},
+    })
+    .then( res => res.json())
+    .then( data => {
+        console.log(data)
+        cargarOcupaciones(data)
+    })
+    .catch(err => {
+        console.error('Caught error: ', err)
+        alert("Ocurrio un error en GET estudios! :c")
+    });
+}
+
+function cargarOcupaciones(opciones) {
+    var lista = document.getElementById("ocupaciones")
+    for (i = 0; i < Object.keys(opciones).length; i++){
+        
+        var container = document.createElement("option");
+        container.id = "ocupaciones" + opciones[i].ocupacionId;
+        container.value = opciones[i].ocupacionId;
+        lista.appendChild(container);
+        container.innerHTML = opciones[i].ocupacion;
+    }
+}
+
+function fetchLocalidades(){
+    url = base_url + "/localidad"
+    
+    fetch(url, {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'},
+    })
+    .then( res => res.json())
+    .then( data => {
+        console.log(data)
+        cargarLocalidades(data)
+    })
+    .catch(err => {
+        console.error('Caught error: ', err)
+        alert("Ocurrio un error en GET estudios! :c")
+    });
+}
+
+function cargarLocalidades(opciones) {
+    var lista = document.getElementById("localidades")
+    for (i = 0; i < Object.keys(opciones).length; i++){
+        
+        var container = document.createElement("option");
+        container.id = "localidad" + opciones[i].localidadId;
+        container.value = opciones[i].localidadId;
+        lista.appendChild(container);
+        container.innerHTML = opciones[i].localidad;
+    }
 }
 
 function createAnswers(preguntas){
