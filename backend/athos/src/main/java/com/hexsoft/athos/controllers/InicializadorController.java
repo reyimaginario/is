@@ -150,11 +150,6 @@ public class InicializadorController {
         sujetoDAO.setListaEvaluacionesPsicologicasDAO(listaEvaluacionesPsicologicasDAO);
         sujetoDAO = sujetoService.guardarSujeto(sujetoDAO);
 
-        //  List<EvaluacionPsicologicaDAO> listaEvaluacionesDAO = new ArrayList<>();
-        //  listaEvaluacionesDAO.add(evaluacionDAO);
-        //  sujetoDAO.setListaEvaluacionesPsicologicasDAO(listaEvaluacionesDAO);
-        //  sujetoDAO = sujetoService.guardarSujeto(sujetoDAO);
-
         List<SujetoDAO> listaSujetosDAO = profesionalDAO.getListaSujetosDAO();
         listaSujetosDAO.add(sujetoDAO);
         profesionalDAO.setListaSujetosDAO(listaSujetosDAO);
@@ -166,8 +161,6 @@ public class InicializadorController {
         listaTestAplicadosDAO.add(testAplicadoDAO);
 
         evaluacionDAO.setFechaInicio(FechaUtils.stringToDate("2019-12-01"));
-        //evaluacionDAO.setFechaFin(FechaUtils.stringToDate("2019-12-01"));
-        //evaluacionDAO.setFinalizado(1);
         evaluacionDAO.setMotivo("Psicotecnico");
         evaluacionDAO.setProfesionalDAO(profesionalDAO);
         evaluacionDAO.setSujetoDAO(sujetoDAO);
@@ -176,7 +169,10 @@ public class InicializadorController {
         evaluacionDAO = evaluacionService.guardarEvaluacion(evaluacionDAO);
 
 
-        listaRespuestasTemporalesDAO = new ArrayList<>();
+        listaRespuestasTemporalesDAO = generarRespuestasTemporalesAleatorias(evaluacionDAO);
+
+        // listaRespuestasTemporalesDAO = new ArrayList<>();
+        /*
         int n;
         for (int i=1; i<=567; i++) {
             respuestaTemporalDAO = new RespuestaTemporalDAO();
@@ -187,27 +183,98 @@ public class InicializadorController {
             if (n == 1) { respuestaTemporalDAO.setRespuesta(-1); }
             else if (n == 2) { respuestaTemporalDAO.setRespuesta(0); }
             else if (n == 3) { respuestaTemporalDAO.setRespuesta(1); }
-            //respuestaTemporalDAO.setRespuesta((int)(Math.random() * 2) - 1);  // TODO revisar
             respuestaTemporalDAO = respuestaTemporalService.guardarRespuestaTemporal(respuestaTemporalDAO);
             listaRespuestasTemporalesDAO.add(respuestaTemporalDAO);
         }
+        */
 
         evaluacionDAO.setRespuestasTemporalesDAO(listaRespuestasTemporalesDAO);
         evaluacionService.guardarEvaluacion(evaluacionDAO);
 
-/*
-        evaluacionDAO.setFechaInicio();
-        evaluacionDAO.setFechaFin();
-        evaluacionDAO.setMotivo();
-        evaluacionDAO.setProfesionalDAO();
-        evaluacionDAO.setSujetoDAO();
-        evaluacionDAO.setListaTestsAplicadosDAO();
-        evaluacionDAO.setInforme();
-        evaluacionDAO.setRespuestasTemporalesDAO();
-        evaluacionDAO.setFinalizado();
 
-*/
+        //
 
+
+        evaluacionDAO = new EvaluacionPsicologicaDAO();
+        evaluacionDAO = evaluacionService.guardarEvaluacion(evaluacionDAO);
+
+        listaEvaluacionesPsicologicasDAO = sujetoDAO.getListaEvaluacionesPsicologicasDAO();
+        listaEvaluacionesPsicologicasDAO.add(evaluacionDAO);
+        sujetoDAO.setListaEvaluacionesPsicologicasDAO(listaEvaluacionesPsicologicasDAO);
+        sujetoDAO = sujetoService.guardarSujeto(sujetoDAO);
+
+        testAplicadoDAO = new TestAplicadoDAO();
+        testAplicadoDAO.setTestCode("MMPI2");
+        listaTestAplicadosDAO = new ArrayList<>();
+        listaTestAplicadosDAO.add(testAplicadoDAO);
+
+        evaluacionDAO.setFechaInicio(FechaUtils.stringToDate("2018-06-01"));
+        evaluacionDAO.setMotivo("Psicotecnico");
+        evaluacionDAO.setProfesionalDAO(profesionalDAO);
+        evaluacionDAO.setSujetoDAO(sujetoDAO);
+        evaluacionDAO.setListaTestsAplicadosDAO(listaTestAplicadosDAO);
+
+        evaluacionDAO = evaluacionService.guardarEvaluacion(evaluacionDAO);
+
+        listaRespuestasTemporalesDAO = generarRespuestasTemporalesAleatorias(evaluacionDAO);
+
+        evaluacionDAO.setRespuestasTemporalesDAO(listaRespuestasTemporalesDAO);
+        evaluacionService.guardarEvaluacion(evaluacionDAO);
+
+
+        //
+
+
+        sujetoDAO = new SujetoDAO("20202202", "Teddy", "Daniels", "CABA", "30", "Masculino", "Universitario", "Periodista", profesionalDAO, new ArrayList<>());
+        sujetoDAO = sujetoService.guardarSujeto(sujetoDAO);
+
+        evaluacionDAO = new EvaluacionPsicologicaDAO();
+        evaluacionDAO = evaluacionService.guardarEvaluacion(evaluacionDAO);
+
+        listaEvaluacionesPsicologicasDAO = sujetoDAO.getListaEvaluacionesPsicologicasDAO();
+        listaEvaluacionesPsicologicasDAO.add(evaluacionDAO);
+        sujetoDAO.setListaEvaluacionesPsicologicasDAO(listaEvaluacionesPsicologicasDAO);
+        sujetoDAO = sujetoService.guardarSujeto(sujetoDAO);
+
+        testAplicadoDAO = new TestAplicadoDAO();
+        testAplicadoDAO.setTestCode("MMPI2");
+        listaTestAplicadosDAO = new ArrayList<>();
+        listaTestAplicadosDAO.add(testAplicadoDAO);
+
+        evaluacionDAO.setFechaInicio(FechaUtils.stringToDate("2019-07-01"));
+        evaluacionDAO.setMotivo("Psicotecnico");
+        evaluacionDAO.setProfesionalDAO(profesionalDAO);
+        evaluacionDAO.setSujetoDAO(sujetoDAO);
+        evaluacionDAO.setListaTestsAplicadosDAO(listaTestAplicadosDAO);
+
+        evaluacionDAO = evaluacionService.guardarEvaluacion(evaluacionDAO);
+
+        listaRespuestasTemporalesDAO = generarRespuestasTemporalesAleatorias(evaluacionDAO);
+
+        evaluacionDAO.setRespuestasTemporalesDAO(listaRespuestasTemporalesDAO);
+        evaluacionService.guardarEvaluacion(evaluacionDAO);
+
+
+
+    }
+
+    private List<RespuestaTemporalDAO> generarRespuestasTemporalesAleatorias(EvaluacionPsicologicaDAO evaluacionDAO) {
+        List<RespuestaTemporalDAO> listaRespuestasTemporalesDAO = new ArrayList<>();
+        RespuestaTemporalDAO respuestaTemporalDAO = null;
+        int n;
+        for (int i=1; i<=567; i++) {
+            respuestaTemporalDAO = new RespuestaTemporalDAO();
+            respuestaTemporalDAO.setEvaluacionPsicologicaDAO(evaluacionDAO);
+            respuestaTemporalDAO.setTestCode("MMPI2");
+            respuestaTemporalDAO.setPregunta(i);
+            n = (int)(Math.random() * 3 + 1);
+            if (n == 1) { respuestaTemporalDAO.setRespuesta(-1); }
+            else if (n == 2) { respuestaTemporalDAO.setRespuesta(0); }
+            else if (n == 3) { respuestaTemporalDAO.setRespuesta(1); }
+            respuestaTemporalDAO = respuestaTemporalService.guardarRespuestaTemporal(respuestaTemporalDAO);
+            listaRespuestasTemporalesDAO.add(respuestaTemporalDAO);
+        }
+        return listaRespuestasTemporalesDAO;
     }
 
     private void cargarBaremos() {
