@@ -1,0 +1,57 @@
+<html>
+<head>
+    <title>Athos</title>
+    <link href="../styles/basic_style.css" rel="stylesheet" type="text/css">
+    
+</head>
+
+<body onload="fetchSujetos()">
+    <div class="login-form">
+        
+        <table class="form-input"> 
+            <thead align="center">
+                <tr >
+                    <th  colspan = "3">
+                        <h3>Sujetos</h3>
+                    </th>
+                </tr>
+            </thead>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <select id="sujetos" class="form-input" onchange="fetchEvaluaciones()" required>
+                            <option value="" hidden>Seleccione Sujeto</option>
+                        </select>
+                    </div>
+                </td>
+        
+                <td>
+                    <div class="form-group">
+                        <select id="evaluaciones" class="form-input" onchange="cargarTests()" required>
+                            <option value="" hidden>Seleccione Evaluacion</option>
+                        </select>
+                    </div>
+                </td>
+        
+                <td>
+                    <div class="form-group">
+                        <select id="tests" class="form-input" onchange="showResults()" required>
+                            <option value="" hidden>Seleccione Test</option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan= "3">
+                    <table id="lista_preguntas">
+                    
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="../scripts/index_profesional.js"></script>
+    <script src="../scripts/calcular_test_profesional.js"></script>
+</body>
+</html>

@@ -5,7 +5,7 @@ function crearLista() {
   //console.log(preguntas)
   var lista = document.getElementById("lista_preguntas");
   var textoResp = "";
-  for (i = 1; i < Object.keys(preguntas).length; i++) {
+  for (i = 1; i <= Object.keys(preguntas).length; i++) {
     if (respuestas[i - 1].respuesta === 1) {
       textoResp = "Verdadero";
     } else if (respuestas[i - 1].respuesta === 0) {
