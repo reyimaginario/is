@@ -6,13 +6,16 @@ import com.hexsoft.athos.entities.EvaluacionPsicologicaDAO;
 import com.hexsoft.athos.entities.RespuestaDAO;
 import com.hexsoft.athos.entities.RespuestaTemporalDAO;
 import com.hexsoft.athos.entities.TestAplicadoDAO;
+import com.hexsoft.athos.exceptions.NoExisteLaRespuestaTemporal;
 import com.hexsoft.athos.repositories.IRespuestaTemporalRepo;
+import com.hexsoft.athos.repositories.ISujetoRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RespuestaTemporalService {
@@ -25,6 +28,20 @@ public class RespuestaTemporalService {
 
     @Autowired
     private RespuestaService respuestaService;
+
+
+    public RespuestaTemporalDAO obtenerRespuestaTemporal(Long respuestaTemporalId) throws NoExisteLaRespuestaTemporal {
+        RespuestaTemporalDAO respuestaTemporalDAO = null;
+        Optional<RespuestaTemporalDAO> respuestaTemporaOlptional = respuestaTemporalRepo.findById(respuestaTemporalId);
+        if (respuestaTemporaOlptional.isPresent()) {
+            respuestaTemporalDAO = respuestaTemporaOlptional.get();
+        }
+        else {
+            throw new NoExisteLaRespuestaTemporal("La respuesta temporal no existe en la base de datos");
+        }
+        return respuestaTemporalDAO;
+    }
+
 
     public void finalizarRespuestas(EvaluacionPsicologicaDAO evaluacionPsicologicaDAO) {
 
@@ -80,5 +97,12 @@ public class RespuestaTemporalService {
 
     public RespuestaTemporalDAO guardarRespuestaTemporal(RespuestaTemporalDAO respuestaTemporalDAO) {
         return respuestaTemporalRepo.save(respuestaTemporalDAO);
+    }
+
+    public RespuestaTemporalDAO actualizarRespuestaTemporal(RespuestaTemporalDTO respuestaTemporal) throws NoExisteLaRespuestaTemporal {
+        RespuestaTemporalDAO respuestaTemporalDAO = obtenerRespuestaTemporal(respuestaTemporal.getRespuestaTemporalId());
+        respuestaTemporalDAO.setRespuesta(respuestaTemporal.getRespuesta());
+        respuestaTemporalDAO = respuestaTemporalRepo.save(respuestaTemporalDAO);
+        return respuestaTemporalDAO;
     }
 }
