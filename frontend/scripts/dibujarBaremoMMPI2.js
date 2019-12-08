@@ -1,11 +1,16 @@
 var paramData = [{}];
-
 var chart;
+
+var formulario = document.getElementById("filtroform");
+
+formulario.addEventListener("submit", function(e) {
+  e.preventDefault();
+});
 
 function getBaremoData() {
   var url = "http://localhost:8080/baremo/filtrarcoso/";
   var filtro = createJson();
-
+  console.log(JSON.stringify(filtro));
   fetch(url, {
     method: "POST",
     //mode: 'no-cors',
@@ -82,43 +87,27 @@ formulario.addEventListener("submit", function(e){
 */
 
 function createJson() {
-  /* var datos = new FormData(formulario);
+  var datos = new FormData(formulario);
+  var loc = document.getElementById("localidades");
+  var ocu = document.getElementById("ocupaciones");
+  var gen = document.getElementById("generos");
+  var est = document.getElementById("estudios");
 
-  var evaluacion = {
-      evaluacionId: null,
-      fechaInicio: "",
-      fechaFin: "",
-      motivo: "psicotecnico",
-      profesionalDTO: {
-          dni: "11222333",
-          matricula: "",
-          nombre: "",
-          apellido: "",
-          listaSujetosDTO: []
-      },
-      sujetoDTO: {
-          dni: datos.get("dni"),
-          nombre: datos.get("nombre"),
-          apellido: datos.get("apellido"),
-          localidad: datos.get("localidad"),
-          edad: datos.get("edad"),
-          genero: datos.get("genero"),
-          nivelDeEstudio: datos.get("nivelDeEstudio"),
-          ocupacion: datos.get("ocupacion"),
-          profesionalDTO: {
-              dni: "11222333",
-              nombre: "",
-              matricula: "",
-              apellido: "",
-              listaSujetosDTO: []
-          }
-      },
-      listaTestsAplicadosDTO: [{
-          testCode:"mmpi2",
-          listaRespuestasDTO:[]
-      }],
-      informe: ""
-  };*/
+  var paramLocalidad = loc.options[loc.selectedIndex].value;
+  var paramedadDesde = datos.get("edadDesde");
+  var paramedadHasta = datos.get("edadHasta");
+  var paramgenero = gen.options[gen.selectedIndex].value;
+  var paramnivelDeEstudio = est.options[est.selectedIndex].value;
+  var paramocupacion = ocu.options[ocu.selectedIndex].value;
 
-  return {};
+  var filtro = {
+    localidad: paramLocalidad === "" ? null : paramLocalidad,
+    edadDesde: paramedadDesde === "" ? null : paramedadDesde,
+    edadHasta: paramedadHasta === "" ? null : paramedadHasta,
+    genero: paramgenero === "" ? null : paramgenero,
+    nivelDeEstudio: paramnivelDeEstudio === "" ? null : paramnivelDeEstudio,
+    ocupacion: paramocupacion === "" ? null : paramocupacion
+  };
+
+  return filtro;
 }

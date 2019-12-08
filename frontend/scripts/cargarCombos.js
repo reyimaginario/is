@@ -1,3 +1,5 @@
+const base_url_cmb = "http://localhost:8080";
+
 function cargarGeneros(opciones) {
   var lista = document.getElementById("generos");
   for (i = 0; i < Object.keys(opciones).length; i++) {
@@ -28,7 +30,7 @@ function cargarPantalla() {
 }
 
 function fetchGeneros() {
-  var url = base_url + "/genero";
+  var url = base_url_cmb + "/genero";
 
   fetch(url, {
     method: "GET",
@@ -46,7 +48,7 @@ function fetchGeneros() {
 }
 
 function fetchEstudios() {
-  url = base_url + "/estudio";
+  url = base_url_cmb + "/estudio";
 
   fetch(url, {
     method: "GET",
@@ -64,7 +66,7 @@ function fetchEstudios() {
 }
 
 function fetchOcupaciones() {
-  url = base_url + "/ocupacion";
+  url = base_url_cmb + "/ocupacion";
 
   fetch(url, {
     method: "GET",
@@ -93,7 +95,7 @@ function cargarOcupaciones(opciones) {
 }
 
 function fetchLocalidades() {
-  url = base_url + "/localidad";
+  url = base_url_cmb + "/localidad";
 
   fetch(url, {
     method: "GET",
