@@ -8,7 +8,7 @@ formulario.addEventListener("submit", function(e){
     
     var url = base_url + "/evaluacion";
     var evaluacion = createJson()
-    
+    console.log(evaluacion)
     fetch(url, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -67,7 +67,7 @@ function cargarGeneros(opciones) {
         
         var container = document.createElement("option");
         container.id = "estudio" + opciones[i].generoId;
-        container.value = opciones[i].generoId;
+        container.value = opciones[i].genero;
         lista.appendChild(container);
         container.innerHTML = opciones[i].genero;
     }
@@ -79,7 +79,7 @@ function cargarEstudios(opciones) {
         
         var container = document.createElement("option");
         container.id = "estudio" + opciones[i].estudioId;
-        container.value = opciones[i].estudioId;
+        container.value = opciones[i].estudio;
         lista.appendChild(container);
         container.innerHTML = opciones[i].estudio;
     }
@@ -152,7 +152,7 @@ function cargarOcupaciones(opciones) {
         
         var container = document.createElement("option");
         container.id = "ocupaciones" + opciones[i].ocupacionId;
-        container.value = opciones[i].ocupacionId;
+        container.value = opciones[i].ocupacion;
         lista.appendChild(container);
         container.innerHTML = opciones[i].ocupacion;
     }
@@ -182,7 +182,7 @@ function cargarLocalidades(opciones) {
         
         var container = document.createElement("option");
         container.id = "localidad" + opciones[i].localidadId;
-        container.value = opciones[i].localidadId;
+        container.value = opciones[i].localidad;
         lista.appendChild(container);
         container.innerHTML = opciones[i].localidad;
     }
@@ -206,7 +206,11 @@ function createAnswers(preguntas){
 
 function createJson(){
     var datos = new FormData(formulario);
-
+    var loc = document.getElementById("localidades")
+    var ocu = document.getElementById("ocupaciones")
+    var gen = document.getElementById("generos")
+    var est = document.getElementById("estudios")
+    
     var evaluacion = {
         evaluacionId: null,
         fechaInicio: "",
@@ -223,11 +227,11 @@ function createJson(){
             dni: datos.get("dni"),
             nombre: datos.get("nombre"),
             apellido: datos.get("apellido"),
-            localidad: datos.get("localidad"),
+            localidad: loc.options[loc.selectedIndex].value,
             edad: datos.get("edad"),
-            genero: datos.get("genero"),
-            nivelDeEstudio: datos.get("nivelDeEstudio"),
-            ocupacion: datos.get("ocupacion"),
+            genero: gen.options[gen.selectedIndex].value,
+            nivelDeEstudio: est.options[est.selectedIndex].value,
+            ocupacion: ocu.options[ocu.selectedIndex].value,
             profesionalDTO: {
                 dni: "11222333",
                 nombre: "",

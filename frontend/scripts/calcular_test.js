@@ -1,6 +1,33 @@
-   
+/*function getUrlVars() {
+    var par = "file:///C:/Users/aguch/Desktop/Keep%20It%20Simple/IS/is/frontend/screens/show_test.html?id=1482".replace("file:///C:/Users/aguch/Desktop/Keep%20It%20Simple/IS/is/frontend/screens/show_test.html?id=", "")
+    return par;
+}*/
+
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+
+function getUrlParam(parameter, defaultvalue){
+    var urlparameter = defaultvalue;
+    if(window.location.href.indexOf(parameter) > -1){
+        urlparameter = getUrlVars()[parameter];
+        }
+    return urlparameter;
+}
+
+
+
+
 function showResults(){
-    var url = "http://localhost:8080/evaluacion/" + sessionStorage.getItem("evaluacion_id") + "/calcular"
+
+    var evaluacion_id = getUrlParam('id','1482');
+    console.log(evaluacion_id)
+
+    var url = "http://localhost:8080/evaluacion/" + evaluacion_id + "/calcular"
     fetch(url, {
         method: 'GET',
         headers: {'Content-Type': 'application/json'},
@@ -8,20 +35,22 @@ function showResults(){
     .then( res => res.json())
     .then( data => {
         console.log(data)
-        saveResponse("resultados", JSON.stringify(data))
-        crearLista()
+        //saveResponse("resultados", JSON.stringify(data))
+        crearLista(data)
     })
     .catch(err => {
         console.error('Caught error: ', err)
-        alert("Ocurrio un error en GET! :c")
+        alert("Ocurrio un error en showResults! :c")
     });
 }
 
 var titulos = ["Basicas", "Contenido", "Suplementarias", "Adicionales de Validez"]
 
-function crearLista(){
+function crearLista(data){
     //showResults()
-    jason = JSON.parse(sessionStorage.getItem("resultados"))
+    var tabla = document.getElementById("lista_preguntas"); 
+    tabla.innerHTML = ""
+    jason = data//JSON.parse(sessionStorage.getItem("resultados"))
     console.log(jason)
     for (j = 0; j < titulos.length; j++) {
         crearTabla(titulos[j])
@@ -33,7 +62,7 @@ function crearLista(){
 function crearTabla(titulo) {
     var lista = jason[0][titulo]
     console.log(lista)
-    var tabla = document.getElementById("lista_preguntas"); 
+    var tabla = document.getElementById("lista_preguntas");
     
     var header = document.createElement("thead");
     //header.id = titulo;
