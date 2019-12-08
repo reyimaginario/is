@@ -359,6 +359,10 @@ public class BaremoService {
 				result.add(item);
 			}
     	}
+    	// Permite que el gráfico se dibuje vacío
+    	if (result.isEmpty()) {
+    		result.add(new JSONObject());
+    	}
     	return result;
     }
 
