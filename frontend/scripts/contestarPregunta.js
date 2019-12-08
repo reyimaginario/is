@@ -52,6 +52,11 @@ var preguntas = JSON.parse(sessionStorage.getItem("preguntas"))
         showPregunta(0);
     }
 
+    function mostrarPreguntas() {
+        sendForm()
+        window.location.href="../screens/listar_preguntas.html"
+    }
+
     function sendForm(){
         event.preventDefault()
         
@@ -70,6 +75,7 @@ var preguntas = JSON.parse(sessionStorage.getItem("preguntas"))
         }
     }
 
+
     function postAnswer(){
         //var url = "http://localhost:8080/evaluacion/respuestaTemporal";
         var url = "http://localhost:8080/evaluacion/respuestaTemporal";
@@ -84,6 +90,7 @@ var preguntas = JSON.parse(sessionStorage.getItem("preguntas"))
         .then( res => res.json())
         .then( data => {
             console.log(data)//true
+            respuesta.respuestaTemporalId = data.respuestaTemporalId
         })
         .catch(err => {
             console.error('Caught error: ', err)

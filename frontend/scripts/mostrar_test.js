@@ -70,21 +70,21 @@ function cargarEvaluaciones(evs, li) {
     lista = container
 
     for (i=0; i< Object.keys(evs).length; i++){
-        //console.log("crando ev " + i + " de " + Object.keys(evs).length)
+        console.log("crando ev " + i + " de " + Object.keys(evs).length)
         var container = document.createElement("li");
         container.id = "test_" + evs[i].evaluacionId;
         //container.className = "nested";
         //container.value = opciones[i].ocupacionId;
-        container.innerHTML = "<span class='caret'>" +evs[i].evaluacionId+" - "+ evs[i].fechaInicio + "</span>"
+        container.innerHTML = "<a href = 'show_test.html?id=" + evs[i].evaluacionId + "'>"+evs[i].evaluacionId+" - "+ evs[i].fechaInicio + "</a>"
         lista.appendChild(container);
         var aux = container
         var aplicados = evs[i].listaTestsAplicadosDTO
-        cargarTests(aplicados, aux, evs[i].evaluacionId)
-        //console.log("fin de " + i)
+        //cargarTests(aplicados, aux, evs[i].evaluacionId)
+        console.log("fin de " + i)
         //"http://localhost:8080/sujeto/" + dni + "/obtenerEvaluaciones"
+        buildTree()
     }
     
-    buildTree()
 }
 
 function cargarTests(tests, li, id) {
@@ -96,7 +96,7 @@ function cargarTests(tests, li, id) {
     lista = container
 
     for (j=0; j< Object.keys(tests).length; j++){
-        //console.log("crando test " + j + " de " + Object.keys(tests).length)
+        console.log("crando test " + j + " de " + Object.keys(tests).length)
         var container = document.createElement("li");
         container.id = tests[j].testCode + "_" + tests[j].testAplicadoId;
         //container.className = "nested";
@@ -107,7 +107,9 @@ function cargarTests(tests, li, id) {
         container.innerHTML ="<a href = 'show_test.html?id=" + id + "'>"+ tests[j].testCode +"</a>"
         
         //"http://localhost:8080/sujeto/" + dni + "/obtenerEvaluaciones"
+        buildTree()
     }
+    //buildTree()
 }
 /*
 function open(id) {

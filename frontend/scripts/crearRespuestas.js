@@ -10,7 +10,8 @@ export function createAnswers(){
                 "evaluacionId": evId,
                 "testCode": "mmpi2",
                 "pregunta": preguntas[i].id,
-                "respuesta": noRes
+                "respuesta": noRes,
+                "respuestaTemporalId": null
             };
             lista.push(respuesta);
         }
