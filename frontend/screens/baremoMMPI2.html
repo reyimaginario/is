@@ -14,68 +14,62 @@
         <div class="form-header">
           <h2>Baremo MMPI-2</h2>
         </div>
-
+        <div class="form-group"><input required min="0" type="number" name="dni" placeholder="Ingrese dni" class="form-input"></div>
+        <div class="form-group"><input required type="text" name="nombre" placeholder="Ingrese nombre" class="form-input"></div>
+        <div class="form-group"><input required type="text" name="apellido" placeholder="Ingrese apellido" class="form-input"></div>
+        
         <div class="form-group">
-          <input
-            required
-            type="text"
-            name="localidad"
-            placeholder="Ingrese localidad"
-            class="form-input"
-          />
+            <select id="localidades" class="form-input" required>
+                    <option value="" hidden>Seleccione localidad</option>
+            </select>
         </div>
         <div class="form-group">
           <table class="question-table">
-            <tr>
-              <td style="padding-right: 5px">
-                <input
-                  required
-                  type="number"
-                  name="edad"
-                  placeholder="Ingrese edad desde"
-                  class="form-input"
-                />
-              </td>
-              <td style="padding-left: 5px">
-                <input
-                  required
-                  type="number"
-                  name="edad"
-                  placeholder="Ingrese edad hasta"
-                  class="form-input"
-                />
-              </td>
-            </tr>
-          </table>
+              <tr>
+                <td style="padding-right: 5px">
+                  <input
+                    required
+                    min="18" max="84"
+                    type="number"
+                    name="edad"
+                    placeholder="Ingrese edad desde"
+                    class="form-input"
+                  />
+                </td>
+                <td style="padding-left: 5px">
+                  <input
+                    required
+                    min="18" max="84"
+                    type="number"
+                    name="edad"
+                    placeholder="Ingrese edad hasta"
+                    class="form-input"
+                  />
+                </td>
+              </tr>
+            </table>
+        
+        </div>
+        
+        <div class="form-group">
+            <select id="generos" class="form-input" required>
+                    <option value="" hidden>Seleccione género</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <select id="estudios" class="form-input" required>
+                    <option value="" hidden>Seleccione mayor nivel de estudios alcanzado</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <select id="ocupaciones" class="form-input" required>
+                    <option value="" hidden>Seleccione ocupación</option>
+            </select>
         </div>
 
-        <div class="form-group">
-          <input
-            required
-            type="text"
-            name="genero"
-            placeholder="Ingrese genero"
-            class="form-input"
-          />
-        </div>
-        <div class="form-group">
-          <input
-            required
-            type="text"
-            name="nivelDeEstudio"
-            placeholder="Ingrese nivel de estudio"
-            class="form-input"
-          />
-        </div>
-        <div class="form-group">
-          <input
-            required
-            type="text"
-            name="ocupacion"
-            placeholder="Ingrese ocupacion"
-            class="form-input"
-          />
-        </div>
+        <div class="form-group"></div>
         <button
           id="btn_next"
           type="submit"
@@ -84,6 +78,7 @@
         >
           Filtrar
         </button>
+      </div>
       </form>
      
     </div>
