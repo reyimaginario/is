@@ -147,12 +147,10 @@ input[type="number"] {
 
 .baremo-chart {
   width: 100%;
-  min-width: 600px;
-  height: 500px;
+  height: 100%;
   float: right;
   align-self: center;
   border: 1px auto;
-  padding-left: 5%;
 }
 
 .baremo-form {

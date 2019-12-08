@@ -223,11 +223,11 @@ public class InicializadorController {
             baremoDAO.setNivelDeEstudio("Terciario");
             baremoDAO.setOcupacion("Programador");
 
-            baremoDAO.setBasica_l((int)(Math.random() * 30 + 1));
-            baremoDAO.setBasica_f((int)(Math.random() * 30 + 1));
-            baremoDAO.setBasica_k((int)(Math.random() * 35 + 5));
-            baremoDAO.setBasica_hs((int)(Math.random() * 30 + 1));
-            baremoDAO.setBasica_d((int)(Math.random() * 35 + 5));
+            baremoDAO.setBasica_l((int)(Math.random() * 30 + 15));
+            baremoDAO.setBasica_f((int)(Math.random() * 30 + 25));
+            baremoDAO.setBasica_k((int)(Math.random() * 35 + 55));
+            baremoDAO.setBasica_hs((int)(Math.random() * 30 + 35));
+            baremoDAO.setBasica_d((int)(Math.random() * 35 + 30));
             baremoDAO.setBasica_hy((int)(Math.random() * 35 + 5));
             baremoDAO.setBasica_pd((int)(Math.random() * 35 + 5));
             baremoDAO.setBasica_mf_m((int)(Math.random() * 40 + 10));
@@ -273,8 +273,8 @@ public class InicializadorController {
             baremoDAO.setSuplementarias_aps((int)(Math.random() * 35 + 5));
             baremoDAO.setSuplementarias_aas((int)(Math.random() * 30 + 1));
 
-            baremoDAO.setAdicionales_fb_back((int)(Math.random() * 30 + 1));
-            baremoDAO.setAdicionales_f_p((int)(Math.random() * 30 + 1));
+            baremoDAO.setAdicionales_fb_back((int)(Math.random() * 30+ 1));
+            baremoDAO.setAdicionales_f_p((int)(Math.random() * 3 + 1));
             baremoDAO.setAdicionales_ds((int)(Math.random() * 30 + 1));
             baremoDAO.setAdicionales_ds_r((int)(Math.random() * 30 + 1));
             baremoDAO.setAdicionales_s((int)(Math.random() * 45 + 15));
@@ -442,11 +442,11 @@ public class InicializadorController {
             baremoDAO.setNivelDeEstudio("Universitario");
             baremoDAO.setOcupacion("Musico");
 
-            baremoDAO.setBasica_l((int)(Math.random() * 30 + 1));
-            baremoDAO.setBasica_f((int)(Math.random() * 30 + 1));
-            baremoDAO.setBasica_k((int)(Math.random() * 35 + 5));
-            baremoDAO.setBasica_hs((int)(Math.random() * 30 + 1));
-            baremoDAO.setBasica_d((int)(Math.random() * 35 + 5));
+            baremoDAO.setBasica_l((int)(Math.random() * 30 + 10));
+            baremoDAO.setBasica_f((int)(Math.random() * 30 + 20));
+            baremoDAO.setBasica_k((int)(Math.random() * 35 + 50));
+            baremoDAO.setBasica_hs((int)(Math.random() * 30 + 30));
+            baremoDAO.setBasica_d((int)(Math.random() * 35 + 25));
             baremoDAO.setBasica_hy((int)(Math.random() * 35 + 5));
             baremoDAO.setBasica_pd((int)(Math.random() * 35 + 5));
             baremoDAO.setBasica_mf_m((int)(Math.random() * 40 + 10));

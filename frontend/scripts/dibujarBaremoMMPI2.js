@@ -3,61 +3,78 @@ var paramData = [
     type: "scatter",
     toolTipContent: "<b>Valor:</b>{y}",
     dataPoints: [
-      { label: "k", y: 10 },
-      { label: "l", y: 23 },
-      { label: "v", y: 81 },
-      { label: "s", y: 81 }
+
     ]
   },
   {
     type: "scatter",
     toolTipContent: "<b>Valor:</b>{y}",
     dataPoints: [
-      { label: "k", y: 13 },
-      { label: "l", y: 24 },
-      { label: "v", y: 71 },
-      { label: "s", y: 70 }
+
     ]
   },
   {
     type: "scatter",
     toolTipContent: "<b>Valor:</b>{y}",
     dataPoints: [
-      { label: "k", y: 9 },
-      { label: "l", y: 21 },
-      { label: "v", y: 72 },
-      { label: "s", y: 69 }
+
     ]
   },
   {
     type: "scatter",
     toolTipContent: "<b>Valor:</b>{y}",
     dataPoints: [
-      { label: "k", y: 11 },
-      { label: "l", y: 17 },
-      { label: "v", y: 70 },
-      { label: "s", y: 99 }
+
     ]
   },
   {
     type: "scatter",
     toolTipContent: "<b>Valor:</b>{y}",
     dataPoints: [
-      { label: "k", y: 6 },
-      { label: "l", y: 28 },
-      { label: "v", y: 66 },
-      { label: "s", y: 82 }
+
     ]
   }
 ];
 
+var chart;
+
 function getBaremoData() {
-  return paramData;
+  var url = 'http://localhost:8080/baremo/filtrarcoso/';
+    var filtro = createJson()
+    
+    fetch(url, {
+        method: 'POST',
+        //mode: 'no-cors',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(filtro) 
+    })
+    .then( res => res.json())
+    .then( data => {
+        console.log(JSON.stringify(data))
+        var filterData = data;
+        chart = new CanvasJS.Chart("chartContainer", {
+          animationEnabled: true,
+          zoomEnabled: true,
+          axisX: {
+            title: "Subescala"
+          },
+          axisY: {
+            title: "Valor",
+            maximum: 100,
+            interval: 10
+          },
+          data: filterData
+        });
+        chart.render()
+    })
+    .catch(err => {
+        console.error('Caught error: ', err)
+        alert("Ocurrio un error en POST! :c")
+    });
 }
 
-function dibujar() {
-  var data = getBaremoData();
-  var chart = new CanvasJS.Chart("chartContainer", {
+async function dibujar() {
+  chart = new CanvasJS.Chart("chartContainer", {
     animationEnabled: true,
     zoomEnabled: true,
     axisX: {
@@ -66,7 +83,79 @@ function dibujar() {
     axisY: {
       title: "Valor"
     },
-    data: data
+    data: paramData
   });
-  chart.render();
+  chart.render()
+}
+
+
+/*
+var formulario = document.getElementById("formulario");
+
+formulario.addEventListener("submit", function(e){
+    e.preventDefault()
+
+    var url = 'http://localhost:8080/baremo/filtrarcoso/';
+    var evaluacion = createJson()
+    
+    fetch(url, {
+        method: 'GET',
+        //mode: 'no-cors',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(evaluacion) 
+    })
+
+    .then( res => res.json())
+    .then( data => {
+        console.log(data)
+    })
+    .catch(err => {
+        console.error('Caught error: ', err)
+        alert("Ocurrio un error en POST! :c")
+    });
+
+    
+});
+*/
+
+function createJson(){
+ /* var datos = new FormData(formulario);
+
+  var evaluacion = {
+      evaluacionId: null,
+      fechaInicio: "",
+      fechaFin: "",
+      motivo: "psicotecnico",
+      profesionalDTO: {
+          dni: "11222333",
+          matricula: "",
+          nombre: "",
+          apellido: "",
+          listaSujetosDTO: []
+      },
+      sujetoDTO: {
+          dni: datos.get("dni"),
+          nombre: datos.get("nombre"),
+          apellido: datos.get("apellido"),
+          localidad: datos.get("localidad"),
+          edad: datos.get("edad"),
+          genero: datos.get("genero"),
+          nivelDeEstudio: datos.get("nivelDeEstudio"),
+          ocupacion: datos.get("ocupacion"),
+          profesionalDTO: {
+              dni: "11222333",
+              nombre: "",
+              matricula: "",
+              apellido: "",
+              listaSujetosDTO: []
+          }
+      },
+      listaTestsAplicadosDTO: [{
+          testCode:"mmpi2",
+          listaRespuestasDTO:[]
+      }],
+      informe: ""
+  };*/
+
+  return {};
 }

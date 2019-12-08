@@ -12,6 +12,7 @@ import org.json.simple.parser.JSONParser;
 
 import com.hexsoft.athos.dtos.RespuestaDTO;
 import com.hexsoft.athos.dtos.RespuestaTemporalDTO;
+import com.hexsoft.athos.services.BaremoService;
 import com.hexsoft.athos.services.TestService;
 import com.hexsoft.athos.test.ConstantestServicioTest;
 import com.hexsoft.athos.test.mmpi2.CalculadorMMPI2;
@@ -21,8 +22,8 @@ import com.hexsoft.athos.test.mmpi2.calculador.escalas.CalculadorEscalasAdiciona
 public class tetCalcu {
 
 	public static void main(String[] args) throws Exception {			
-		JSONObject respuestasJSON = (JSONObject) readJsonSimpleDemo("src\\main\\java\\com\\hexsoft\\athos\\test\\mmpi2\\calculador\\respuestas.json");
-		System.out.println(obtenerRtasTemporalesDAO());
+		JSONArray respuestasJSON = (JSONArray) readJsonSimpleDemo("src\\main\\java\\com\\hexsoft\\athos\\test\\mmpi2\\calculador\\prueba.json");
+		BaremoService service = new BaremoService();
 		/*TestMMPI2 test = (TestMMPI2) TestService.getInstance().obtenerTest(ConstantestServicioTest.CODIGO_TEST_MMPI2);
 		CalculadorMMPI2 calcu = new CalculadorMMPI2();
 		System.out.println(calcu.construirEscalas(respuestasJSON));*/
