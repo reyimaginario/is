@@ -1,12 +1,5 @@
-//sqlite integrado a chrome -
-//carlos.ruiz@ort.edu.ar
-
 var preguntas = JSON.parse(sessionStorage.getItem("preguntas"));
 var respuestas = JSON.parse(sessionStorage.getItem("respuestas"));
-//var actual = 0;
-
-//sqlite integrado a chrome -
-//carlos.ruiz@ort.edu.ar
 
 function crearLista() {
   //console.log(preguntas)
@@ -63,13 +56,14 @@ function startTest() {
 
 function finTest() {
   event.preventDefault();
-  window.location.href = "../screens/finalizarTest.html";
+  window.location.href = "../screens/gracias.html";
 }
 
 function sendResults() {
   event.preventDefault();
   var evId = sessionStorage.getItem("evaluacion_id");
   //var end_url= "http://localhost:8080/evaluacion/" + sessionStorage.getItem("evaluacion_id") + "/finalizar"
+
   var end_url =
     "http://localhost:8080/evaluacion/" + String(evId) + "/finalizar";
 
@@ -81,30 +75,13 @@ function sendResults() {
   })
     .then(res => res.json())
     .then(data => {
-      console.log("Whatisdis");
       console.log(data);
       saveResponse("evaluacion_finalizada", JSON.stringify(data));
-      document.getElementById("btn_send").hidden = true;
-      document.getElementById("btn_show").hidden = false;
     })
     .catch(err => {
       console.error("Caught error: ", err);
-      alert("Ocurrio un error en GET! :c");
+      alert("Este test ya ha finalizado.");
     });
-
-  /*testFetch(end_url, {
-            method: 'GET',
-            headers: {'Content-Type': 'application/json'},
-         }, 5000) // throw after max 5 seconds timeout error
-        .then((result) => {
-            console.log(result.json())
-        })
-        .catch((e) => {
-            // handle errors and timeout error
-            console.log(e)
-        })*/
-
-  //
 }
 
 function showResults() {

@@ -1,18 +1,16 @@
 const noRes = -1;
-
+//const base_url = "http://192.168.0.127:8080"
+const base_url = "http://localhost:8080"
 var formulario = document.getElementById("formulario");
-//var url = "http://localhost:8080/evaluacion";
 
 formulario.addEventListener("submit", function(e){
     e.preventDefault()
-
-    //var url = "http://localhost:8080/evaluacion";
-    var url = "http://localhost:8080/evaluacion";
-    var evaluacion = createJson()
     
+    var url = base_url + "/evaluacion";
+    var evaluacion = createJson()
+    console.log(evaluacion)
     fetch(url, {
         method: 'POST',
-        //mode: 'no-cors',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(evaluacion) 
     })
@@ -25,27 +23,19 @@ formulario.addEventListener("submit", function(e){
         saveResponse("actual", 0)
         
         getPreguntas()
-
-        //
-        
     })
     .catch(err => {
         console.error('Caught error: ', err)
         alert("Ocurrio un error en POST! :c")
-    });
-
-    
+    });    
 });
 
 function getPreguntas(){
-    var url = "http://localhost:8080/test/mmpi2/preguntas"
-    //var url = "http://localhost:8080/test/mmpi2/preguntas"
+    var url = base_url + "/test/mmpi2/preguntas"
+    
     fetch(url, {
         method: 'GET',
-        //credentials: 'include',
-        //mode: 'no-cors',
-        headers: {'Content-Type': 'application/json'},
-        //body: JSON.stringify(booty) //{"username": "mediavla", "password": "123"}//datos
+        headers: {'Content-Type': 'application/json'}
     })
     .then( res => res.json())
     .then( data => {
@@ -61,9 +51,7 @@ function getPreguntas(){
         console.error('Caught error: ', err)
         alert("Ocurrio un error en GET! :c")
     });
-
 }
-
 
 function saveResponse(name, data){
     if (typeof(Storage) !== 'undefined') {
@@ -73,15 +61,137 @@ function saveResponse(name, data){
     }
 }
 
+function cargarGeneros(opciones) {
+    var lista = document.getElementById("generos")
+    for (i = 0; i < Object.keys(opciones).length; i++){
+        
+        var container = document.createElement("option");
+        container.id = "estudio" + opciones[i].generoId;
+        container.value = opciones[i].genero;
+        lista.appendChild(container);
+        container.innerHTML = opciones[i].genero;
+    }
+}
 
+function cargarEstudios(opciones) {
+    var lista = document.getElementById("estudios")
+    for (i = 0; i < Object.keys(opciones).length; i++){
+        
+        var container = document.createElement("option");
+        container.id = "estudio" + opciones[i].estudioId;
+        container.value = opciones[i].estudio;
+        lista.appendChild(container);
+        container.innerHTML = opciones[i].estudio;
+    }
+}
+
+function cargarPantalla(){
+    fetchGeneros();
+    fetchEstudios();
+    fetchLocalidades();
+    fetchOcupaciones();
+}
+
+function fetchGeneros() {
+    var url = base_url + "/genero"
+    
+    fetch(url, {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'},
+    })
+    .then( res => res.json())
+    .then( data => {
+        console.log(data)
+        cargarGeneros(data)
+    })
+    .catch(err => {
+        console.error('Caught error: ', err)
+        alert("Ocurrio un error en GET genero! :c")
+    });
+}
+
+function fetchEstudios(){
+    url = base_url + "/estudio"
+    
+    fetch(url, {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'},
+    })
+    .then( res => res.json())
+    .then( data => {
+        console.log(data)
+        cargarEstudios(data)
+    })
+    .catch(err => {
+        console.error('Caught error: ', err)
+        alert("Ocurrio un error en GET estudios! :c")
+    });
+}
+
+function fetchOcupaciones(){
+    url = base_url + "/ocupacion"
+    
+    fetch(url, {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'},
+    })
+    .then( res => res.json())
+    .then( data => {
+        console.log(data)
+        cargarOcupaciones(data)
+    })
+    .catch(err => {
+        console.error('Caught error: ', err)
+        alert("Ocurrio un error en GET estudios! :c")
+    });
+}
+
+function cargarOcupaciones(opciones) {
+    var lista = document.getElementById("ocupaciones")
+    for (i = 0; i < Object.keys(opciones).length; i++){
+        
+        var container = document.createElement("option");
+        container.id = "ocupaciones" + opciones[i].ocupacionId;
+        container.value = opciones[i].ocupacion;
+        lista.appendChild(container);
+        container.innerHTML = opciones[i].ocupacion;
+    }
+}
+
+function fetchLocalidades(){
+    url = base_url + "/localidad"
+    
+    fetch(url, {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'},
+    })
+    .then( res => res.json())
+    .then( data => {
+        console.log(data)
+        cargarLocalidades(data)
+    })
+    .catch(err => {
+        console.error('Caught error: ', err)
+        alert("Ocurrio un error en GET estudios! :c")
+    });
+}
+
+function cargarLocalidades(opciones) {
+    var lista = document.getElementById("localidades")
+    for (i = 0; i < Object.keys(opciones).length; i++){
+        
+        var container = document.createElement("option");
+        container.id = "localidad" + opciones[i].localidadId;
+        container.value = opciones[i].localidad;
+        lista.appendChild(container);
+        container.innerHTML = opciones[i].localidad;
+    }
+}
 
 function createAnswers(preguntas){
     var lista = [];
     var evId = parseInt(sessionStorage.getItem("evaluacion_id"));
-    //var preguntas = JSON.parse(sessionStorage.getItem("preguntas"));
     
-    //if(JSON.parse(sessionStorage.getItem("respuestas")) === null){
-        
     for (i = 1; i <= Object.keys(preguntas).length; i++){
         var respuesta = {
             "evaluacionId": evId,
@@ -92,14 +202,15 @@ function createAnswers(preguntas){
         lista.push(respuesta);
     }
     return lista
-    /*}else{
-        return JSON.parse(sessionStorage.getItem("respuestas"))
-    }*/
 }
 
 function createJson(){
     var datos = new FormData(formulario);
-
+    var loc = document.getElementById("localidades")
+    var ocu = document.getElementById("ocupaciones")
+    var gen = document.getElementById("generos")
+    var est = document.getElementById("estudios")
+    
     var evaluacion = {
         evaluacionId: null,
         fechaInicio: "",
@@ -116,11 +227,11 @@ function createJson(){
             dni: datos.get("dni"),
             nombre: datos.get("nombre"),
             apellido: datos.get("apellido"),
-            localidad: datos.get("localidad"),
+            localidad: loc.options[loc.selectedIndex].value,
             edad: datos.get("edad"),
-            genero: datos.get("genero"),
-            nivelDeEstudio: datos.get("nivelDeEstudio"),
-            ocupacion: datos.get("ocupacion"),
+            genero: gen.options[gen.selectedIndex].value,
+            nivelDeEstudio: est.options[est.selectedIndex].value,
+            ocupacion: ocu.options[ocu.selectedIndex].value,
             profesionalDTO: {
                 dni: "11222333",
                 nombre: "",

@@ -1,29 +1,30 @@
 <html>
-<head>
+  <head>
     <title>Athos</title>
-    <link href="../styles/basic_style.css" rel="stylesheet" type="text/css">
-    
-</head>
+    <link href="../styles/basic_style.css" rel="stylesheet" type="text/css" />
+  </head>
 
-<body onload="crearLista()">
-    <div class="login-form" >
-        
-            <div class="form-header">
-                <h3>PREGUNTAS</h3><a href="../screens/pregunta.html">Vovler</a>
-            
+  <body onload="crearLista()">
+    <div class="login-form">
+      <div class="form-header">
+        <h3>PREGUNTAS</h3>
+        <a href="../screens/pregunta.html">Vovler</a>
 
-            <table id="lista_preguntas" class="TFtable">
-                
-            </table></div>
+        <table id="lista_preguntas" class="TFtable"></table>
+      </div>
 
-            <div class="form-group">
-                <button id="btn_next" type = "submit" class="form-button" onclick="finTest()">Finalizar</button>
-            </div>
-       
+      <div class="form-group">
+        <button
+          id="btn_next"
+          type="submit"
+          class="form-button"
+          onclick="finTest()"
+        >
+          Finalizar
+        </button>
+      </div>
     </div>
 
-    
     <script src="../scripts/mostrarLista.js"></script>
-
-</body>
+  </body>
 </html>
