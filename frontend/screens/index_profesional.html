@@ -1,25 +1,35 @@
+<!DOCTYPE html>
 <html>
 <head>
     <title>Athos</title>
     <link href="../styles/basic_style.css" rel="stylesheet" type="text/css">
     
-</head>
 
-<body onload="cargarSujetos()">
-    <div class="login-form" >
-        
-            <div class="form-header">
-                <h3>Sujetos</h3>            
+</head>
+<body >
+    <div class="wrap">
+        <form enctype="application/json" class="login-form" method="POST">
+
+            <div class="form-group">
+                <button id="btn_send" type = "submit" class="form-button" onclick="gotoBaremos()">Mostrar Baremos</button>
             </div>
 
-            <table id="lista_sujetos" class="TFtable">
-                
-            </table></div>
-       
+            <div class="form-group">
+                <button id="btn_show" type = "submit" class="form-button" onclick="gotoResultados()">Mostrar Resultados</button>
+            </div>
+            
+        </form>
     </div>
 
-    
-    <script src="../scripts/mostrar_sujetos.js"></script>
-
+    <script >
+        function gotoResultados(){
+            event.preventDefault()
+            window.location.href = "resultados_por_sujeto.html"
+        }
+        function gotoBaremos(){
+            event.preventDefault()
+            window.location.href = "baremoMMPI2.html"
+        }
+    </script>
 </body>
-</html>
+</html> 
