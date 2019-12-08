@@ -1,55 +1,94 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Athos</title>
-    <link href="../styles/basic_style.css" rel="stylesheet" type="text/css">
-</head>
+    <link href="../styles/basic_style.css" rel="stylesheet" type="text/css" />
+  </head>
 
-<body onload="cargarPantalla()">
+  <body onload="cargarPantalla()">
     <div class="wrap">
-        <form id="formulario" enctype="application/json" class="login-form">
-            <div class="form-header">
-                <h3>Información Personal</h3>
-                <p>Complete sus datos para comenzar el test</p>
-            </div>
+      <form id="formulario" enctype="application/json" class="login-form">
+        <div class="form-header">
+          <h3>Información Personal</h3>
+          <p>Complete sus datos para comenzar el test</p>
+        </div>
 
-            <div class="form-group"><input required min="0" type="number" name="dni" placeholder="Ingrese dni" class="form-input"></div>
-            <div class="form-group"><input required type="text" name="nombre" placeholder="Ingrese nombre" class="form-input"></div>
-            <div class="form-group"><input required type="text" name="apellido" placeholder="Ingrese apellido" class="form-input"></div>
-            
-            <div class="form-group">
-                <select id="localidades" class="form-input" required>
-                        <option value="" hidden>Seleccione localidad</option>
-                </select>
-            </div>
+        <div class="form-group">
+          <input
+            required
+            min="0"
+            type="number"
+            name="dni"
+            placeholder="Ingrese dni"
+            class="form-input"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            required
+            type="text"
+            name="nombre"
+            placeholder="Ingrese nombre"
+            class="form-input"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            required
+            type="text"
+            name="apellido"
+            placeholder="Ingrese apellido"
+            class="form-input"
+          />
+        </div>
 
-            <div class="form-group"><input required min="18" max="84" type="number" name="edad" placeholder="Ingrese edad" class="form-input"></div>
-            
-            <div class="form-group">
-                <select id="generos" class="form-input" required>
-                        <option value="" hidden>Seleccione género</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <select id="estudios" class="form-input" required>
-                        <option value="" hidden>Seleccione mayor nivel de estudios alcanzado</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <select id="ocupaciones" class="form-input" required>
-                        <option value="" hidden>Seleccione ocupación</option>
-                </select>
-            </div>
+        <div class="form-group">
+          <select id="localidades" class="form-input" required>
+            <option value="" hidden>Seleccione localidad</option>
+          </select>
+        </div>
 
-            <div class="form-group">
-                <button id="btn_login" type = "submit" class="form-button">Start Test</button>
-            </div>
-            
-        </form>
+        <div class="form-group">
+          <input
+            required
+            min="18"
+            max="84"
+            type="number"
+            name="edad"
+            placeholder="Ingrese edad"
+            class="form-input"
+          />
+        </div>
+
+        <div class="form-group">
+          <select id="generos" class="form-input" required>
+            <option value="" hidden>Seleccione género</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <select id="estudios" class="form-input" required>
+            <option value="" hidden
+              >Seleccione mayor nivel de estudios alcanzado</option
+            >
+          </select>
+        </div>
+
+        <div class="form-group">
+          <select id="ocupaciones" class="form-input" required>
+            <option value="" hidden>Seleccione ocupación</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <button id="btn_login" type="submit" class="form-button">
+            Start Test
+          </button>
+        </div>
+      </form>
     </div>
 
     <script src="../scripts/enviarSujeto.js"></script>
-</body>
-</html> 
+    <script src="../scripts/cargarCombos.js"></script>
+  </body>
+</html>

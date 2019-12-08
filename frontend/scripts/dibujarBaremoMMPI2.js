@@ -1,75 +1,39 @@
-var paramData = [
-  {
-    type: "scatter",
-    toolTipContent: "<b>Valor:</b>{y}",
-    dataPoints: [
-
-    ]
-  },
-  {
-    type: "scatter",
-    toolTipContent: "<b>Valor:</b>{y}",
-    dataPoints: [
-
-    ]
-  },
-  {
-    type: "scatter",
-    toolTipContent: "<b>Valor:</b>{y}",
-    dataPoints: [
-
-    ]
-  },
-  {
-    type: "scatter",
-    toolTipContent: "<b>Valor:</b>{y}",
-    dataPoints: [
-
-    ]
-  },
-  {
-    type: "scatter",
-    toolTipContent: "<b>Valor:</b>{y}",
-    dataPoints: [
-
-    ]
-  }
-];
+var paramData = [{}];
 
 var chart;
 
 function getBaremoData() {
-  var url = 'http://localhost:8080/baremo/filtrarcoso/';
-    var filtro = createJson()
-    
-    fetch(url, {
-        method: 'POST',
-        //mode: 'no-cors',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(filtro) 
-    })
-    .then( res => res.json())
-    .then( data => {
-        console.log(JSON.stringify(data))
-        var filterData = data;
-        chart = new CanvasJS.Chart("chartContainer", {
-          animationEnabled: true,
-          zoomEnabled: true,
-          axisX: {
-            title: "Subescala"
-          },
-          axisY: {
-            title: "Valor",
-            maximum: 100,
-            interval: 10
-          },
-          data: filterData
-        });
-        chart.render()
+  var url = "http://localhost:8080/baremo/filtrarcoso/";
+  var filtro = createJson();
+
+  fetch(url, {
+    method: "POST",
+    //mode: 'no-cors',
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(filtro)
+  })
+    .then(res => res.json())
+    .then(data => {
+      console.log(JSON.stringify(data));
+      var filterData = data;
+      chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        zoomEnabled: true,
+        axisX: {
+          title: "Subescala"
+        },
+        axisY: {
+          title: "Valor",
+          maximum: 100,
+          interval: 10
+        },
+        data: filterData
+      });
+      chart.render();
     })
     .catch(err => {
-        console.error('Caught error: ', err)
-        alert("Ocurrio un error en POST! :c")
+      console.error("Caught error: ", err);
+      alert("Ocurrio un error en POST! :c");
     });
 }
 
@@ -85,9 +49,8 @@ async function dibujar() {
     },
     data: paramData
   });
-  chart.render()
+  chart.render();
 }
-
 
 /*
 var formulario = document.getElementById("formulario");
@@ -118,8 +81,8 @@ formulario.addEventListener("submit", function(e){
 });
 */
 
-function createJson(){
- /* var datos = new FormData(formulario);
+function createJson() {
+  /* var datos = new FormData(formulario);
 
   var evaluacion = {
       evaluacionId: null,

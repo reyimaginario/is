@@ -62,42 +62,6 @@ function crearLista(data) {
     console.log(j);
   }
 }
-/*
-function crearTabla(titulo) {
-    var lista = jason[0][titulo]
-    console.log(lista)
-    var tabla = document.getElementById("lista_preguntas");
-    
-    var header = document.createElement("thead");
-    //header.id = titulo;
-    header.className = "form-group";
-    tabla.appendChild(header);
-    header.innerHTML = titulo;
-
-    var body = document.createElement("tbody");
-    //body.id = titulo;
-    body.className = "form-group";
-    tabla.appendChild(body);
-    body.innerHTML = "";
-
-    var topRow = document.createElement("tr");
-    topRow.className = "form-group";
-    body.appendChild(topRow);
-    topRow.innerHTML = "<td><a>Escala</a></td>" + 
-                        "<td><a>PB</a></td>" +
-                        "<td><a>PTF</a></td>" +
-                        "<td><a>PTM</a></td>";
-
-    for (i = 0; i < lista.length; i++) {
-        var container = document.createElement("tr");
-        container.className = "form-group";
-        body.appendChild(container);
-        container.innerHTML = "<td><a>" + lista[i].Escala.replace("SUBESCALA_", "") + "</a></td>" + 
-                              "<td><a>" + lista[i].PB + "</a></td>" +
-                              "<td><a>" + lista[i].PTF + "</a></td>" +
-                              "<td><a>" + lista[i].PTM + "</a></td>";
-    }
-}*/
 
 function crearTabla(titulo) {
   var lista = jason[0][titulo];
