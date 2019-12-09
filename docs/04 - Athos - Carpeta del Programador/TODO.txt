@@ -1,5 +1,0 @@
-Diagramas de secuencia
-
-Diseños de pantalla / Prototipos
-
-Código / Aplicación funcionando

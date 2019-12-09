@@ -5,7 +5,6 @@ var formulario = document.getElementById("formulario");
 
 formulario.addEventListener("submit", function(e) {
   e.preventDefault();
-
   var url = base_url + "/evaluacion";
   var evaluacion = createJson();
   console.log(evaluacion);
@@ -17,7 +16,6 @@ formulario.addEventListener("submit", function(e) {
     .then(res => res.json())
     .then(data => {
       console.log(data);
-
       saveResponse("evaluacion_id", JSON.stringify(data.evaluacionId));
       saveResponse("actual", 0);
 

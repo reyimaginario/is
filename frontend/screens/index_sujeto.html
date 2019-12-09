@@ -16,7 +16,7 @@
         <div class="form-group">
           <input
             required
-            min="0"
+            min="1000000"
             type="number"
             name="dni"
             placeholder="Ingrese dni"
@@ -29,7 +29,11 @@
             type="text"
             name="nombre"
             placeholder="Ingrese nombre"
+            pattern="^([A-Za-z]+ *)+$"
+            oninvalid="this.setCustomValidity('El Nombre solo puede contener letras')"
+            oninput="setCustomValidity('')"
             class="form-input"
+            id="nombre"
           />
         </div>
         <div class="form-group">
@@ -39,6 +43,10 @@
             name="apellido"
             placeholder="Ingrese apellido"
             class="form-input"
+            pattern="^([A-Za-z]+ *)+$"
+            oninvalid="this.setCustomValidity('El Apellido solo puede contener letras')"
+            oninput="setCustomValidity('')"
+            id="apellido"
           />
         </div>
 
@@ -82,7 +90,7 @@
 
         <div class="form-group">
           <button id="btn_login" type="submit" class="form-button">
-            Start Test
+            Comenzar Test
           </button>
         </div>
       </form>
