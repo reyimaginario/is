@@ -8,7 +8,7 @@ formulario.addEventListener("submit", function(e) {
 });
 
 function getBaremoData() {
-  var url = "http://localhost:8080/baremo/filtrarcoso/";
+  var url = "http://localhost:8080/baremo/filtrarburbuja/";
   var filtro = createJson();
   console.log(JSON.stringify(filtro));
   fetch(url, {

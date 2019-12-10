@@ -259,100 +259,29 @@ public class BaremoService {
     public List<BaremoDAO> obtenerBaremosFiltradosSQL(FiltroBaremoDTO filtro) {
         return baremoRepo.obtenerBaremosFiltradosSQL(filtro.getLocalidad(), filtro.getEdadDesde(), filtro.getEdadHasta(), filtro.getGenero(), filtro.getNivelDeEstudio(), filtro.getOcupacion());
     }
-    
-    public JSONArray parsearBaremosParaGraficoDeDispersion(List<BaremoDAO> baremosFiltrados){
-    	JSONArray result = new JSONArray();
-    	JSONObject item = null;
-    	for (BaremoDAO bDAO : baremosFiltrados) {
-    		item =  new JSONObject();
-    		item.put("type", "scatter");
-    		item.put("toolTipContent", "<b>Valor:</b>{y}");
-    		item.put("dataPoints", construirPuntosParaGraficoDeDispersion(bDAO));
-    		result.add(item);
-		}
-    	return result;
-    }
 
-	private JSONArray construirPuntosParaGraficoDeDispersion(BaremoDAO bDAO) {
-		JSONArray result = new JSONArray();
-        result.add(construirPunto("l", bDAO.getBasica_l()));
-        result.add(construirPunto("f", bDAO.getBasica_f()));
-        result.add(construirPunto("k", bDAO.getBasica_k()));
-        result.add(construirPunto("hs", bDAO.getBasica_hs()));
-        result.add(construirPunto("d", bDAO.getBasica_d()));/*
-        result.add(construirPunto("hy", bDAO.getBasica_hy()));
-        result.add(construirPunto("pd", bDAO.getBasica_pd()));
-        result.add(construirPunto("mf_m", bDAO.getBasica_mf_m()));
-        result.add(construirPunto("mf_f", bDAO.getBasica_mf_f()));
-        result.add(construirPunto("pa", bDAO.getBasica_pa()));
-        result.add(construirPunto("pt", bDAO.getBasica_pt()));
-        result.add(construirPunto("sc", bDAO.getBasica_sc()));
-        result.add(construirPunto("ma", bDAO.getBasica_ma()));
-        result.add(construirPunto("si", bDAO.getBasica_si()));
-        result.add(construirPunto("anx", bDAO.getContenido_anx()));
-        result.add(construirPunto("frs", bDAO.getContenido_frs()));
-        result.add(construirPunto("obs", bDAO.getContenido_obs()));
-        result.add(construirPunto("dep", bDAO.getContenido_dep()));
-        result.add(construirPunto("hea", bDAO.getContenido_hea()));
-        result.add(construirPunto("biz", bDAO.getContenido_biz()));
-        result.add(construirPunto("ang", bDAO.getContenido_ang()));
-        result.add(construirPunto("cyn", bDAO.getContenido_cyn()));
-        result.add(construirPunto("asp", bDAO.getContenido_asp()));
-        result.add(construirPunto("tpa", bDAO.getContenido_tpa()));
-        result.add(construirPunto("lse", bDAO.getContenido_lse()));
-        result.add(construirPunto("sod", bDAO.getContenido_sod()));
-        result.add(construirPunto("fam", bDAO.getContenido_fam()));
-        result.add(construirPunto("wrk", bDAO.getContenido_wrk()));
-        result.add(construirPunto("trt", bDAO.getContenido_trt()));
-        result.add(construirPunto("a", bDAO.getSuplementarias_a()));
-        result.add(construirPunto("r", bDAO.getSuplementarias_r()));
-        result.add(construirPunto("es", bDAO.getSuplementarias_es()));
-        result.add(construirPunto("mac_r", bDAO.getSuplementarias_mac_r()));
-        result.add(construirPunto("o_h", bDAO.getSuplementarias_o_h()));
-        result.add(construirPunto("do", bDAO.getSuplementarias_do()));
-        result.add(construirPunto("re", bDAO.getSuplementarias_re()));
-        result.add(construirPunto("mt", bDAO.getSuplementarias_mt()));
-        result.add(construirPunto("gm", bDAO.getSuplementarias_gm()));
-        result.add(construirPunto("gf", bDAO.getSuplementarias_gf()));
-        result.add(construirPunto("pk", bDAO.getSuplementarias_pk()));
-        result.add(construirPunto("ps", bDAO.getSuplementarias_ps()));
-        result.add(construirPunto("si1", bDAO.getSuplementarias_si1()));
-        result.add(construirPunto("si2", bDAO.getSuplementarias_si2()));
-        result.add(construirPunto("si3", bDAO.getSuplementarias_si3()));
-        result.add(construirPunto("mds", bDAO.getSuplementarias_mds()));
-        result.add(construirPunto("aps", bDAO.getSuplementarias_aps()));
-        result.add(construirPunto("aas", bDAO.getSuplementarias_aas()));
-        result.add(construirPunto("fb_back", bDAO.getAdicionales_fb_back()));
-        result.add(construirPunto("f_p", bDAO.getAdicionales_f_p()));
-        result.add(construirPunto("ds", bDAO.getAdicionales_ds()));
-        result.add(construirPunto("ds_r", bDAO.getAdicionales_ds_r()));
-        result.add(construirPunto("s", bDAO.getAdicionales_s()));
-        result.add(construirPunto("sd", bDAO.getAdicionales_sd()));
-        result.add(construirPunto("so", bDAO.getAdicionales_so()));
-        result.add(construirPunto("vrin", bDAO.getAdicionales_vrin()));
-        result.add(construirPunto("trin", bDAO.getAdicionales_trin()));*/
-		return result;
-	}
-
-	private JSONObject construirPunto(String label, Integer valor) {
-		return construirPunto(label, valor, 0);
-	}
-	
-	private JSONObject construirPunto(String label, Integer valor, Integer z) {
+    private JSONObject construirPunto(String label, Integer valor, Integer z) {
 		JSONObject result = new JSONObject();
 		result.put("label", label);
-		result.put("y", valor);
-		result.put("z", z);
+		if (z != null) {
+			result.put("y", valor);
+			result.put("z", z);
+		}
 		return result;
 	}
 	
 	public JSONArray parsearBaremosParaGraficoDeBurbujas(List<BaremoDAO> baremosFiltrados){
     	JSONArray result = new JSONArray();
-    	JSONArray[] puntos = construirPuntosPorRango(baremosFiltrados);  	
+    	JSONArray[] puntos = construirPuntosPorRango(baremosFiltrados);
     	for (int i = 0 ; i < puntos.length ; i++) {
     		JSONArray data = (JSONArray) puntos[i];
 	    		if (!data.isEmpty()) {
 		    	JSONObject item = new JSONObject();
+		    	if (i == 0) {
+		    		item.put("showInLegend", "true");
+		    		item.put("legendText", "Sobre un total de " + baremosFiltrados.size() + " sujetos");
+		    		item.put("legendMarkerColor", "grey");
+		    	}
 				item.put("type", "bubble");
 				item.put("toolTipContent", "<b>Valor:</b>{z}");
 				item.put("dataPoints", data);
@@ -399,47 +328,6 @@ public class BaremoService {
 		} else if(isBetween(91, 100, valor)) {
 			rangos[9] ++;
 		}
-		/*if(isBetween(0, 5, valor)) {
-			rangos[0] ++;
-		} else if(isBetween(0, 5, valor)) {
-			rangos[1] ++;
-		} else if(isBetween(6, 10, valor)) {
-			rangos[2] ++;
-		} else if(isBetween(11, 15, valor)) {
-			rangos[3] ++;
-		} else if(isBetween(16, 20, valor)) {
-			rangos[4] ++;
-		} else if(isBetween(21, 25, valor)) {
-			rangos[5] ++;
-		} else if(isBetween(26, 30, valor)) {
-			rangos[6] ++;
-		} else if(isBetween(31, 35, valor)) {
-			rangos[7] ++;
-		} else if(isBetween(36, 40, valor)) {
-			rangos[8] ++;
-		} else if(isBetween(41, 45, valor)) {
-			rangos[9] ++;
-		} else if(isBetween(46, 50, valor)) {
-			rangos[10] ++;
-		} else if(isBetween(51, 55, valor)) {
-			rangos[11] ++;
-		} else if(isBetween(56, 60, valor)) {
-			rangos[12] ++;
-		} else if(isBetween(61, 65, valor)) {
-			rangos[13] ++;
-		} else if(isBetween(66, 70, valor)) {
-			rangos[14] ++;
-		} else if(isBetween(71, 75, valor)) {
-			rangos[15] ++;
-		} else if(isBetween(76, 80, valor)) {
-			rangos[16] ++;
-		} else if(isBetween(81, 85, valor)) {
-			rangos[17] ++;
-		} else if(isBetween(86, 90, valor)) {
-			rangos[18] ++;
-		} else if(isBetween(91, 99, valor)) {
-			rangos[19] ++;
-		}*/
 	}
 			
 	private boolean isBetween(int min, int max, int n) {
@@ -456,9 +344,9 @@ public class BaremoService {
 				JSONArray puntosPorRango = new JSONArray();
 				for (String subindice : subindices) {
 					int z = datosProcesadosPorSubindice.get(subindice)[i];
-					if (z>0) {
-						puntosPorRango.add(construirPunto(subindice, (((i+1)*10)-5), z));
-					}
+					//if (z>0) {
+						puntosPorRango.add(construirPunto(subindice, (((i+1)*10)-5), (z>0)?z:null));
+					//}
 				}
 				puntos[i] = puntosPorRango;
 			}

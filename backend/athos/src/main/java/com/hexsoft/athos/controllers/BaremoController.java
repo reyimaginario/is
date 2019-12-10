@@ -32,10 +32,10 @@ public class BaremoController {
         return baremoService.obtenerBaremosFiltradosSQL(filtro);
     }
     
-    @PostMapping(value = "/filtrarcoso")
-    public JSONArray obtenerBaremosFiltradosCoso(@RequestBody FiltroBaremoDTO filtro) {
+    @PostMapping(value = "/filtrarburbuja")
+    public JSONArray obtenerBaremosFiltradosBurbuja(@RequestBody FiltroBaremoDTO filtro) {
     	List<BaremoDAO> daos = baremoService.obtenerBaremosFiltradosSQL(filtro);
     	
-        return baremoService.parsearBaremosParaGraficoDeBurbujas(daos);//baremoService.parsearBaremosParaGraficoDeDispersion(daos);
+        return baremoService.parsearBaremosParaGraficoDeBurbujas(daos);
     }
 }
