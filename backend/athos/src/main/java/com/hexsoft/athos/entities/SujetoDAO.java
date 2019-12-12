@@ -11,6 +11,7 @@ import java.util.List;
 public class SujetoDAO {
 
     @Id
+    @Column(length = 10)
     private String dni;
 
     @NotEmpty

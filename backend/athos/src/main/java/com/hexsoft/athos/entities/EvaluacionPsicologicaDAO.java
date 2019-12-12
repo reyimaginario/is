@@ -1,5 +1,7 @@
 package com.hexsoft.athos.entities;
 
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -19,11 +21,11 @@ public class EvaluacionPsicologicaDAO {
     private String motivo;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "profesionalDni")
+    @JoinColumn(name = "profesionalDni", columnDefinition="VARCHAR(10)")
     private ProfesionalDAO profesionalDAO;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sujetoDni")
+    @JoinColumn(name = "sujetoDni", columnDefinition="VARCHAR(10)")
     private SujetoDAO sujetoDAO;
 
     @OneToMany(
